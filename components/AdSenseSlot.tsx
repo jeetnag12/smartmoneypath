@@ -61,6 +61,7 @@ export default function AdSenseSlot({
     }
 
     // Load AdSense script if not already loaded
+    if (typeof document === 'undefined') return
     if (!document.querySelector('script[data-adsense]')) {
       const script = document.createElement('script')
       script.async = true

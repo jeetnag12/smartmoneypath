@@ -18,6 +18,7 @@ export default function TableOfContents({ headings, activeHeading }: TableOfCont
   const [isExpanded, setIsExpanded] = useState(true)
 
   const scrollToHeading = (id: string) => {
+    if (typeof window === 'undefined') return
     const element = document.getElementById(id)
     if (element) {
       const offset = 100

@@ -43,6 +43,9 @@ interface BlogPostWithAdsProps {
 
 // Parse content and insert ads between paragraphs
 function parseContentWithAds(content: string): JSX.Element[] {
+  if (typeof window === 'undefined') {
+    return [<div key="content" dangerouslySetInnerHTML={{ __html: content }} />]
+  }
   const parser = new DOMParser()
   const doc = parser.parseFromString(content, 'text/html')
   const children = Array.from(doc.body.children)

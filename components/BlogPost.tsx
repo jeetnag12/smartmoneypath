@@ -62,6 +62,7 @@ export default function BlogPost({ post }: BlogPostProps) {
   }, [])
 
   const handleShare = async () => {
+    if (typeof window === 'undefined') return
     if (navigator.share) {
       try {
         await navigator.share({
