@@ -445,7 +445,7 @@ function generateSEOData(
   return {
     title: title,
     description: excerpt.substring(0, 160),
-    keywords: [...new Set(keywords)],
+    keywords: Array.from(new Set(keywords)),
     focusKeyword: focusKeyword,
     metaTitle: `${title} | SmartMoneyPath`,
     metaDescription: excerpt.substring(0, 155),
