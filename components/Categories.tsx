@@ -16,7 +16,7 @@ const categories = [
     description: 'Track expenses and plan spending',
     icon: Wallet,
     color: 'bg-blue-50 text-blue-600',
-    href: '/budgeting',
+    href: '/categories/budgeting',
     articleCount: 24,
   },
   {
@@ -24,7 +24,7 @@ const categories = [
     description: 'Build your nest egg',
     icon: PiggyBank,
     color: 'bg-green-50 text-green-600',
-    href: '/saving',
+    href: '/categories/saving',
     articleCount: 18,
   },
   {
@@ -32,7 +32,7 @@ const categories = [
     description: 'Grow your wealth',
     icon: TrendingUp,
     color: 'bg-purple-50 text-purple-600',
-    href: '/investing',
+    href: '/categories/investing',
     articleCount: 32,
   },
   {
@@ -40,7 +40,7 @@ const categories = [
     description: 'Pay off loans faster',
     icon: CreditCard,
     color: 'bg-red-50 text-red-600',
-    href: '/debt',
+    href: '/categories/debt',
     articleCount: 15,
   },
   {
@@ -48,7 +48,7 @@ const categories = [
     description: 'Your first home guide',
     icon: Home,
     color: 'bg-amber-50 text-amber-600',
-    href: '/home-buying',
+    href: '/categories/home-buying',
     articleCount: 12,
   },
   {
@@ -56,7 +56,7 @@ const categories = [
     description: 'Plan for the future',
     icon: Target,
     color: 'bg-teal-50 text-teal-600',
-    href: '/retirement',
+    href: '/categories/retirement',
     articleCount: 21,
   },
   {
@@ -64,7 +64,7 @@ const categories = [
     description: 'Smart college financing',
     icon: GraduationCap,
     color: 'bg-indigo-50 text-indigo-600',
-    href: '/education',
+    href: '/categories/education',
     articleCount: 9,
   },
   {
@@ -72,7 +72,7 @@ const categories = [
     description: 'Car buying & loans',
     icon: Car,
     color: 'bg-rose-50 text-rose-600',
-    href: '/auto',
+    href: '/categories/auto',
     articleCount: 8,
   },
 ]

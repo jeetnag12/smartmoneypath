@@ -3,22 +3,20 @@ import { Wallet, Twitter, Facebook, Instagram, Linkedin, Youtube } from 'lucide-
 
 const footerLinks = {
   Resources: [
-    { name: 'Budgeting Guide', href: '/budgeting' },
-    { name: 'Investing 101', href: '/investing' },
-    { name: 'Debt Payoff Calculator', href: '/calculators/debt' },
-    { name: 'Retirement Planner', href: '/calculators/retirement' },
+    { name: 'All Articles', href: '/articles' },
+    { name: 'Budgeting', href: '/categories/budgeting' },
+    { name: 'Investing', href: '/categories/investing' },
+    { name: 'Saving', href: '/categories/saving' },
   ],
   Company: [
     { name: 'About Us', href: '/about' },
     { name: 'Contact', href: '/contact' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Press Kit', href: '/press' },
+    { name: 'Categories', href: '/categories' },
   ],
   Legal: [
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Terms of Service', href: '/terms' },
     { name: 'Cookie Policy', href: '/cookies' },
-    { name: 'Disclaimer', href: '/disclaimer' },
   ],
 }
 
