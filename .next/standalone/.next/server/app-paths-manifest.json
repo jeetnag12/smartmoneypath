@@ -1,14 +1,14 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/page": "app/page.js",
-  "/categories/page": "app/categories/page.js",
+  "/articles/[id]/page": "app/articles/[id]/page.js",
   "/articles/page": "app/articles/page.js",
   "/about/page": "app/about/page.js",
-  "/cookie-policy/page": "app/cookie-policy/page.js",
-  "/articles/[id]/page": "app/articles/[id]/page.js",
+  "/categories/page": "app/categories/page.js",
   "/terms-of-service/page": "app/terms-of-service/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/privacy-policy/page": "app/privacy-policy/page.js",
   "/categories/[slug]/page": "app/categories/[slug]/page.js",
+  "/cookie-policy/page": "app/cookie-policy/page.js",
+  "/privacy-policy/page": "app/privacy-policy/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/page": "app/page.js",
   "/disclaimer/page": "app/disclaimer/page.js"
 }
