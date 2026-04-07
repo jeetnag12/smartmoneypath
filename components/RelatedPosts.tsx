@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { ArrowRight, Clock } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { getAllPosts } from '@/lib/posts'
 
 interface RelatedPost {
   id: number
@@ -9,7 +11,6 @@ interface RelatedPost {
   excerpt: string
   category: string
   readTime: string
-  slug: string
 }
 
 interface RelatedPostsProps {
@@ -17,36 +18,47 @@ interface RelatedPostsProps {
   category: string
 }
 
-// Mock data - in production, fetch from API
-const relatedPosts: RelatedPost[] = [
-  {
-    id: 2,
-    title: 'How to Create a Zero-Based Budget',
-    excerpt: 'Every dollar gets a job with this proven budgeting method that helps you take control.',
-    category: 'Budgeting',
-    readTime: '6 min read',
-    slug: 'zero-based-budget-guide',
-  },
-  {
-    id: 3,
-    title: 'The 50/30/20 Rule: A Simple Budget Framework',
-    excerpt: 'Learn the popular budgeting method that divides your income into needs, wants, and savings.',
-    category: 'Budgeting',
-    readTime: '5 min read',
-    slug: '50-30-20-budget-rule',
-  },
-  {
-    id: 4,
-    title: 'Automating Your Savings: Set It and Forget It',
-    excerpt: 'Discover how automation can help you save consistently without thinking about it.',
-    category: 'Saving',
-    readTime: '4 min read',
-    slug: 'automate-your-savings',
-  },
-]
-
 export default function RelatedPosts({ currentPostId, category }: RelatedPostsProps) {
-  const posts = relatedPosts.filter((post) => post.id !== currentPostId).slice(0, 3)
+  const [posts, setPosts] = useState<RelatedPost[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchPosts() {
+      try {
+        const allPosts = await getAllPosts()
+        // Filter out current post and get posts from same category or other posts
+        const related = allPosts
+          .filter((post) => post.id !== currentPostId)
+          .sort((a, b) => {
+            // Prioritize same category
+            const aSameCategory = a.category === category ? 1 : 0
+            const bSameCategory = b.category === category ? 1 : 0
+            return bSameCategory - aSameCategory
+          })
+          .slice(0, 3)
+        setPosts(related)
+      } catch (error) {
+        console.error('Error fetching related posts:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchPosts()
+  }, [currentPostId, category])
+
+  if (loading) {
+    return (
+      <section className="bg-secondary-50 py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-secondary-500">Loading related articles...</div>
+        </div>
+      </section>
+    )
+  }
+
+  if (posts.length === 0) {
+    return null
+  }
 
   return (
     <section className="bg-secondary-50 py-12 lg:py-16">

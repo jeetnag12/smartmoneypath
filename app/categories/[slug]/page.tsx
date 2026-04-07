@@ -46,17 +46,54 @@ const categoryInfo: Record<string, { title: string; description: string; icon: s
     description: 'Make smart decisions about car buying and auto loans. Learn how to save money on your next vehicle purchase.',
     icon: '🚗',
   },
+  credit: {
+    title: 'Credit Cards',
+    description: 'Find the best credit cards, understand credit scores, and learn strategies to maximize rewards while managing debt.',
+    icon: '💳',
+  },
+  banking: {
+    title: 'Banking',
+    description: 'Compare banks, find the best savings accounts, and learn how to optimize your banking for better returns.',
+    icon: '🏦',
+  },
+  insurance: {
+    title: 'Insurance',
+    description: 'Protect your assets with the right insurance coverage. Learn about life, health, home, and auto insurance options.',
+    icon: '🛡️',
+  },
+  'small-business': {
+    title: 'Small Business',
+    description: 'Financial guidance for entrepreneurs and small business owners. From startup funding to business banking.',
+    icon: '🏢',
+  },
 }
 
 interface PageProps {
   params: { slug: string }
 }
 
+const allCategories = [
+  'budgeting',
+  'saving',
+  'investing',
+  'debt',
+  'home-buying',
+  'retirement',
+  'education',
+  'auto',
+  'credit',
+  'banking',
+  'insurance',
+  'small-business',
+]
+
 export async function generateStaticParams() {
   const posts = await getAllPosts()
-  const categories = [...new Set(posts.map((post) => post.category.toLowerCase()))]
-  return categories.map((category) => ({
-    slug: category,
+  const categoriesFromPosts = [...new Set(posts.map((post) => post.category.toLowerCase()))]
+  // Combine with all known categories and remove duplicates
+  const allSlugs = [...new Set([...allCategories, ...categoriesFromPosts])]
+  return allSlugs.map((slug) => ({
+    slug,
   }))
 }
 

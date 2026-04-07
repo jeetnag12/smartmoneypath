@@ -14,9 +14,10 @@ const footerLinks = {
     { name: 'Categories', href: '/categories' },
   ],
   Legal: [
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Terms of Service', href: '/terms' },
-    { name: 'Cookie Policy', href: '/cookies' },
+    { name: 'Privacy Policy', href: '/privacy-policy' },
+    { name: 'Disclaimer', href: '/disclaimer' },
+    { name: 'Terms of Service', href: '/terms-of-service' },
+    { name: 'Cookie Policy', href: '/cookie-policy' },
   ],
 }
 

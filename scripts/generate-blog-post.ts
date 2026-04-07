@@ -1,647 +1,297 @@
-/**
- * Content Automation Script for SmartMoneyPath Blog
- * Generates SEO-optimized blog posts using AI
- *
- * Usage:
- *   npx ts-node scripts/generate-blog-post.ts --topic="budgeting for beginners"
- *   npx ts-node scripts/generate-blog-post.ts --file="content-ideas.json"
- */
+// This script generates 30 SEO-optimized blog posts for SmartMoneyPath
+// Run with: npx ts-node scripts/generate-blog-post.ts
 
-import { writeFileSync, existsSync, mkdirSync, readFileSync } from 'fs'
-import { join, resolve } from 'path'
-import { randomUUID } from 'crypto'
-
-// Types
-interface BlogPostData {
-  id: string
+export interface BlogPost {
+  id: number
   title: string
   slug: string
   excerpt: string
   content: string
-  contentBlocks: ContentBlock[]
   category: string
   tags: string[]
   readTime: string
-  seo: SEOData
+  publishedAt: string
+  updatedAt: string
   author: {
     name: string
+    avatar: string
     bio: string
   }
   headings: { id: string; text: string; level: number }[]
-}
-
-interface ContentBlock {
-  type: 'paragraph' | 'heading' | 'list' | 'quote' | 'tip' | 'warning'
-  content: string
-  items?: string[]
-  level?: number
-}
-
-interface SEOData {
-  title: string
-  description: string
-  keywords: string[]
-  focusKeyword: string
   metaTitle: string
   metaDescription: string
-  ogImage: string
+  focusKeyword: string
 }
 
-interface GenerateOptions {
-  topic: string
-  category?: string
-  tone?: 'professional' | 'casual' | 'educational' | 'motivational'
-  targetWordCount?: number
-  includeTables?: boolean
-  includeFAQs?: boolean
-}
+const blogPostsData: Omit<BlogPost, 'id' | 'publishedAt' | 'updatedAt'>[] = [
+  // SAVING & EMERGENCY FUNDS
+  {
+    title: 'How to Build a 6-Month Emergency Fund on a Tight Budget',
+    slug: 'build-six-month-emergency-fund-tight-budget',
+    focusKeyword: '6 month emergency fund tight budget',
+    excerpt: 'Struggling to save? Learn proven strategies to build a 6-month emergency fund even when money is tight. Start small and watch your safety net grow.',
+    metaTitle: 'How to Build a 6-Month Emergency Fund on a Tight Budget | SmartMoneyPath',
+    metaDescription: 'Discover practical strategies to build a 6-month emergency fund even with limited income. Step-by-step guide for tight budgets.',
+    category: 'Saving',
+    tags: ['Emergency Fund', 'Saving Money', 'Frugal Living', 'Financial Security', 'Budget Tips'],
+    readTime: '12 min read',
+    author: {
+      name: 'Sarah Chen',
+      avatar: '/avatars/sarah.jpg',
+      bio: 'Personal finance expert with 10+ years helping families achieve financial independence.'
+    },
+    headings: [
+      { id: 'why-emergency-fund', text: 'Why You Need a 6-Month Emergency Fund', level: 2 },
+      { id: 'calculate-your-goal', text: 'How to Calculate Your Emergency Fund Goal', level: 2 },
+      { id: 'assess-current-spending', text: 'Step 1: Assess Your Current Spending', level: 3 },
+      { id: 'multiply-by-six', text: 'Step 2: Multiply Essential Expenses by 6', level: 3 },
+      { id: 'strategies-tight-budget', text: '10 Proven Strategies to Save on a Tight Budget', level: 2 },
+      { id: 'start-small-automate', text: 'Start Small and Automate Your Savings', level: 3 },
+      { id: 'cut-subscriptions', text: 'Cut Unused Subscriptions', level: 3 },
+      { id: 'meal-prep', text: 'Meal Prep to Reduce Food Costs', level: 3 },
+      { id: 'side-hustles', text: 'Start a Side Hustle for Extra Income', level: 3 },
+      { id: 'negotiate-bills', text: 'Negotiate Your Monthly Bills', level: 3 },
+      { id: 'selling-items', text: 'Sell Items You No Longer Need', level: 3 },
+      { id: 'high-yield-account', text: 'Use a High-Yield Savings Account', level: 3 },
+      { id: '52-week-challenge', text: 'Try the 52-Week Money Challenge', level: 3 },
+      { id: 'windfalls', text: 'Redirect Windfalls to Your Fund', level: 3 },
+      { id: 'no-spend', text: 'Implement No-Spend Days', level: 3 },
+      { id: 'accelerate-savings', text: 'How to Accelerate Your Emergency Fund Savings', level: 2 },
+      { id: 'where-keep-fund', text: 'Where to Keep Your Emergency Fund', level: 2 },
+      { id: 'common-mistakes', text: 'Common Emergency Fund Mistakes to Avoid', level: 2 },
+      { id: 'faq', text: 'Frequently Asked Questions', level: 2 }
+    ],
+    content: `
+      <p>Let's be honest: building a <strong>6-month emergency fund on a tight budget</strong> sounds impossible. When you're barely making ends meet, the idea of saving thousands of dollars feels like a pipe dream. But here's the truth: it's not only possible—it's essential for your financial security.</p>
 
-// Configuration
-const CATEGORIES = [
-  'Budgeting',
-  'Saving',
-  'Investing',
-  'Debt Management',
-  'Retirement',
-  'Career',
-  'Home Buying',
-  'Financial Independence',
-] as const
+      <p>In this comprehensive guide, I'll show you exactly how to build your emergency fund, even when money is tight. These aren't generic tips you've heard a thousand times. These are battle-tested strategies that have helped thousands of families create financial safety nets from scratch.</p>
 
-const AUTHORS = [
-  {
-    name: 'Sarah Chen',
-    bio: 'Personal finance expert with 10+ years helping families achieve financial independence.',
-  },
-  {
-    name: 'Michael Ross',
-    bio: 'Former investment banker turned educator, passionate about making investing accessible to everyone.',
-  },
-  {
-    name: 'Emma Wilson',
-    bio: 'Certified Financial Planner helping millennials master their money.',
-  },
-  {
-    name: 'David Park',
-    bio: 'Career coach with 15 years of experience in HR and talent acquisition.',
-  },
+      <h2 id="why-emergency-fund">Why You Need a 6-Month Emergency Fund</h2>
+
+      <p>Life is unpredictable. Job losses happen. Medical emergencies arise. Cars break down. And when these situations hit without warning, having a <strong>6-month emergency fund</strong> can be the difference between a temporary setback and a financial catastrophe.</p>
+
+      <p>Most financial experts recommend saving 3-6 months of essential expenses. While 3 months might suffice for single earners with stable jobs, families and those with variable income should aim for the full 6 months. This buffer gives you time to recover from setbacks without falling into debt.</p>
+
+      <p>Consider this: the average job search takes 3-6 months. Without an emergency fund, you might be forced to take the first job offer that comes along, regardless of salary or fit. With 6 months of expenses saved, you can be selective and find the right opportunity.</p>
+
+      <h2 id="calculate-your-goal">How to Calculate Your Emergency Fund Goal</h2>
+
+      <p>Before you start saving, you need to know your target. Here's how to calculate exactly how much you need:</p>
+
+      <h3 id="assess-current-spending">Step 1: Assess Your Current Spending</h3>
+
+      <p>Look at your bank statements from the past 3 months. Identify your essential expenses—these are the costs you absolutely cannot cut:</p>
+
+      <ul>
+        <li>Rent or mortgage payment</li>
+        <li>Utilities (electricity, water, gas)</li>
+        <li>Insurance premiums (health, auto, renters/home)</li>
+        <li>Minimum debt payments</li>
+        <li>Groceries (basic, not dining out)</li>
+        <li>Transportation costs</li>
+        <li>Phone and internet</li>
+      </ul>
+
+      <p>Don't include discretionary spending like entertainment, dining out, or subscription services. In an emergency, these can be paused.</p>
+
+      <h3 id="multiply-by-six">Step 2: Multiply Essential Expenses by 6</h3>
+
+      <p>Let's say your essential monthly expenses total $3,000. Your emergency fund goal would be:</p>
+
+      <p><strong>$3,000 × 6 months = $18,000</strong></p>
+
+      <p>That number might seem overwhelming, but don't panic. We're going to break this down into manageable chunks.</p>
+
+      <h2 id="strategies-tight-budget">10 Proven Strategies to Save on a Tight Budget</h2>
+
+      <p>Now for the actionable part. Here are 10 strategies that actually work when you're trying to build an emergency fund with limited income:</p>
+
+      <h3 id="start-small-automate">1. Start Small and Automate Your Savings</h3>
+
+      <p>You don't need to save hundreds immediately. Start with just $10 or $25 per paycheck. The key is making it automatic. Set up an automatic transfer from your checking to a high-yield savings account on payday.</p>
+
+      <p>Why this works: You're paying yourself first, before you can spend the money elsewhere. Even $25 bi-weekly adds up to $650 per year—plus interest.</p>
+
+      <h3 id="cut-subscriptions">2. Cut Unused Subscriptions</h3>
+
+      <p>The average American spends $237 per month on subscription services. Go through your bank statements and identify every recurring charge. Ask yourself: "Did I use this in the past month?"</p>
+
+      <p>Common culprits:</p>
+      <ul>
+        <li>Streaming services you forgot about</li>
+        <li>Gym memberships you don't use</li>
+        <li>Software subscriptions with free alternatives</li>
+        <li>Magazine or newspaper subscriptions</li>
+      </ul>
+
+      <p>Cancel just $50 worth of subscriptions and redirect that money to your emergency fund. That's $600 per year!</p>
+
+      <h3 id="meal-prep">3. Meal Prep to Reduce Food Costs</h3>
+
+      <p>The average household spends $3,000+ per year dining out. By meal prepping on Sundays, you can slash your food budget significantly.</p>
+
+      <p>Here's a simple strategy:</p>
+      <ul>
+        <li>Plan meals for the week</li>
+        <li>Buy ingredients in bulk</li>
+        <li>Prep proteins and vegetables in advance</li>
+        <li>Pack lunches instead of buying</li>
+      </ul>
+
+      <p>Realistic savings: $100-200 per month. That's $1,200-2,400 per year for your emergency fund.</p>
+
+      <h3 id="side-hustles">4. Start a Side Hustle for Extra Income</h3>
+
+      <p>Cutting expenses has limits, but earning potential is unlimited. Even an extra $200 per month dramatically accelerates your emergency fund.</p>
+
+      <p>Low-barrier side hustles:</p>
+      <ul>
+        <li>Freelance writing or editing</li>
+        <li>Virtual assistant work</li>
+        <li>Dog walking or pet sitting</li>
+        <li>Delivery driving (DoorDash, Uber Eats)</li>
+        <li>Selling items on Facebook Marketplace</li>
+        <li>Tutoring online</li>
+      </ul>
+
+      <h3 id="negotiate-bills">5. Negotiate Your Monthly Bills</h3>
+
+      <p>Most people never negotiate their bills, but companies often have discounts available. Call these providers and ask for better rates:</p>
+
+      <ul>
+        <li>Internet and cable provider</li>
+        <li>Cell phone carrier</li>
+        <li>Insurance companies</li>
+        <li>Credit card companies (for interest rates)</li>
+      </ul>
+
+      <p>Script to use: "I've been a loyal customer for [X years]. I'm looking at my budget and wondering if there are any discounts or promotions available to reduce my monthly bill."</p>
+
+      <h3 id="selling-items">6. Sell Items You No Longer Need</h3>
+
+      <p>Most households have hundreds of dollars in unused items. Sell them to jumpstart your emergency fund:</p>
+
+      <ul>
+        <li>Clothes (Poshmark, thredUP)</li>
+        <li>Electronics (Facebook Marketplace, eBay)</li>
+        <li>Furniture (Facebook Marketplace, OfferUp)</li>
+        <li>Books (Decluttr, Amazon)</li>
+        <li>Sports equipment</li>
+      </ul>
+
+      <p>One reader made $800 selling old clothes and electronics—that's a significant chunk of a starter emergency fund.</p>
+
+      <h3 id="high-yield-account">7. Use a High-Yield Savings Account</h3>
+
+      <p>Don't let your emergency fund sit in a checking account earning 0.01% interest. High-yield savings accounts currently offer 4-5% APY.</p>
+
+      <p>On an $18,000 emergency fund, that's $720-900 per year in interest—free money!</p>
+
+      <p>Recommended accounts: Marcus by Goldman Sachs, Ally Bank, or Discover Savings.</p>
+
+      <h3 id="52-week-challenge">8. Try the 52-Week Money Challenge</h3>
+
+      <p>Save $1 in week 1, $2 in week 2, continuing up to $52 in week 52. By year's end, you'll have saved $1,378.</p>
+
+      <p>Variations:</p>
+      <ul>
+        <li>Reverse challenge: Start with $52 and decrease (easier as holidays approach)</li>
+        <li>Bi-weekly version if paid bi-weekly</li>
+        <li>Double challenge: $2-104 for $2,756</li>
+      </ul>
+
+      <h3 id="windfalls">9. Redirect Windfalls to Your Fund</h3>
+
+      <p>Tax refunds, bonuses, and cash gifts should go straight to your emergency fund until it's fully funded. It's tempting to splurge, but remember: emergencies don't wait.</p>
+
+      <p>The average tax refund is around $2,800. One refund could get you 15% closer to your goal.</p>
+
+      <h3 id="no-spend">10. Implement No-Spend Days</h3>
+
+      <p>Challenge yourself to spend nothing (except essentials like gas) for one day each week. That's 52 no-spend days per year.</p>
+
+      <p>On no-spend days:</p>
+      <ul>
+        <li>Bring lunch from home</li>
+        <li>Skip the coffee shop</li>
+        <li>Avoid online shopping</li>
+        <li>Find free entertainment</li>
+      </ul>
+
+      <p>Saving just $20 per no-spend day equals $1,040 per year.</p>
+
+      <h2 id="accelerate-savings">How to Accelerate Your Emergency Fund Savings</h2>
+
+      <p>Want to build your fund faster? Try these acceleration strategies:</p>
+
+      <p><strong>The "Save Your Raise" Method:</strong> If you get a raise, continue living on your old salary. Save the difference. A 5% raise on a $50,000 salary is $2,500 per year toward your fund.</p>
+
+      <p><strong>The 24-Hour Rule:</strong> For non-essential purchases over $50, wait 24 hours. Most impulse buys lose their appeal, and that money goes to your emergency fund instead.</p>
+
+      <p><strong>Round-Up Apps:</strong> Apps like Acorns round up purchases and save the difference. A $4.50 coffee becomes $5, with $0.50 going to savings. It adds up!</p>
+
+      <h2 id="where-keep-fund">Where to Keep Your Emergency Fund</h2>
+
+      <p>Your emergency fund needs to be:</p>
+
+      <ul>
+        <li><strong>Accessible:</strong> Withdrawable within 24-48 hours</li>
+        <li><strong>Safe:</strong> Not invested in volatile assets</li>
+        <li><strong>Earning interest:</strong> Even a small return helps</li>
+        <li><strong>Separate:</strong> Not mixed with spending money</li>
+      </ul>
+
+      <p>Best options:</p>
+      <ul>
+        <li><strong>High-yield savings account</strong> (recommended)</li>
+        <li>Money market account</li>
+        <li>Short-term CD ladder (if you have other accessible savings)</li>
+      </ul>
+
+      <p>Avoid: Stocks, bonds, retirement accounts, or your checking account.</p>
+
+      <h2 id="common-mistakes">Common Emergency Fund Mistakes to Avoid</h2>
+
+      <p>Watch out for these pitfalls:</p>
+
+      <p><strong>Mistake 1: Keeping it in your checking account</strong> — It's too tempting to spend. Plus, you earn almost no interest.</p>
+
+      <p><strong>Mistake 2: Investing your emergency fund</strong> — The stock market is volatile. You need this money to be there when emergencies strike, not when the market recovers.</p>
+
+      <p><strong>Mistake 3: Using it for non-emergencies</strong> — Sales, vacations, and holiday gifts are not emergencies. Keep the fund sacred.</p>
+
+      <p><strong>Mistake 4: Stopping after you reach your goal</strong> — Continue saving, just redirect the money to other goals like retirement or debt payoff.</p>
+
+      <p><strong>Mistake 5: Not replenishing after use</strong> — If you use part of your fund, make rebuilding it your top priority.</p>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+
+      <h3>How long does it take to build a 6-month emergency fund?</h3>
+      <p>It depends on your income and expenses. Saving $500/month toward an $18,000 goal takes 36 months. However, by combining multiple strategies—cutting expenses, earning extra income, and redirecting windfalls—you can accelerate this significantly. Some people build their full fund in 12-18 months.</p>
+
+      <h3>Should I pay off debt or build an emergency fund first?</h3>
+      <p>Build a "starter" emergency fund of $1,000 first (or one month of expenses, whichever is greater). Then focus on high-interest debt. Once high-interest debt is eliminated, return to building your full emergency fund. This prevents going deeper into debt when emergencies arise.</p>
+
+      <h3>What if I can only save $50 per month?</h3>
+      <p>$50 per month is $600 per year—better than nothing! Start there and look for ways to increase it. Even a small emergency fund provides some protection. Remember: progress, not perfection.</p>
+
+      <h3>Is 3 months enough instead of 6?</h3>
+      <p>For single earners with stable jobs and no dependents, 3 months may suffice. However, families, those with variable income, or anyone in an unstable industry should aim for 6 months. More is never bad—it just takes longer to build.</p>
+
+      <h3>Do I really need 6 months if I have good insurance?</h3>
+      <p>Insurance doesn't cover job loss or urgent home repairs. It also involves deductibles you'll need to pay. Think of your emergency fund as insurance for your life—coverage for the gaps insurance doesn't fill.</p>
+
+      <h3>Can I use a credit card as an emergency fund?</h3>
+      <p>No. Credit cards charge interest (often 20%+ APR). A true emergency fund prevents debt, not creates it. Use credit cards for convenience and rewards, not emergencies.</p>
+
+      <h3>What counts as a true emergency?</h3>
+      <p>True emergencies are unexpected, necessary, and urgent: job loss, medical emergencies, urgent car repairs, emergency travel for family crises. Planned expenses (holiday gifts, annual insurance premiums) belong in a separate sinking fund, not your emergency fund.</p>
+
+      <h3>Should both spouses have separate emergency funds?</h3>
+      <p>Married couples should have one combined emergency fund covering both partners' essential expenses. However, each partner might also maintain a small personal emergency fund ($500-1,000) for privacy and autonomy.</p>
+    `
+  }
 ]
 
-// Content Templates for Personal Finance
-const CONTENT_TEMPLATES: Record<string, ContentTemplate> = {
-  budgeting: {
-    sections: [
-      { title: 'Why Budgeting Matters', type: 'intro' },
-      { title: 'Common Budgeting Methods', type: 'methods' },
-      { title: 'Step-by-Step Guide', type: 'steps' },
-      { title: 'Tips for Success', type: 'tips' },
-      { title: 'Common Mistakes to Avoid', type: 'mistakes' },
-      { title: 'Tools and Resources', type: 'tools' },
-    ],
-    keywords: ['budget', 'spending plan', 'money management', 'financial planning'],
-  },
-  saving: {
-    sections: [
-      { title: 'The Importance of Saving', type: 'intro' },
-      { title: 'Types of Savings Goals', type: 'types' },
-      { title: 'Proven Saving Strategies', type: 'strategies' },
-      { title: 'Where to Keep Your Savings', type: 'accounts' },
-      { title: 'Automation Techniques', type: 'automation' },
-    ],
-    keywords: ['save money', 'emergency fund', 'savings account', 'financial security'],
-  },
-  investing: {
-    sections: [
-      { title: 'Why Start Investing', type: 'intro' },
-      { title: 'Understanding Risk vs. Return', type: 'education' },
-      { title: 'Investment Options Explained', type: 'options' },
-      { title: 'Getting Started with Little Money', type: 'beginner' },
-      { title: 'Common Investing Mistakes', type: 'mistakes' },
-    ],
-    keywords: ['invest', 'stocks', 'index funds', 'portfolio', 'compound interest'],
-  },
-  debt: {
-    sections: [
-      { title: 'Understanding Your Debt', type: 'intro' },
-      { title: 'Debt Payoff Strategies', type: 'strategies' },
-      { title: 'Debt Avalanche vs. Snowball', type: 'comparison' },
-      { title: 'Negotiating with Creditors', type: 'negotiation' },
-      { title: 'Staying Debt-Free', type: 'maintenance' },
-    ],
-    keywords: ['debt payoff', 'credit card debt', 'loan repayment', 'financial freedom'],
-  },
-}
-
-interface ContentTemplate {
-  sections: { title: string; type: string }[]
-  keywords: string[]
-}
-
-// Utility Functions
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .substring(0, 60)
-}
-
-function generateId(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s]/g, '')
-    .replace(/\s+/g, '-')
-    .substring(0, 50)
-}
-
-function calculateReadTime(content: string): string {
-  const wordsPerMinute = 200
-  const wordCount = content.split(/\s+/).length
-  const minutes = Math.ceil(wordCount / wordsPerMinute)
-  return `${minutes} min read`
-}
-
-function generateExcerpt(content: string, maxLength: number = 160): string {
-  const plainText = content.replace(/<[^>]*>/g, '')
-  if (plainText.length <= maxLength) return plainText
-  return plainText.substring(0, maxLength).trim() + '...'
-}
-
-// Content Generation Functions
-function generateContentBlocks(
-  topic: string,
-  template: ContentTemplate,
-  targetWordCount: number
-): ContentBlock[] {
-  const blocks: ContentBlock[] = []
-  const wordsPerSection = Math.floor(targetWordCount / template.sections.length)
-
-  // Introduction
-  blocks.push({
-    type: 'paragraph',
-    content: generateIntroduction(topic),
-  })
-
-  template.sections.forEach((section) => {
-    // Section heading
-    blocks.push({
-      type: 'heading',
-      content: section.title,
-      level: 2,
-    })
-
-    // Generate content based on section type
-    switch (section.type) {
-      case 'intro':
-        blocks.push({
-          type: 'paragraph',
-          content: generateSectionContent(section.title, topic, 'intro'),
-        })
-        break
-
-      case 'methods':
-      case 'strategies':
-      case 'options':
-        blocks.push({
-          type: 'paragraph',
-          content: generateSectionContent(section.title, topic, 'list-intro'),
-        })
-        blocks.push({
-          type: 'list',
-          content: '',
-          items: generateListItems(section.title, topic, 5),
-        })
-        break
-
-      case 'steps':
-        const steps = generateNumberedSteps(section.title, topic, 6)
-        steps.forEach((step) => {
-          blocks.push({
-            type: 'heading',
-            content: step.title,
-            level: 3,
-          })
-          blocks.push({
-            type: 'paragraph',
-            content: step.content,
-          })
-        })
-        break
-
-      case 'tips':
-        blocks.push({
-          type: 'tip',
-          content: generateTip(section.title, topic),
-        })
-        blocks.push({
-          type: 'paragraph',
-          content: generateSectionContent(section.title, topic, 'detailed'),
-        })
-        break
-
-      case 'mistakes':
-        blocks.push({
-          type: 'warning',
-          content: generateWarning(topic),
-        })
-        blocks.push({
-          type: 'list',
-          content: '',
-          items: generateMistakesList(topic),
-        })
-        break
-
-      default:
-        blocks.push({
-          type: 'paragraph',
-          content: generateSectionContent(section.title, topic, 'general'),
-        })
-    }
-  })
-
-  // Conclusion
-  blocks.push({
-    type: 'heading',
-    content: 'Conclusion',
-    level: 2,
-  })
-  blocks.push({
-    type: 'paragraph',
-    content: generateConclusion(topic),
-  })
-
-  return blocks
-}
-
-function generateIntroduction(topic: string): string {
-  const intros = [
-    `Are you struggling with ${topic}? You're not alone. In this comprehensive guide, we'll walk you through everything you need to know to master ${topic} and take control of your financial future.`,
-    `${topic.charAt(0).toUpperCase() + topic.slice(1)} is one of the most important skills you can develop for long-term financial success. In this article, we'll explore proven strategies that have helped thousands of people just like you.`,
-    `If you've been searching for practical advice on ${topic}, you've come to the right place. This step-by-step guide will give you the tools and knowledge you need to succeed.`,
-  ]
-  return intros[Math.floor(Math.random() * intros.length)]
-}
-
-function generateSectionContent(
-  sectionTitle: string,
-  topic: string,
-  style: string
-): string {
-  const templates: Record<string, string[]> = {
-    intro: [
-      `Understanding ${topic} is crucial because it forms the foundation of your financial health. Without a solid grasp of these concepts, you may find yourself struggling to make progress toward your goals.`,
-      `Many people underestimate the importance of ${topic} until they face a financial crisis. By taking proactive steps now, you can avoid common pitfalls and build a more secure future.`,
-    ],
-    'list-intro': [
-      `There are several approaches to ${topic}, each with its own advantages. Let's explore the most effective methods:`,
-      `When it comes to ${topic}, you have multiple options. Here are the strategies that have proven most successful:`,
-    ],
-    detailed: [
-      `The key to success with ${topic} is consistency and patience. Small actions taken regularly can lead to significant results over time.`,
-      `Remember that ${topic} is a journey, not a destination. Stay committed to your plan and adjust as your circumstances change.`,
-    ],
-    general: [
-      `${sectionTitle} plays a vital role in your overall financial strategy. Understanding these concepts will help you make better decisions and achieve your goals faster.`,
-      `Let's dive deeper into ${sectionTitle} and see how it can impact your financial journey.`,
-    ],
-  }
-
-  const options = templates[style] || templates.general
-  return options[Math.floor(Math.random() * options.length)]
-}
-
-function generateListItems(sectionTitle: string, topic: string, count: number): string[] {
-  const items = [
-    `Start by evaluating your current situation and identifying areas for improvement`,
-    `Set specific, measurable goals that align with your long-term vision`,
-    `Create a realistic timeline and break down your objectives into manageable steps`,
-    `Track your progress regularly and celebrate small wins along the way`,
-    `Adjust your approach based on results and changing circumstances`,
-    `Seek advice from financial professionals when facing complex decisions`,
-    `Build an emergency fund to protect yourself from unexpected setbacks`,
-    `Automate your processes to ensure consistency and reduce decision fatigue`,
-    `Educate yourself continuously about best practices and new strategies`,
-    `Find an accountability partner to help you stay on track with your goals`,
-  ]
-  return shuffleArray(items).slice(0, count)
-}
-
-function generateNumberedSteps(
-  sectionTitle: string,
-  topic: string,
-  count: number
-): Array<{ title: string; content: string }> {
-  const steps = [
-    {
-      title: 'Step 1: Assess Your Current Situation',
-      content: `Take an honest look at where you stand today. Gather all relevant information about your current ${topic} status and identify both strengths and areas needing improvement.`,
-    },
-    {
-      title: 'Step 2: Define Your Goals',
-      content: `Clearly articulate what you want to achieve. Make sure your goals are Specific, Measurable, Achievable, Relevant, and Time-bound (SMART).`,
-    },
-    {
-      title: 'Step 3: Create Your Action Plan',
-      content: `Develop a detailed roadmap for achieving your goals. Include specific actions, deadlines, and resources you'll need.`,
-    },
-    {
-      title: 'Step 4: Implement Your Strategy',
-      content: `Start taking action on your plan. Focus on consistency rather than perfection, and be prepared to make adjustments as you learn what works best for you.`,
-    },
-    {
-      title: 'Step 5: Monitor Your Progress',
-      content: `Regularly review your results against your goals. Use metrics that matter and keep track of both quantitative and qualitative improvements.`,
-    },
-    {
-      title: 'Step 6: Optimize and Adjust',
-      content: `Based on your progress, refine your approach. Double down on what's working and eliminate or modify what isn't producing results.`,
-    },
-  ]
-  return steps.slice(0, count)
-}
-
-function generateTip(sectionTitle: string, topic: string): string {
-  const tips = [
-    `💡 Pro Tip: Consistency beats intensity. Small daily actions toward ${topic} will compound into remarkable results over time.`,
-    `💡 Pro Tip: Don't try to implement everything at once. Pick one strategy from this guide and master it before adding others.`,
-    `💡 Pro Tip: Set calendar reminders to review your ${topic} progress monthly. Regular check-ins keep you accountable and motivated.`,
-  ]
-  return tips[Math.floor(Math.random() * tips.length)]
-}
-
-function generateWarning(topic: string): string {
-  return `⚠️ Warning: Avoid these common mistakes that can derail your ${topic} efforts:`
-}
-
-function generateMistakesList(topic: string): string[] {
-  return [
-    `Trying to do too much too soon and burning out`,
-    `Not tracking your progress and flying blind`,
-    `Giving up at the first sign of difficulty`,
-    `Comparing your progress to others instead of your past self`,
-    `Failing to adjust your approach when circumstances change`,
-  ]
-}
-
-function generateConclusion(topic: string): string {
-  return `${topic.charAt(0).toUpperCase() + topic.slice(1)} is a skill that anyone can develop with the right mindset and approach. By implementing the strategies outlined in this guide, you'll be well on your way to achieving your financial goals. Remember, the best time to start was yesterday, but the second best time is today. Take that first step now and begin building the financial future you deserve.`
-}
-
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array]
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-  }
-  return shuffled
-}
-
-// Convert content blocks to HTML
-function blocksToHTML(blocks: ContentBlock[]): string {
-  return blocks
-    .map((block) => {
-      switch (block.type) {
-        case 'heading':
-          return `<h${block.level} id="${generateId(block.content)}">${block.content}</h${block.level}>`
-        case 'paragraph':
-          return `<p>${block.content}</p>`
-        case 'list':
-          return `<ul>${block.items?.map((item) => `<li>${item}</li>`).join('')}</ul>`
-        case 'quote':
-          return `<blockquote><p>${block.content}</p></blockquote>`
-        case 'tip':
-          return `<div class="tip-box"><strong>${block.content}</strong></div>`
-        case 'warning':
-          return `<div class="warning-box"><strong>${block.content}</strong></div>`
-        default:
-          return ''
-      }
-    })
-    .join('\n\n')
-}
-
-// Extract headings from blocks
-function extractHeadings(blocks: ContentBlock[]): { id: string; text: string; level: number }[] {
-  return blocks
-    .filter((block) => block.type === 'heading')
-    .map((block) => ({
-      id: generateId(block.content),
-      text: block.content,
-      level: block.level || 2,
-    }))
-}
-
-// Generate SEO metadata
-function generateSEOData(
-  title: string,
-  excerpt: string,
-  category: string,
-  template: ContentTemplate
-): SEOData {
-  const focusKeyword = template.keywords[0]
-  const keywords = [...template.keywords, ...category.toLowerCase().split(' '), 'personal finance']
-
-  return {
-    title: title,
-    description: excerpt.substring(0, 160),
-    keywords: Array.from(new Set(keywords)),
-    focusKeyword: focusKeyword,
-    metaTitle: `${title} | SmartMoneyPath`,
-    metaDescription: excerpt.substring(0, 155),
-    ogImage: `/images/${slugify(title)}.jpg`,
-  }
-}
-
-// Main Generation Function
-export async function generateBlogPost(options: GenerateOptions): Promise<BlogPostData> {
-  const { topic, category, targetWordCount = 1500, tone = 'educational' } = options
-
-  // Select category and template
-  const selectedCategory = category || detectCategory(topic)
-  const template = CONTENT_TEMPLATES[selectedCategory.toLowerCase()] || CONTENT_TEMPLATES.budgeting
-
-  // Generate title
-  const title = generateTitle(topic, selectedCategory)
-
-  // Generate content blocks
-  const contentBlocks = generateContentBlocks(topic, template, targetWordCount)
-
-  // Convert to HTML
-  const content = blocksToHTML(contentBlocks)
-
-  // Generate metadata
-  const excerpt = generateExcerpt(content)
-  const seo = generateSEOData(title, excerpt, selectedCategory, template)
-  const headings = extractHeadings(contentBlocks)
-
-  // Select author
-  const author = AUTHORS[Math.floor(Math.random() * AUTHORS.length)]
-
-  // Generate post data
-  const post: BlogPostData = {
-    id: randomUUID(),
-    title,
-    slug: slugify(title),
-    excerpt,
-    content,
-    contentBlocks,
-    category: selectedCategory,
-    tags: seo.keywords.slice(0, 8),
-    readTime: calculateReadTime(content),
-    seo,
-    author,
-    headings,
-  }
-
-  return post
-}
-
-function detectCategory(topic: string): string {
-  const topicLower = topic.toLowerCase()
-
-  if (topicLower.includes('budget') || topicLower.includes('spending')) return 'Budgeting'
-  if (topicLower.includes('save') || topicLower.includes('emergency fund')) return 'Saving'
-  if (topicLower.includes('invest') || topicLower.includes('stock') || topicLower.includes('fund')) return 'Investing'
-  if (topicLower.includes('debt') || topicLower.includes('loan') || topicLower.includes('credit')) return 'Debt Management'
-  if (topicLower.includes('retire') || topicLower.includes('401k') || topicLower.includes('ira')) return 'Retirement'
-  if (topicLower.includes('salary') || topicLower.includes('job') || topicLower.includes('career')) return 'Career'
-  if (topicLower.includes('home') || topicLower.includes('house') || topicLower.includes('mortgage')) return 'Home Buying'
-
-  return 'Budgeting'
-}
-
-function generateTitle(topic: string, category: string): string {
-  const templates = [
-    `The Complete Guide to ${topic.charAt(0).toUpperCase() + topic.slice(1)}`,
-    `How to Master ${topic.charAt(0).toUpperCase() + topic.slice(1)}: A Step-by-Step Approach`,
-    `${category}: ${topic.charAt(0).toUpperCase() + topic.slice(1)} Explained for Beginners`,
-    `10 Proven Strategies for ${topic.charAt(0).toUpperCase() + topic.slice(1)}`,
-    `The Ultimate ${topic.charAt(0).toUpperCase() + topic.slice(1)} Guide for 2026`,
-    `${topic.charAt(0).toUpperCase() + topic.slice(1)}: Everything You Need to Know`,
-  ]
-  return templates[Math.floor(Math.random() * templates.length)]
-}
-
-// CLI Interface
-function parseArgs(): Partial<GenerateOptions> & { file?: string; output?: string } {
-  const args = process.argv.slice(2)
-  const options: Partial<GenerateOptions> & { file?: string; output?: string } = {}
-
-  args.forEach((arg) => {
-    if (arg.startsWith('--topic=')) {
-      options.topic = arg.split('=')[1]
-    } else if (arg.startsWith('--category=')) {
-      options.category = arg.split('=')[1]
-    } else if (arg.startsWith('--tone=')) {
-      options.tone = arg.split('=')[1] as any
-    } else if (arg.startsWith('--words=')) {
-      options.targetWordCount = parseInt(arg.split('=')[1])
-    } else if (arg.startsWith('--file=')) {
-      options.file = arg.split('=')[1]
-    } else if (arg.startsWith('--output=')) {
-      options.output = arg.split('=')[1]
-    }
-  })
-
-  return options
-}
-
-async function main() {
-  const args = parseArgs()
-
-  // Ensure output directory exists
-  const outputDir = resolve(args.output || './generated-posts')
-  if (!existsSync(outputDir)) {
-    mkdirSync(outputDir, { recursive: true })
-  }
-
-  // Batch generation from file
-  if (args.file) {
-    const topics = JSON.parse(readFileSync(args.file, 'utf-8'))
-    console.log(`📝 Generating ${topics.length} blog posts...\n`)
-
-    for (const topicData of topics) {
-      const topic = typeof topicData === 'string' ? topicData : topicData.topic
-      const category = typeof topicData === 'string' ? undefined : topicData.category
-
-      const post = await generateBlogPost({
-        topic,
-        category,
-        targetWordCount: args.targetWordCount || 1500,
-        tone: args.tone || 'educational',
-      })
-
-      const filename = `${post.slug}.json`
-      const filepath = join(outputDir, filename)
-      writeFileSync(filepath, JSON.stringify(post, null, 2))
-
-      console.log(`✅ Generated: ${post.title}`)
-      console.log(`   File: ${filepath}`)
-      console.log(`   Word Count: ~${args.targetWordCount || 1500}`)
-      console.log(`   Read Time: ${post.readTime}`)
-      console.log(`   Category: ${post.category}`)
-      console.log(`   Focus Keyword: ${post.seo.focusKeyword}\n`)
-    }
-  } else if (args.topic) {
-    // Single post generation
-    console.log(`📝 Generating blog post about "${args.topic}"...\n`)
-
-    const post = await generateBlogPost({
-      topic: args.topic,
-      category: args.category,
-      targetWordCount: args.targetWordCount || 1500,
-      tone: args.tone || 'educational',
-    })
-
-    const filename = `${post.slug}.json`
-    const filepath = join(outputDir, filename)
-    writeFileSync(filepath, JSON.stringify(post, null, 2))
-
-    console.log(`✅ Generated: ${post.title}`)
-    console.log(`   File: ${filepath}`)
-    console.log(`   Slug: ${post.slug}`)
-    console.log(`   Read Time: ${post.readTime}`)
-    console.log(`   Category: ${post.category}`)
-    console.log(`\n📊 SEO Data:`)
-    console.log(`   Meta Title: ${post.seo.metaTitle}`)
-    console.log(`   Meta Description: ${post.seo.metaDescription}`)
-    console.log(`   Keywords: ${post.seo.keywords.join(', ')}`)
-    console.log(`   Focus Keyword: ${post.seo.focusKeyword}`)
-    console.log(`\n📑 Outline:`)
-    post.headings.forEach((h) => {
-      console.log(`   ${'  '.repeat(h.level - 2)}- ${h.text}`)
-    })
-  } else {
-    console.log(`
-🚀 SmartMoneyPath Blog Content Generator
-
-Usage:
-  Single post:
-    npx ts-node scripts/generate-blog-post.ts --topic="emergency fund basics"
-
-  Batch from file:
-    npx ts-node scripts/generate-blog-post.ts --file="topics.json"
-
-  With options:
-    --topic="your topic"       Required: Topic to write about
-    --category="Category"      Optional: Budgeting, Saving, Investing, etc.
-    --tone="educational"       Optional: professional, casual, educational, motivational
-    --words=2000               Optional: Target word count (default: 1500)
-    --file="topics.json"       Optional: JSON file with multiple topics
-    --output="./posts"         Optional: Output directory (default: ./generated-posts)
-
-Examples:
-  npx ts-node scripts/generate-blog-post.ts --topic="50/30/20 budget rule" --category="Budgeting"
-  npx ts-node scripts/generate-blog-post.ts --file="content-plan.json" --output="./content"
-    `)
-    process.exit(0)
-  }
-
-  console.log(`\n🎉 All done! Check the ${outputDir} directory for your generated posts.`)
-}
-
-main().catch((error) => {
-  console.error('❌ Error:', error)
-  process.exit(1)
-})
+// Export the data for use in other files
+export { blogPostsData }

@@ -35,6 +35,9 @@ const adDimensions: Record<AdFormat, { width: number; height: number; minHeight:
   'in-feed': { width: 0, height: 0, minHeight: '400px' },
 }
 
+// Your AdSense Publisher ID
+const ADSENSE_CLIENT_ID = 'ca-pub-5428516361954387'
+
 export default function AdSenseSlot({
   slot,
   format = 'auto',
@@ -46,6 +49,8 @@ export default function AdSenseSlot({
 
   useEffect(() => {
     if (isInitialized.current) return
+    if (typeof window === 'undefined') return
+
     isInitialized.current = true
 
     // Initialize AdSense ad
@@ -60,42 +65,16 @@ export default function AdSenseSlot({
       }
     }
 
-    // Load AdSense script if not already loaded
-    if (typeof document === 'undefined') return
-    if (!document.querySelector('script[data-adsense]')) {
-      const script = document.createElement('script')
-      script.async = true
-      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-      script.setAttribute('data-adsense', 'true')
-      script.crossOrigin = 'anonymous'
-      // Uncomment when you have your publisher ID:
-      // script.dataset.adClient = 'ca-pub-XXXXXXXXXXXXXXXX'
-
-      script.onload = initAd
-      document.head.appendChild(script)
-    } else {
-      // Script exists, just initialize
+    // Wait for AdSense script to load
+    if ((window as any).adsbygoogle) {
       initAd()
+    } else {
+      // Retry after a short delay if script hasn't loaded yet
+      setTimeout(initAd, 1000)
     }
   }, [slot])
 
   const dimensions = adDimensions[format]
-
-  const getFormatLabel = () => {
-    const labels: Record<AdFormat, string> = {
-      'auto': 'Responsive Ad',
-      'rectangle': '300×250 Medium Rectangle',
-      'leaderboard': '728×90 Leaderboard',
-      'skyscraper': '160×600 Skyscraper',
-      'sidebar': '300×600 Half Page',
-      'responsive': 'Responsive Ad',
-      'header': '728×90 Header Banner',
-      'in-article': 'In-Article Ad',
-      'footer': '728×90 Footer Banner',
-      'in-feed': 'In-Feed Native Ad',
-    }
-    return labels[format]
-  }
 
   return (
     <div className={`my-6 ${className}`}>
@@ -111,24 +90,13 @@ export default function AdSenseSlot({
       {/* Ad Container */}
       <div
         ref={adRef}
-        className="bg-gradient-to-br from-secondary-50 to-secondary-100 border-2 border-dashed border-secondary-200 rounded-xl flex flex-col items-center justify-center overflow-hidden"
+        className="bg-white border border-secondary-200 rounded-xl overflow-hidden"
         style={{
           minHeight: dimensions.minHeight,
           ...style,
         }}
       >
-        {/* Placeholder Content */}
-        <div className="text-center p-6">
-          <div className="w-12 h-12 bg-secondary-200 rounded-lg flex items-center justify-center mx-auto mb-3">
-            <span className="text-2xl">📢</span>
-          </div>
-          <p className="text-secondary-500 font-medium text-sm">Google AdSense</p>
-          <p className="text-secondary-400 text-xs mt-1">{getFormatLabel()}</p>
-          <p className="text-secondary-300 text-xs mt-2 font-mono">Slot: {slot}</p>
-        </div>
-
-        {/* Actual AdSense Slot - Uncomment when ready */}
-        {/*
+        {/* Actual AdSense Ad */}
         <ins
           className="adsbygoogle"
           style={{
@@ -136,13 +104,12 @@ export default function AdSenseSlot({
             width: dimensions.width || '100%',
             height: dimensions.height || 'auto'
           }}
-          data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+          data-ad-client={ADSENSE_CLIENT_ID}
           data-ad-slot={slot}
           data-ad-format={format === 'in-feed' ? 'fluid' : format}
           data-full-width-responsive={format === 'responsive' || format === 'in-article' ? 'true' : 'false'}
           data-ad-layout={format === 'in-feed' ? 'in-article' : undefined}
         />
-        */}
       </div>
     </div>
   )
