@@ -1,144 +1,112 @@
+'use client'
+
 import Link from 'next/link'
-import { Clock, ArrowRight } from 'lucide-react'
+import { Clock, ArrowRight, User } from 'lucide-react'
 import { getAllPosts } from '@/lib/posts'
 
 export default async function FeaturedPosts() {
   const posts = await getAllPosts()
   const latestPosts = posts.slice(0, 6)
-  const mainPost = latestPosts[0]
-  const otherPosts = latestPosts.slice(1, 6)
 
-  const getCategoryEmoji = (category: string) => {
-    const emojis: Record<string, string> = {
-      'Investing': '📈',
-      'Budgeting': '📊',
-      'Career': '💼',
-      'Saving': '💵',
-      'Credit Cards': '💳',
-      'Banking': '🏦',
-      'Mortgages': '🏠',
-      'Insurance': '🛡️',
-      'Personal Finance': '💰',
-      'Small Business': '🏢',
-      'Retirement': '🎯',
-      'Debt': '💸',
-      'Home Buying': '🏡',
-      'Education': '🎓',
-      'Auto': '🚗',
+  const getCategoryColor = (category: string) => {
+    const colors: Record<string, string> = {
+      'Investing': 'bg-indigo-100 text-indigo-700',
+      'Budgeting': 'bg-blue-100 text-blue-700',
+      'Career': 'bg-purple-100 text-purple-700',
+      'Saving': 'bg-green-100 text-green-700',
+      'Credit Cards': 'bg-cyan-100 text-cyan-700',
+      'Banking': 'bg-sky-100 text-sky-700',
+      'Mortgages': 'bg-amber-100 text-amber-700',
+      'Insurance': 'bg-emerald-100 text-emerald-700',
+      'Personal Finance': 'bg-teal-100 text-teal-700',
+      'Small Business': 'bg-rose-100 text-rose-700',
+      'Retirement': 'bg-violet-100 text-violet-700',
+      'Debt': 'bg-orange-100 text-orange-700',
+      'Home Buying': 'bg-yellow-100 text-yellow-700',
+      'Education': 'bg-pink-100 text-pink-700',
+      'Auto': 'bg-red-100 text-red-700',
     }
-    return emojis[category] || '💰'
+    return colors[category] || 'bg-gray-100 text-gray-700'
   }
 
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-end mb-10">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-10">
           <div>
-            <p className="text-primary-600 font-medium mb-2">Latest Articles</p>
-            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900">Featured Posts</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+              Latest Articles
+            </h2>
+            <p className="text-gray-600">
+              Expert advice and insights to help you make smarter money decisions
+            </p>
           </div>
           <Link
             href="/articles"
-            className="hidden sm:inline-flex items-center gap-2 text-primary-600 font-medium hover:text-primary-700 transition-colors"
+            className="inline-flex items-center gap-2 text-darkGreen font-semibold hover:text-brightGreen transition-colors"
           >
             View All Articles
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Main Featured Post */}
-          {mainPost && (
-            <Link href={`/articles/${mainPost.id}`} className="group">
-              <article className="bg-secondary-50 rounded-2xl overflow-hidden h-full hover:shadow-lg transition-shadow">
-                <div className="aspect-video bg-gradient-to-br from-primary-100 to-secondary-100 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/20 to-transparent" />
+        {/* Articles Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {latestPosts.map((post) => (
+            <Link key={post.id} href={`/articles/${post.id}`} className="group">
+              <article className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                {/* Image Placeholder */}
+                <div className="aspect-[16/10] bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-6xl">{getCategoryEmoji(mainPost.category)}</span>
+                    <span className="text-5xl opacity-50">{post.category.charAt(0)}</span>
                   </div>
+                  {/* Category Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className="bg-white/90 backdrop-blur-sm text-primary-700 px-3 py-1 rounded-full text-sm font-medium">
-                      {mainPost.category}
+                    <span className={`${getCategoryColor(post.category)} px-3 py-1.5 rounded-full text-xs font-semibold`}>
+                      {post.category}
                     </span>
                   </div>
                 </div>
-                <div className="p-6 lg:p-8">
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="text-secondary-500 text-sm">
-                      {new Date(mainPost.publishedAt).toLocaleDateString('en-US', {
-                        month: 'short',
-                        day: 'numeric',
-                        year: 'numeric',
-                      })}
-                    </span>
-                    <span className="text-secondary-400">•</span>
-                    <span className="text-secondary-500 text-sm flex items-center gap-1">
-                      <Clock className="h-4 w-4" />
-                      {mainPost.readTime}
+
+                <div className="p-6 flex-1 flex flex-col">
+                  {/* Meta */}
+                  <div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
+                    <span>{new Date(post.publishedAt).toLocaleDateString('en-US', {
+                      month: 'short',
+                      day: 'numeric',
+                      year: 'numeric',
+                    })}</span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1">
+                      <Clock className="h-3.5 w-3.5" />
+                      {post.readTime}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-secondary-900 mb-3 group-hover:text-primary-600 transition-colors">
-                    {mainPost.title}
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-darkGreen transition-colors line-clamp-2">
+                    {post.title}
                   </h3>
 
-                  <p className="text-secondary-600 mb-6">
-                    {mainPost.excerpt}
+                  {/* Excerpt */}
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2 flex-1">
+                    {post.excerpt}
                   </p>
 
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-primary-200 flex items-center justify-center text-primary-700 font-semibold">
-                        {mainPost.author.name[0]}
-                      </div>
-                      <span className="font-medium text-secondary-900">{mainPost.author.name}</span>
+                  {/* Author */}
+                  <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                    <div className="w-9 h-9 rounded-full bg-darkGreen/10 flex items-center justify-center text-darkGreen font-semibold text-sm">
+                      {post.author.name[0]}
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">{post.author.name}</p>
+                      <p className="text-xs text-gray-500">{post.author.bio.split('.')[0]}</p>
                     </div>
                   </div>
                 </div>
               </article>
             </Link>
-          )}
-
-          {/* Other Posts */}
-          <div className="space-y-6">
-            {otherPosts.map((post) => (
-              <Link key={post.id} href={`/articles/${post.id}`} className="group">
-                <article className="flex gap-4 p-4 rounded-xl hover:bg-secondary-50 transition-colors">
-                  <div className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-xl flex-shrink-0 flex items-center justify-center">
-                    <span className="text-3xl">{getCategoryEmoji(post.category)}</span>
-                  </div>
-
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-primary-600 text-sm font-medium">
-                        {post.category}
-                      </span>
-                      <span className="text-secondary-400">•</span>
-                      <span className="text-secondary-500 text-sm">{post.readTime}</span>
-                    </div>
-
-                    <h3 className="font-bold text-secondary-900 mb-1 group-hover:text-primary-600 transition-colors line-clamp-2">
-                      {post.title}
-                    </h3>
-
-                    <p className="text-secondary-600 text-sm line-clamp-2">
-                      {post.excerpt}
-                    </p>
-                  </div>
-                </article>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-8 text-center sm:hidden">
-          <Link
-            href="/articles"
-            className="inline-flex items-center gap-2 text-primary-600 font-medium"
-          >
-            View All Articles
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+          ))}
         </div>
       </div>
     </section>
