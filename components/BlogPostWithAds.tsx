@@ -14,6 +14,8 @@ import {
   Twitter,
   Linkedin,
   Link as LinkIcon,
+  ChevronRight,
+  Home,
 } from 'lucide-react'
 import AdSenseSlot from './AdSenseSlot'
 import RelatedPosts from './RelatedPosts'
@@ -35,10 +37,12 @@ interface Post {
     bio: string
   }
   headings: { id: string; text: string; level: number }[]
+  slug?: string
 }
 
 interface BlogPostWithAdsProps {
   post: Post
+  relatedPosts?: Post[]
 }
 
 // Parse content and insert ads between paragraphs
@@ -87,7 +91,7 @@ function parseContentWithAds(content: string): JSX.Element[] {
   return result
 }
 
-export default function BlogPostWithAds({ post }: BlogPostWithAdsProps) {
+export default function BlogPostWithAds({ post, relatedPosts }: BlogPostWithAdsProps) {
   const [activeHeading, setActiveHeading] = useState('')
   const [showCopied, setShowCopied] = useState(false)
 

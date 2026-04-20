@@ -17,6 +17,9 @@ export interface Post {
   }
   headings: { id: string; text: string; level: number }[]
   slug: string
+  metaTitle?: string
+  metaDescription?: string
+  focusKeyword?: string
 }
 
 // Use the generated blog posts
