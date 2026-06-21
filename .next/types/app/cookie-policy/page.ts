@@ -1,4 +1,4 @@
-// File: /Users/skphotography/TEST/app/cookie-policy/page.tsx
+// File: /Users/grx10solutionspvtltd/Desktop/TEST/app/cookie-policy/page.tsx
 import * as entry from '../../../../app/cookie-policy/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

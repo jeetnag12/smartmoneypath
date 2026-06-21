@@ -1,0 +1,21 @@
+User-Agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /private
+Disallow: /draft
+
+User-Agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /api
+Crawl-delay: 1
+
+User-Agent: Bingbot
+Allow: /
+Disallow: /admin
+Disallow: /api
+Crawl-delay: 1
+
+Host: https://smartmoneypath-nu.vercel.app
+Sitemap: https://smartmoneypath-nu.vercel.app/sitemap.xml
