@@ -79,7 +79,7 @@ export const blogPosts: Post[] = [
     publishedAt: '2026-05-13T09:00:00.000Z',
     updatedAt: '2026-06-22T09:00:00.000Z',
     author,
-    imageUrl: 'https://images.unsplash.com/photo-1611974717483-9b05d1a221da?auto=format&fit=crop&q=80&w=800',
+    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
     focusKeyword: 'index funds for beginners',
     metaTitle: 'Index Funds for Beginners: Costs, Risks, and an Example',
     metaDescription: 'Learn how index mutual funds and ETFs work, how expense ratios affect returns, and how to evaluate a fund before investing.',

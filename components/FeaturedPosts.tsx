@@ -56,16 +56,16 @@ export default async function FeaturedPosts() {
             <Link key={post.id} href={`/articles/${post.id}`} className="group">
               <article className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                 {/* Image Placeholder */}
-                <div className="aspect-[16/10] bg-gray-100 relative overflow-hidden">
+                <div className="aspect-[16/10] bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
                   <img
                     src={post.imageUrl}
-                    alt={post.title}
+                    alt=""
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
                   {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className={`${getCategoryColor(post.category)} px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm backdrop-blur-sm`}>
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className={`${getCategoryColor(post.category)} px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm backdrop-blur-sm border border-white/20`}>
                       {post.category}
                     </span>
                   </div>
