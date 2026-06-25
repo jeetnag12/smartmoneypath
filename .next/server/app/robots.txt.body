@@ -17,5 +17,5 @@ Disallow: /admin
 Disallow: /api
 Crawl-delay: 1
 
-Host: https://smartmoneypath-nu.vercel.app
-Sitemap: https://smartmoneypath-nu.vercel.app/sitemap.xml
+Host: https://www.yourdomain.com
+Sitemap: https://www.yourdomain.com/sitemap.xml
