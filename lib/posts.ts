@@ -20,6 +20,7 @@ export interface Post {
   metaTitle?: string
   metaDescription?: string
   focusKeyword?: string
+  imageUrl: string
 }
 
 // Use the generated blog posts

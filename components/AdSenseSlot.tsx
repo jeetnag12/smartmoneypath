@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { ADSENSE_CLIENT_ID } from '@/lib/site'
 
 export type AdFormat =
   | 'auto'
@@ -34,9 +35,6 @@ const adDimensions: Record<AdFormat, { width: number; height: number; minHeight:
   'footer': { width: 728, height: 90, minHeight: '90px' },
   'in-feed': { width: 0, height: 0, minHeight: '400px' },
 }
-
-// Your AdSense Publisher ID
-const ADSENSE_CLIENT_ID = 'ca-pub-5428516361954387'
 
 export default function AdSenseSlot({
   slot,
@@ -76,6 +74,9 @@ export default function AdSenseSlot({
 
   const dimensions = adDimensions[format]
 
+  // AdSense ad-unit slot IDs are numeric. Do not emit broken placeholder units.
+  if (!/^\d+$/.test(slot)) return null
+
   return (
     <div className={`my-6 ${className}`}>
       {/* Ad Label */}
@@ -106,7 +107,7 @@ export default function AdSenseSlot({
           }}
           data-ad-client={ADSENSE_CLIENT_ID}
           data-ad-slot={slot}
-          data-ad-format={format === 'in-feed' ? 'fluid' : format}
+          data-ad-format={format === 'in-feed' ? 'fluid' : 'auto'}
           data-full-width-responsive={format === 'responsive' || format === 'in-article' ? 'true' : 'false'}
           data-ad-layout={format === 'in-feed' ? 'in-article' : undefined}
         />

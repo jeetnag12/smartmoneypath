@@ -1,1 +1,1 @@
-{"version":1,"functions":{"/about":{},"/articles":{},"/categories/[slug]":{},"/articles/[id]":{},"/contact":{},"/categories":{},"/disclaimer":{},"/cookie-policy":{},"/terms-of-service":{},"/privacy-policy":{},"/blog/ai-automation-finance-2026":{}}}
+{"version":1,"functions":{"/about":{},"/articles":{},"/articles/[id]":{},"/categories/[slug]":{},"/categories":{},"/cookie-policy":{},"/disclaimer":{},"/terms-of-service":{},"/privacy-policy":{}}}

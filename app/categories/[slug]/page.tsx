@@ -77,14 +77,8 @@ const allCategories = [
   'saving',
   'investing',
   'debt',
-  'home-buying',
   'retirement',
   'education',
-  'auto',
-  'credit',
-  'banking',
-  'insurance',
-  'small-business',
 ]
 
 export async function generateStaticParams() {
@@ -116,6 +110,10 @@ export default async function CategoryPage({ params }: PageProps) {
   }
 
   const posts = await getPostsByCategory(params.slug)
+
+  if (posts.length === 0) {
+    notFound()
+  }
 
   return (
     <main className="min-h-screen bg-white">
@@ -159,8 +157,13 @@ export default async function CategoryPage({ params }: PageProps) {
               {posts.map((post) => (
                 <Link key={post.id} href={`/articles/${post.id}`} className="group">
                   <article className="bg-white rounded-2xl overflow-hidden border border-secondary-100 hover:shadow-xl transition-all hover:-translate-y-1 h-full flex flex-col">
-                    <div className="aspect-video bg-gradient-to-br from-primary-100 to-secondary-100 relative overflow-hidden flex items-center justify-center">
-                      <span className="text-5xl">{info.icon}</span>
+                    <div className="aspect-video relative overflow-hidden flex items-center justify-center">
+                      <img
+                        src={post.imageUrl}
+                        alt={post.title}
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
                     </div>
 
                     <div className="p-6 flex-1 flex flex-col">

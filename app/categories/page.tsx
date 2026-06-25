@@ -5,8 +5,6 @@ import {
   Wallet,
   Target,
   CreditCard,
-  Home,
-  Car,
   GraduationCap,
   ArrowRight,
 } from 'lucide-react'
@@ -44,13 +42,6 @@ const categoryInfo = [
     color: 'bg-red-50 text-red-600',
   },
   {
-    name: 'Home Buying',
-    slug: 'home-buying',
-    description: 'Your complete guide to buying your first home.',
-    icon: Home,
-    color: 'bg-amber-50 text-amber-600',
-  },
-  {
     name: 'Retirement',
     slug: 'retirement',
     description: 'Plan for the future with retirement savings strategies.',
@@ -63,13 +54,6 @@ const categoryInfo = [
     description: 'Smart college financing and education planning.',
     icon: GraduationCap,
     color: 'bg-indigo-50 text-indigo-600',
-  },
-  {
-    name: 'Auto',
-    slug: 'auto',
-    description: 'Car buying and auto loan guidance.',
-    icon: Car,
-    color: 'bg-rose-50 text-rose-600',
   },
 ]
 

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Search, TrendingUp } from 'lucide-react'
-import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 const searchPlaceholders = [
   'Find the best credit cards...',
@@ -13,6 +13,7 @@ const searchPlaceholders = [
 ]
 
 export default function Hero() {
+  const router = useRouter()
   const [placeholderIndex, setPlaceholderIndex] = useState(0)
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -23,6 +24,12 @@ export default function Hero() {
     return () => clearInterval(interval)
   }, [])
 
+  const handleSearch = (event: React.FormEvent) => {
+    event.preventDefault()
+    const query = searchQuery.trim()
+    router.push(query ? `/articles?q=${encodeURIComponent(query)}` : '/articles')
+  }
+
   return (
     <section className="bg-darkGreen pt-24 pb-16 lg:pt-32 lg:pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,7 +38,7 @@ export default function Hero() {
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 bg-white/10 text-white/90 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm border border-white/20">
               <TrendingUp className="h-4 w-4 text-brightGreen" />
-              <span>Trusted by 2M+ readers</span>
+              <span>Independent financial education</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
@@ -40,12 +47,12 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-white/80 max-w-lg">
-              Compare personalized offers for credit cards, loans, insurance, and more.
-              Make confident money choices with our expert reviews and tools.
+              Practical guides with transparent calculations and links to primary sources.
+              Learn the tradeoffs before making your next money decision.
             </p>
 
             {/* Search Bar */}
-            <div className="relative max-w-xl">
+            <form className="relative max-w-xl" onSubmit={handleSearch}>
               <div className="relative">
                 <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                 <input
@@ -59,54 +66,29 @@ export default function Hero() {
                   Search
                 </button>
               </div>
-            </div>
+            </form>
 
             {/* Trust Badges */}
             <div className="flex flex-wrap items-center gap-6 text-white/60 text-sm">
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full bg-brightGreen border-2 border-darkGreen flex items-center justify-center text-white text-xs font-bold"
-                    >
-                      {String.fromCharCode(64 + i)}
-                    </div>
-                  ))}
-                </div>
-                <span>Join 2M+ readers</span>
-              </div>
+              <span>Primary sources linked</span>
               <span className="hidden sm:inline">•</span>
-              <span>100% free tools</span>
-              <span className="hidden sm:inline">•</span>
-              <span>Unbiased reviews</span>
+              <span>Examples clearly labeled</span>
             </div>
           </div>
 
-          {/* Right Content - Happy Person Image */}
+          {/* Right Content - transparent worked example */}
           <div className="relative hidden lg:block">
-            <div className="relative h-[500px] w-full">
+            <div className="relative h-[420px] w-full">
               <div className="absolute inset-0 bg-brightGreen/20 rounded-3xl transform rotate-3"></div>
-              <div className="absolute inset-0 bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20 overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&h=600&fit=crop&crop=face"
-                  alt="Happy person managing finances"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                {/* Floating Stats Card */}
-                <div className="absolute bottom-6 left-6 right-6 bg-white rounded-2xl p-4 shadow-xl">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-gray-500">Money Saved</p>
-                      <p className="text-2xl font-bold text-darkGreen">$12,450</p>
-                    </div>
-                    <div className="bg-green-100 p-3 rounded-xl">
-                      <TrendingUp className="h-6 w-6 text-brightGreen" />
-                    </div>
-                  </div>
+              <div className="absolute inset-0 bg-white rounded-3xl border border-white/20 p-8 shadow-2xl">
+                <p className="text-sm font-semibold uppercase tracking-wide text-primary-700">Worked example</p>
+                <h2 className="text-2xl font-bold text-gray-900 mt-2">Emergency-fund baseline</h2>
+                <div className="mt-8 space-y-5 text-gray-700">
+                  <div className="flex justify-between border-b pb-3"><span>Essential monthly costs</span><strong>$3,200</strong></div>
+                  <div className="flex justify-between border-b pb-3"><span>Coverage target</span><strong>4 months</strong></div>
+                  <div className="flex justify-between text-lg"><span>Baseline target</span><strong className="text-primary-700">$12,800</strong></div>
                 </div>
+                <p className="mt-8 text-sm text-gray-500">$3,200 × 4 = $12,800. Adjust for your income stability, dependents, and insurance deductibles.</p>
               </div>
             </div>
           </div>

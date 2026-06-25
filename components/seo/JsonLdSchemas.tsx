@@ -1,4 +1,4 @@
-// JSON-LD Schema Components for SEO
+import { SITE_URL } from '@/lib/site'
 
 interface ArticleSchemaProps {
   title: string
@@ -17,7 +17,7 @@ export function ArticleSchema({
   publishedAt,
   updatedAt,
   url,
-  image = 'https://smartmoneypath-nu.vercel.app/og-image.jpg',
+  image = `${SITE_URL}/og-image.svg`,
 }: ArticleSchemaProps) {
   const schema = {
     '@context': 'https://schema.org',
@@ -26,15 +26,16 @@ export function ArticleSchema({
     description: description,
     image: image,
     author: {
-      '@type': 'Person',
+      '@type': 'Organization',
       name: author,
+      url: `${SITE_URL}/about`,
     },
     publisher: {
       '@type': 'Organization',
       name: 'SmartMoneyPath',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://smartmoneypath-nu.vercel.app/logo.png',
+        url: `${SITE_URL}/og-image.svg`,
       },
     },
     datePublished: publishedAt,
@@ -119,14 +120,10 @@ interface OrganizationSchemaProps {
 
 export function OrganizationSchema({
   name = 'SmartMoneyPath',
-  url = 'https://smartmoneypath-nu.vercel.app',
-  logo = 'https://smartmoneypath-nu.vercel.app/logo.png',
-  description = 'Helping Americans make smart financial decisions with expert tips on saving, investing, credit cards, and building wealth.',
-  sameAs = [
-    'https://twitter.com/smartmoneypath',
-    'https://pinterest.com/smartmoneypath',
-    'https://facebook.com/smartmoneypath',
-  ],
+  url = SITE_URL,
+  logo = `${SITE_URL}/og-image.svg`,
+  description = 'Independent financial education with transparent examples and links to primary public sources.',
+  sameAs = [],
 }: OrganizationSchemaProps) {
   const schema = {
     '@context': 'https://schema.org',
@@ -157,8 +154,8 @@ interface WebSiteSchemaProps {
 
 export function WebSiteSchema({
   name = 'SmartMoneyPath',
-  url = 'https://smartmoneypath-nu.vercel.app',
-  searchUrl = 'https://smartmoneypath-nu.vercel.app/articles?q=',
+  url = SITE_URL,
+  searchUrl = `${SITE_URL}/articles?q={search_term_string}`,
 }: WebSiteSchemaProps) {
   const schema = {
     '@context': 'https://schema.org',

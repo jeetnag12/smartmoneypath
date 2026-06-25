@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import { Clock, ArrowRight, User, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Clock, ArrowRight } from 'lucide-react'
 import { getAllPosts } from '@/lib/posts'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -10,8 +9,12 @@ export const metadata = {
   description: 'Browse all personal finance articles on SmartMoneyPath. Learn about budgeting, investing, saving, and building wealth.',
 }
 
-export default async function ArticlesPage() {
-  const posts = await getAllPosts()
+export default async function ArticlesPage({ searchParams }: { searchParams?: { q?: string } }) {
+  const allPosts = await getAllPosts()
+  const query = searchParams?.q?.trim().toLowerCase() || ''
+  const posts = query
+    ? allPosts.filter((post) => [post.title, post.excerpt, post.category, ...post.tags].join(' ').toLowerCase().includes(query))
+    : allPosts
 
   return (
     <main className="min-h-screen bg-white">
@@ -25,7 +28,7 @@ export default async function ArticlesPage() {
               All Articles
             </h1>
             <p className="text-lg text-secondary-600 max-w-2xl mx-auto">
-              Explore our complete library of personal finance guides, tips, and strategies to help you achieve financial freedom.
+              Six focused guides built from primary sources, transparent examples, and clearly stated limitations.
             </p>
           </div>
         </div>
@@ -36,7 +39,8 @@ export default async function ArticlesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {posts.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-secondary-500 text-lg">No articles found.</p>
+              <p className="text-secondary-500 text-lg">No articles match “{searchParams?.q}”.</p>
+              <Link href="/articles" className="inline-block mt-4 text-primary-700 font-medium">Clear search</Link>
             </div>
           ) : (
             <>
@@ -44,19 +48,16 @@ export default async function ArticlesPage() {
                 {posts.map((post) => (
                   <Link key={post.id} href={`/articles/${post.id}`} className="group">
                     <article className="bg-white rounded-2xl overflow-hidden border border-secondary-100 hover:shadow-xl transition-all hover:-translate-y-1 h-full flex flex-col">
-                      {/* Image Placeholder */}
-                      <div className="aspect-video bg-gradient-to-br from-primary-100 to-secondary-100 relative overflow-hidden">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-5xl">
-                            {post.category === 'Investing' && '📈'}
-                            {post.category === 'Budgeting' && '📊'}
-                            {post.category === 'Career' && '💼'}
-                            {post.category === 'Saving' && '💵'}
-                            {!['Investing', 'Budgeting', 'Career', 'Saving'].includes(post.category) && '💰'}
-                          </span>
-                        </div>
+                      {/* Featured Image */}
+                      <div className="aspect-video relative overflow-hidden">
+                        <img
+                          src={post.imageUrl}
+                          alt={post.title}
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
                         <div className="absolute top-4 left-4">
-                          <span className="bg-white/90 backdrop-blur-sm text-primary-700 px-3 py-1 rounded-full text-sm font-medium">
+                          <span className="bg-white/90 backdrop-blur-sm text-primary-700 px-3 py-1 rounded-full text-sm font-medium shadow-sm">
                             {post.category}
                           </span>
                         </div>
@@ -103,20 +104,6 @@ export default async function ArticlesPage() {
                 ))}
               </div>
 
-              {/* Pagination Placeholder */}
-              {posts.length > 0 && (
-                <div className="mt-12 flex justify-center items-center gap-2">
-                  <button className="p-2 text-secondary-400 hover:text-secondary-600 disabled:opacity-50" disabled>
-                    <ChevronLeft className="h-5 w-5" />
-                  </button>
-                  <button className="w-10 h-10 rounded-lg bg-primary-600 text-white font-medium">
-                    1
-                  </button>
-                  <button className="p-2 text-secondary-400 hover:text-secondary-600 disabled:opacity-50" disabled>
-                    <ChevronRight className="h-5 w-5" />
-                  </button>
-                </div>
-              )}
             </>
           )}
         </div>

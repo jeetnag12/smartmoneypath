@@ -38,7 +38,7 @@ export default async function FeaturedPosts() {
               Latest Articles
             </h2>
             <p className="text-gray-600">
-              Expert advice and insights to help you make smarter money decisions
+              Researched guides with calculations, caveats, and primary sources
             </p>
           </div>
           <Link
@@ -56,13 +56,16 @@ export default async function FeaturedPosts() {
             <Link key={post.id} href={`/articles/${post.id}`} className="group">
               <article className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                 {/* Image Placeholder */}
-                <div className="aspect-[16/10] bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-5xl opacity-50">{post.category.charAt(0)}</span>
-                  </div>
+                <div className="aspect-[16/10] bg-gray-100 relative overflow-hidden">
+                  <img
+                    src={post.imageUrl}
+                    alt={post.title}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className={`${getCategoryColor(post.category)} px-3 py-1.5 rounded-full text-xs font-semibold`}>
+                    <span className={`${getCategoryColor(post.category)} px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm backdrop-blur-sm`}>
                       {post.category}
                     </span>
                   </div>

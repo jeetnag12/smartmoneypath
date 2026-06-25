@@ -1,7 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/posts'
-
-const BASE_URL = 'https://smartmoneypath-nu.vercel.app'
+import { SITE_URL as BASE_URL } from '@/lib/site'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Get all posts

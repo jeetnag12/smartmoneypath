@@ -8,6 +8,7 @@ import {
   BreadcrumbSchema,
   extractFAQsFromContent,
 } from '@/components/seo/JsonLdSchemas'
+import { SITE_URL as BASE_URL } from '@/lib/site'
 
 interface PageProps {
   params: { id: string }
@@ -15,8 +16,6 @@ interface PageProps {
 
 export const dynamicParams = true
 export const dynamic = 'force-dynamic'
-
-const BASE_URL = 'https://smartmoneypath-nu.vercel.app'
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   try {
@@ -30,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
 
     const canonicalUrl = `${BASE_URL}/articles/${post.id}`
-    const ogImage = `${BASE_URL}/og-image.jpg`
+    const ogImage = `${BASE_URL}/og-image.svg`
 
     return {
       title: post.title,
@@ -73,8 +72,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       },
       twitter: {
         card: 'summary_large_image',
-        site: '@smartmoneypath',
-        creator: '@smartmoneypath',
         title: post.metaTitle || post.title,
         description: post.metaDescription || post.excerpt,
         images: [ogImage],

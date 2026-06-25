@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /admin
-Disallow: /api
-Disallow: /private
-Disallow: /draft
-
-Sitemap: https://smartmoneypath-nu.vercel.app/sitemap.xml
-Host: https://smartmoneypath-nu.vercel.app

@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
+import { ADSENSE_CLIENT_ID, SITE_URL } from '@/lib/site'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,7 +22,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://smartmoneypath-nu.vercel.app'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'SmartMoneyPath | Personal Finance Blog',
     template: '%s | SmartMoneyPath',
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
     'USA finance',
     '2026',
   ],
-  authors: [{ name: 'SmartMoneyPath Team', url: 'https://smartmoneypath-nu.vercel.app' }],
+  authors: [{ name: 'SmartMoneyPath Editorial Team', url: `${SITE_URL}/about` }],
   creator: 'SmartMoneyPath',
   publisher: 'SmartMoneyPath',
   robots: {
@@ -59,14 +61,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://smartmoneypath-nu.vercel.app',
+    url: SITE_URL,
     siteName: 'SmartMoneyPath',
     title: 'SmartMoneyPath | Personal Finance Blog',
     description:
       'SmartMoneyPath helps Americans make smart financial decisions. Expert tips on saving, investing, credit cards, and building wealth in 2026.',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og-image.svg',
         width: 1200,
         height: 630,
         alt: 'SmartMoneyPath - Personal Finance Blog',
@@ -75,31 +77,21 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@smartmoneypath',
-    creator: '@smartmoneypath',
     title: 'SmartMoneyPath | Personal Finance Blog',
     description:
       'SmartMoneyPath helps Americans make smart financial decisions. Expert tips on saving, investing, credit cards, and building wealth in 2026.',
-    images: ['/og-image.jpg'],
+    images: ['/og-image.svg'],
   },
   alternates: {
-    canonical: 'https://smartmoneypath-nu.vercel.app',
+    canonical: SITE_URL,
     languages: {
-      'en-US': 'https://smartmoneypath-nu.vercel.app',
-    },
-  },
-  verification: {
-    google: 'YOUR_GOOGLE_VERIFICATION_CODE',
-    yandex: 'YOUR_YANDEX_VERIFICATION_CODE',
-    other: {
-      'msvalidate.01': 'YOUR_BING_VERIFICATION_CODE',
+      'en-US': SITE_URL,
     },
   },
   category: 'Finance',
   classification: 'Personal Finance',
   referrer: 'origin-when-cross-origin',
   other: {
-    'fb:app_id': 'YOUR_FACEBOOK_APP_ID',
     'apple-mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-title': 'SmartMoneyPath',
     'apple-mobile-web-app-status-bar-style': 'black-translucent',
@@ -124,16 +116,18 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
 
         {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/og-image.svg" type="image/svg+xml" />
         <link rel="manifest" href="/site.webmanifest" />
 
+        {/* Google AdSense Verification */}
+        <meta name="google-adsense-account" content={ADSENSE_CLIENT_ID} />
+
         {/* Google AdSense */}
-        <script
+        <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5428516361954387"
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
           crossOrigin="anonymous"
+          strategy="afterInteractive"
         />
       </head>
       <body className={`${inter.className} font-sans antialiased`}>

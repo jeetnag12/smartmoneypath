@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { SITE_URL } from '@/lib/site'
 
 interface SEOHeadProps {
   title: string
@@ -18,7 +19,7 @@ export function generateSEOMetadata({
   description,
   keywords = [],
   author = 'SmartMoneyPath',
-  ogImage = '/og-image.jpg',
+  ogImage = '/og-image.svg',
   ogType = 'website',
   publishedTime,
   modifiedTime,
@@ -55,8 +56,6 @@ export function generateSEOMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@smartmoneypath',
-      creator: '@smartmoneypath',
       title: fullTitle,
       description,
       images: [ogImage],
@@ -78,7 +77,7 @@ export function generateArticleMetadata(post: {
   id: number
   slug: string
 }): Metadata {
-  const canonicalUrl = `https://smartmoneypath-nu.vercel.app/articles/${post.id}`
+  const canonicalUrl = `${SITE_URL}/articles/${post.id}`
 
   return generateSEOMetadata({
     title: post.title,

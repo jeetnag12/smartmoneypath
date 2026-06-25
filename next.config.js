@@ -60,7 +60,7 @@ value: 'max-age=63072000; includeSubDomains; preload',
 {
 key: 'Content-Security-Policy',
 value:
-"default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://pagead2.googlesyndication.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.google-analytics.com; frame-src https://googleads.g.doubleclick.net;",
+"default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://pagead2.googlesyndication.com https://*.googlesyndication.com https://*.google.com https://*.doubleclick.net https://*.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https: https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net; connect-src 'self' https://*.google-analytics.com https://*.google.com https://*.googlesyndication.com https://*.doubleclick.net; frame-src 'self' https://googleads.g.doubleclick.net https://*.google.com https://*.doubleclick.net https://*.googlesyndication.com;",
 },
 {
 key: 'Cache-Control',

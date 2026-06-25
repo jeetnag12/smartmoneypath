@@ -1,27 +1,14 @@
 {
   "name": "SmartMoneyPath",
   "short_name": "SmartMoney",
-  "description": "Your Guide to Financial Freedom - Expert tips on saving, investing, and building wealth",
+  "description": "Practical financial education with transparent examples and primary sources",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1B5E20",
   "theme_color": "#1B5E20",
   "orientation": "portrait-primary",
   "scope": "/",
-  "icons": [
-    {
-      "src": "/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ],
+  "icons": [{ "src": "/og-image.svg", "sizes": "any", "type": "image/svg+xml" }],
   "categories": ["finance", "lifestyle", "education"],
   "lang": "en-US",
   "dir": "ltr",

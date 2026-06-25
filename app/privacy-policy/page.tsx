@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { CONTACT_EMAIL } from '@/lib/site'
 
 export const metadata = {
   title: 'Privacy Policy | SmartMoneyPath',
@@ -55,17 +56,25 @@ export default function PrivacyPolicyPage() {
               <li>To send you our newsletter (if you have subscribed)</li>
             </ul>
 
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Cookies</h2>
-            <p className="text-secondary-600 mb-6">
-              We use cookies and similar tracking technologies to track the activity on our website and store certain information.
-              You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.
+            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Cookies and Tracking Technologies</h2>
+            <p className="text-secondary-600 mb-4">
+              We use cookies to improve your experience, analyze traffic, and serve personalized advertisements. A cookie is a small file placed on your device. You can manage your cookie preferences through your browser settings.
             </p>
-
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Google AdSense</h2>
             <p className="text-secondary-600 mb-6">
-              We use Google AdSense to display advertisements on our website. Google uses cookies to serve ads based on
-              your prior visits to our website or other websites. You may opt out of personalized advertising by visiting
-              <a href="https://www.google.com/settings/ads" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer"> Google Ads Settings</a>.
+              Specifically, we use:
+            </p>
+            <ul className="list-disc list-inside text-secondary-600 mb-6 space-y-2">
+              <li><strong>Essential Cookies:</strong> Required for basic website functionality.</li>
+              <li><strong>Analytical Cookies:</strong> Help us understand how visitors interact with the site (e.g., Google Analytics).</li>
+              <li><strong>Advertising Cookies:</strong> Used by third-party vendors to deliver relevant ads.</li>
+            </ul>
+
+            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Google AdSense & DoubleClick Cookie</h2>
+            <p className="text-secondary-600 mb-4">
+              Google, as a third-party vendor, uses cookies to serve ads on our site. Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our site and/or other sites on the Internet.
+            </p>
+            <p className="text-secondary-600 mb-6">
+              Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>.
             </p>
 
             <h2 className="text-2xl font-bold text-secondary-900 mb-4">Data Security</h2>
@@ -96,8 +105,8 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-2xl font-bold text-secondary-900 mb-4">Contact Us</h2>
             <p className="text-secondary-600 mb-6">
               If you have any questions about this privacy policy or our privacy practices, please contact us at:{' '}
-              <a href="mailto:privacy@smartmoneypath.com" className="text-primary-600 hover:underline">
-                privacy@smartmoneypath.com
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary-600 hover:underline">
+                {CONTACT_EMAIL}
               </a>
             </p>
           </div>
