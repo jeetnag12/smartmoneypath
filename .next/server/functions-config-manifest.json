@@ -1,1 +1,1 @@
-{"version":1,"functions":{"/about":{},"/articles":{},"/articles/[id]":{},"/authors":{},"/cookie-policy":{},"/categories":{},"/disclaimer":{},"/categories/[slug]":{},"/privacy-policy":{},"/terms-of-service":{},"/editorial-policy":{},"/how-we-make-money":{},"/methodology":{}}}
+{"version":1,"functions":{"/about":{},"/articles/[id]":{},"/articles":{},"/categories/[slug]":{},"/cookie-policy":{},"/authors":{},"/categories":{},"/disclaimer":{},"/privacy-policy":{},"/editorial-policy":{},"/terms-of-service":{},"/how-we-make-money":{},"/methodology":{}}}
