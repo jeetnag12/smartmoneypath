@@ -121,8 +121,10 @@ export default async function ArticlePage({ params }: PageProps) {
     // Get related posts
     const relatedPosts = await getRelatedPosts(post.id, post.category, 3)
 
-    // Extract FAQs from content for schema
-    const faqs = extractFAQsFromContent(post.content)
+    // Use explicit FAQs if provided, otherwise extract from content
+    const faqs = post.faqs && post.faqs.length > 0
+      ? post.faqs
+      : extractFAQsFromContent(post.content)
 
     // Breadcrumb items
     const breadcrumbItems = [

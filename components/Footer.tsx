@@ -7,6 +7,7 @@ export default function Footer() {
     ['Articles', '/articles'], ['Categories', '/categories'], ['About', '/about'], ['Contact', '/contact'],
     ['Privacy', '/privacy-policy'], ['Terms', '/terms-of-service'], ['Cookies', '/cookie-policy'], ['Disclaimer', '/disclaimer'],
     ['Editorial', '/editorial-policy'], ['Methodology', '/methodology'], ['How We Make Money', '/how-we-make-money'],
+    ['Authors', '/authors'],
   ]
   return <footer className="bg-darkGreen text-white/80">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

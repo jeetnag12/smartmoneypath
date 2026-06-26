@@ -21,6 +21,10 @@ export interface Post {
   metaDescription?: string
   focusKeyword?: string
   imageUrl: string
+  quickAnswer?: string
+  keyTakeaways?: string[]
+  references?: { title: string; url: string }[]
+  faqs?: { question: string; answer: string }[]
 }
 
 // Use the generated blog posts
