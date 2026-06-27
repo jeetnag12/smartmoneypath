@@ -25,10 +25,10 @@ export default async function ArticlesPage({ searchParams }: { searchParams?: { 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-secondary-900 mb-4">
-              All Articles
+              All {allPosts.length} Financial Guides
             </h1>
             <p className="text-lg text-secondary-600 max-w-2xl mx-auto">
-              Six focused guides built from primary sources, transparent examples, and clearly stated limitations.
+              In-depth, data-driven articles built from primary sources, transparent examples, and clearly stated limitations.
             </p>
           </div>
         </div>

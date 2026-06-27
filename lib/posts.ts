@@ -28,27 +28,29 @@ export interface Post {
 }
 
 // Use the generated blog posts
-const posts: Post[] = blogPosts.map(post => ({
-  ...post,
-  // Ensure slug exists (for backward compatibility)
-  slug: post.slug || post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
-}))
+const getProcessedPosts = (): Post[] => {
+  return blogPosts.map(post => ({
+    ...post,
+    // Ensure slug exists (for backward compatibility)
+    slug: post.slug || post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+  })).sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+}
 
 export async function getAllPosts(): Promise<Post[]> {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 100))
-  return posts
+  return getProcessedPosts()
 }
 
 export async function getPostById(id: string): Promise<Post | null> {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 100))
-  return posts.find((post) => post.id === parseInt(id)) || null
+  return getProcessedPosts().find((post) => post.id === parseInt(id)) || null
 }
 
 export async function getPostsByCategory(category: string): Promise<Post[]> {
   await new Promise((resolve) => setTimeout(resolve, 100))
-  return posts.filter(
+  return getProcessedPosts().filter(
     (post) => post.category.toLowerCase() === category.toLowerCase()
   )
 }
@@ -59,6 +61,7 @@ export async function getRelatedPosts(
   limit: number = 3
 ): Promise<Post[]> {
   await new Promise((resolve) => setTimeout(resolve, 100))
+  const posts = getProcessedPosts()
   return posts
     .filter(
       (post) =>
@@ -74,5 +77,5 @@ export async function getRelatedPosts(
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   await new Promise((resolve) => setTimeout(resolve, 100))
-  return posts.find((post) => post.slug === slug) || null
+  return getProcessedPosts().find((post) => post.slug === slug) || null
 }
