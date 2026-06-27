@@ -49,12 +49,15 @@ export default async function ArticlesPage({ searchParams }: { searchParams?: { 
                   <Link key={post.id} href={`/articles/${post.id}`} className="group">
                     <article className="bg-white rounded-2xl overflow-hidden border border-secondary-100 hover:shadow-xl transition-all hover:-translate-y-1 h-full flex flex-col">
                       {/* Featured Image */}
-                      <div className="aspect-video relative overflow-hidden">
+                      <div className="aspect-video relative overflow-hidden bg-gray-100">
                         <img
                           src={post.imageUrl}
                           alt={post.title}
                           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800';
+                          }}
                         />
                         <div className="absolute top-4 left-4">
                           <span className="bg-white/90 backdrop-blur-sm text-primary-700 px-3 py-1 rounded-full text-sm font-medium shadow-sm">
@@ -87,9 +90,17 @@ export default async function ArticlesPage({ searchParams }: { searchParams?: { 
 
                         <div className="flex items-center justify-between pt-4 border-t border-secondary-100">
                           <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-full bg-primary-200 flex items-center justify-center text-primary-700 font-semibold text-sm">
-                              {post.author.name[0]}
-                            </div>
+                            {post.author.avatar ? (
+                              <img
+                                src={post.author.avatar}
+                                alt={post.author.name}
+                                className="w-8 h-8 rounded-full object-cover border border-secondary-100"
+                              />
+                            ) : (
+                              <div className="w-8 h-8 rounded-full bg-primary-200 flex items-center justify-center text-primary-700 font-semibold text-sm">
+                                {post.author.name[0]}
+                              </div>
+                            )}
                             <span className="text-sm font-medium text-secondary-700">
                               {post.author.name}
                             </span>
