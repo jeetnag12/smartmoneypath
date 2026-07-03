@@ -124,7 +124,7 @@ export default async function ArticlePage({ params }: PageProps) {
     // Use explicit FAQs if provided, otherwise extract from content
     const faqs = post.faqs && post.faqs.length > 0
       ? post.faqs
-      : extractFAQsFromContent(post.content)
+      : (post.content ? extractFAQsFromContent(post.content) : [])
 
     // Breadcrumb items
     const breadcrumbItems = [

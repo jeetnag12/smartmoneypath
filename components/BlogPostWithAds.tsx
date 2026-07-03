@@ -159,7 +159,9 @@ export default function BlogPostWithAds({ post, relatedPosts }: BlogPostWithAdsP
                 )}
                 <div>
                   <p className="font-semibold text-secondary-900">{post.author.name}</p>
-                  <p className="text-sm text-secondary-500">{post.author.bio.split('.')[0]}</p>
+                  <p className="text-sm text-secondary-500">
+                    {post.author.bio ? post.author.bio.split('.')[0] : 'Expert Contributor'}
+                  </p>
                 </div>
               </div>
 
@@ -224,11 +226,14 @@ export default function BlogPostWithAds({ post, relatedPosts }: BlogPostWithAdsP
           {/* Main Article Content */}
           <div className="flex-1 max-w-3xl">
             {/* Featured Image */}
-            <div className="aspect-video relative rounded-2xl mb-8 overflow-hidden border border-secondary-100 shadow-sm">
+            <div className="aspect-video relative rounded-2xl mb-8 overflow-hidden border border-secondary-100 shadow-sm bg-secondary-50">
               <img
-                src={post.imageUrl}
+                src={post.imageUrl || 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200'}
                 alt={post.title}
                 className="absolute inset-0 w-full h-full object-cover"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200';
+                }}
               />
             </div>
 
@@ -368,7 +373,9 @@ export default function BlogPostWithAds({ post, relatedPosts }: BlogPostWithAdsP
                   <p className="font-semibold text-secondary-900 text-lg mb-1">
                     Written by {post.author.name}
                   </p>
-                  <p className="text-secondary-600 leading-relaxed">{post.author.bio}</p>
+                  <p className="text-secondary-600 leading-relaxed">
+                    {post.author.bio || 'The SmartMoneyPath Editorial Team provides objective, data-backed financial education.'}
+                  </p>
                 </div>
               </div>
             </div>

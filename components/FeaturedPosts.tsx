@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import { Clock, ArrowRight, User } from 'lucide-react'
 import { getAllPosts } from '@/lib/posts'
@@ -58,7 +56,7 @@ export default async function FeaturedPosts() {
                 {/* Image Placeholder */}
                 <div className="aspect-[16/10] bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
                   <img
-                    src={post.imageUrl}
+                    src={post.imageUrl || 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800'}
                     alt=""
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
@@ -103,7 +101,9 @@ export default async function FeaturedPosts() {
                     </div>
                     <div>
                       <p className="text-sm font-medium text-gray-900">{post.author.name}</p>
-                      <p className="text-xs text-gray-500">{post.author.bio.split('.')[0]}</p>
+                      <p className="text-xs text-gray-500">
+                        {post.author.bio ? post.author.bio.split('.')[0] : 'Expert Contributor'}
+                      </p>
                     </div>
                   </div>
                 </div>

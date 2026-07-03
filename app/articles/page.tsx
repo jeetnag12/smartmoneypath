@@ -55,9 +55,6 @@ export default async function ArticlesPage({ searchParams }: { searchParams?: { 
                           alt={post.title}
                           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800';
-                          }}
                         />
                         <div className="absolute top-4 left-4">
                           <span className="bg-white/90 backdrop-blur-sm text-primary-700 px-3 py-1 rounded-full text-sm font-medium shadow-sm">
