@@ -56,8 +56,10 @@ export default async function FeaturedPosts() {
                 {/* Image Placeholder */}
                 <div className="aspect-[16/10] bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
                   <img
-                    src={post.imageUrl || 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800'}
-                    alt=""
+                    src={post.imageUrl || '/images/articles/emergency-fund.jpg'}
+                    alt={post.title}
+                    width={1200}
+                    height={750}
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
@@ -96,9 +98,19 @@ export default async function FeaturedPosts() {
 
                   {/* Author */}
                   <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                    <div className="w-9 h-9 rounded-full bg-darkGreen/10 flex items-center justify-center text-darkGreen font-semibold text-sm">
-                      {post.author.name[0]}
-                    </div>
+                    {post.author.avatar ? (
+                      <img
+                        src={post.author.avatar}
+                        alt={post.author.name}
+                        width={36}
+                        height={36}
+                        className="w-9 h-9 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-9 h-9 rounded-full bg-darkGreen/10 flex items-center justify-center text-darkGreen font-semibold text-sm">
+                        {post.author.name[0]}
+                      </div>
+                    )}
                     <div>
                       <p className="text-sm font-medium text-gray-900">{post.author.name}</p>
                       <p className="text-xs text-gray-500">

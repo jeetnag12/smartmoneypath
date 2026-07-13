@@ -8,6 +8,7 @@ interface ArticleSchemaProps {
   updatedAt: string
   url: string
   image?: string
+  reviewedBy?: string
 }
 
 export function ArticleSchema({
@@ -18,6 +19,7 @@ export function ArticleSchema({
   updatedAt,
   url,
   image = `${SITE_URL}/og-image.svg`,
+  reviewedBy,
 }: ArticleSchemaProps) {
   const schema = {
     '@context': 'https://schema.org',
@@ -44,6 +46,17 @@ export function ArticleSchema({
       '@type': 'WebPage',
       '@id': url,
     },
+    ...(reviewedBy ? {
+      reviewedBy: {
+        '@type': 'Person',
+        name: reviewedBy,
+        jobTitle: 'Financial Reviewer',
+        worksFor: {
+          '@type': 'Organization',
+          name: 'SmartMoneyPath'
+        }
+      }
+    } : {})
   }
 
   return (

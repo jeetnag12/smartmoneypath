@@ -1,126 +1,98 @@
 import Link from 'next/link'
+import { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { SITE_URL } from '@/lib/site'
+import { BreadcrumbSchema } from '@/components/seo/JsonLdSchemas'
 
-export const metadata = {
-  title: 'Disclaimer | SmartMoneyPath',
-  description: 'Important disclaimers and disclosures for SmartMoneyPath readers.',
+export const metadata: Metadata = {
+  title: 'Legal Disclaimer | SmartMoneyPath',
+  description: 'Important financial, investment, and legal disclaimers for SmartMoneyPath readers and users.',
+  alternates: {
+    canonical: `${SITE_URL}/disclaimer`,
+  },
+  openGraph: {
+    title: 'Legal Disclaimer | SmartMoneyPath',
+    description: 'Understand the limitations of our content and your responsibilities as a reader.',
+    url: `${SITE_URL}/disclaimer`,
+    siteName: 'SmartMoneyPath',
+    type: 'website',
+  },
 }
 
 export default function DisclaimerPage() {
+  const breadcrumbItems = [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Disclaimer', url: `${SITE_URL}/disclaimer` },
+  ]
+
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
+      <BreadcrumbSchema items={breadcrumbItems} />
 
-      <section className="bg-gradient-to-br from-primary-50 to-secondary-50 py-20">
+      <section className="bg-gradient-to-br from-primary-50 to-secondary-50 pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-secondary-900 mb-4">
-              Disclaimer
+              Legal Disclaimer
             </h1>
             <p className="text-lg text-secondary-600">
-              Last updated: April 7, 2026
+              Last updated: June 25, 2026
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Financial Disclaimer</h2>
-            <p className="text-secondary-600 mb-6">
-              <strong>IMPORTANT:</strong> The information provided on SmartMoneyPath is for general educational
-              and informational purposes only. It should not be construed as professional financial,
-              investment, legal, or tax advice. We are not financial advisors, brokers, or licensed
-              professionals.
+          <div className="prose prose-lg max-w-none prose-headings:text-secondary-900 prose-p:text-secondary-700 prose-strong:text-secondary-900 prose-a:text-primary-600 hover:prose-a:text-primary-700">
+            <h2 id="financial">1. Financial and Investment Disclaimer</h2>
+            <p>
+              <strong>SmartMoneyPath is an educational resource.</strong> The information provided on this website does not, and is not intended to, constitute financial, investment, legal, or tax advice. All content, including text, graphics, images, and tools, is for general informational purposes only.
+            </p>
+            <p>
+              We are not financial advisors, planners, brokers, or tax professionals. You should consult with a qualified professional before making any significant financial decisions. Reliance on any information provided by SmartMoneyPath is solely at your own risk.
             </p>
 
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">No Professional Advice</h2>
-            <p className="text-secondary-600 mb-6">
-              The content on this website is not intended to be a substitute for professional financial advice.
-              Always seek the advice of a qualified financial advisor, accountant, or other licensed professional
-              with any questions you may have regarding your financial situation. Never disregard professional
-              advice or delay seeking it because of something you have read on this website.
+            <h2 id="risk">2. Investment Risk</h2>
+            <p>
+              Past performance is not indicative of future results. The value of investments and the income derived from them can go down as well as up. You may not get back the amount you invest. Markets are volatile and subject to various risks including economic, political, and regulatory changes.
             </p>
 
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Investment Risk</h2>
-            <p className="text-secondary-600 mb-6">
-              All investments carry risk. Past performance is not indicative of future results. The value of
-              investments can go down as well as up, and you may not get back the amount you originally invested.
-              Any investment decisions you make are solely your responsibility.
+            <h2 id="accuracy">3. Accuracy and Completeness</h2>
+            <p>
+              While we strive to provide accurate and up-to-date information derived from <Link href="/methodology">primary sources</Link>, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the information, products, services, or related graphics contained on the website.
             </p>
 
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Accuracy of Information</h2>
-            <p className="text-secondary-600 mb-6">
-              While we strive to provide accurate and up-to-date information, we make no representations or
-              warranties of any kind, express or implied, about the completeness, accuracy, reliability,
-              suitability, or availability of the information, products, services, or related graphics contained
-              on this website. Any reliance you place on such information is strictly at your own risk.
+            <h2 id="affiliate">4. Affiliate and Advertising Disclosure</h2>
+            <p>
+              SmartMoneyPath is a participant in various affiliate marketing programs. We may earn a commission when you click on or make purchases via affiliate links. This comes at no additional cost to you. Our editorial team reviews products based on merit, regardless of any affiliate relationship. For more details, see <Link href="/how-we-make-money">How We Make Money</Link>.
+            </p>
+            <p>
+              This website also displays advertisements through Google AdSense. The presence of an advertisement does not constitute an endorsement or recommendation by SmartMoneyPath.
             </p>
 
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Affiliate Disclosure</h2>
-            <p className="text-secondary-600 mb-6">
-              SmartMoneyPath may participate in affiliate marketing programs, which means we may earn commissions
-              on purchases made through our links to retailer sites. This comes at no additional cost to you.
-              We only recommend products and services we believe will add value to our readers.
-            </p>
-            <p className="text-secondary-600 mb-6">
-              We are a participant in the Amazon Services LLC Associates Program, an affiliate advertising program
-              designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.
+            <h2 id="third-party">5. Third-Party Content</h2>
+            <p>
+              Our website contains links to external websites that are not provided or maintained by or in any way affiliated with SmartMoneyPath. Please note that we do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.
             </p>
 
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Advertising Disclosure</h2>
-            <p className="text-secondary-600 mb-6">
-              This website displays advertisements through Google AdSense and other advertising networks.
-              We do not endorse the products or services advertised unless explicitly stated. The presence of
-              an advertisement does not constitute an endorsement or recommendation by SmartMoneyPath.
+            <h2 id="liability">6. Limitation of Liability</h2>
+            <p>
+              To the maximum extent permitted by law, SmartMoneyPath and its owners shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in any way connected with your use of our website or reliance on our content.
             </p>
 
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Third-Party Links</h2>
-            <p className="text-secondary-600 mb-6">
-              Our website contains links to third-party websites. We have no control over the nature, content,
-              and availability of those sites. The inclusion of any links does not necessarily imply a
-              recommendation or endorsement of the views expressed within them.
-            </p>
-
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Personal Responsibility</h2>
-            <p className="text-secondary-600 mb-6">
-              You acknowledge that you are solely responsible for any decisions or actions you take based on the
-              information provided on this website. SmartMoneyPath, its owners, and contributors will not be
-              liable for any losses, damages, or other consequences arising from your use of this website or
-              reliance on any information provided herein.
-            </p>
-
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Testimonials</h2>
-            <p className="text-secondary-600 mb-6">
-              Any testimonials or success stories presented on this website are individual experiences and may
-              not be typical. Your results may vary based on your personal circumstances, effort, and market conditions.
-            </p>
-
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Changes to This Disclaimer</h2>
-            <p className="text-secondary-600 mb-6">
-              We reserve the right to modify this disclaimer at any time. Changes will be effective immediately upon
-              posting to this page. We encourage you to periodically review this page for the latest information on our
-              disclaimers and disclosures.
-            </p>
-
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Contact Us</h2>
-            <p className="text-secondary-600 mb-6">
-              If you have any questions about this disclaimer, please contact us at:{' '}
-              <a href="mailto:legal@smartmoneypath.com" className="text-primary-600 hover:underline">
-                legal@smartmoneypath.com
-              </a>
+            <h2 id="contact">7. Contact Us</h2>
+            <p>
+              If you have any questions regarding this disclaimer, please contact us at: <a href="mailto:legal@smartmoneypath.com">legal@smartmoneypath.com</a>.
             </p>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-secondary-200 text-center">
-            <Link
-              href="/"
-              className="inline-block bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors"
-            >
-              Return to Home
-            </Link>
+          <div className="mt-16 pt-8 border-t border-secondary-200 flex flex-wrap justify-center gap-6 text-sm text-secondary-500">
+            <Link href="/privacy-policy" className="hover:text-primary-600 underline">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-primary-600 underline">Terms of Service</Link>
+            <Link href="/editorial-policy" className="hover:text-primary-600 underline">Editorial Policy</Link>
           </div>
         </div>
       </section>

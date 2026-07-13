@@ -1,0 +1,271 @@
+Total posts found: 38
+Legacy posts: 23
+New posts: 15
+
+--- ARTICLE AUDIT DETAILS ---
+
+#1: [ID: 1] "How Much Emergency Fund Do You Actually Need? A Data-Driven Guide" (Saving)
+  Source: legacy | Words: 1087 | Headings: 8
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1087 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#2: [ID: 2] "Index Fund Investing for Beginners: A Complete $100 Guide" (Investing)
+  Source: legacy | Words: 883 | Headings: 7
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (883 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#3: [ID: 3] "The 50/30/20 Budget: Test It Against Your Real Numbers" (Budgeting)
+  Source: legacy | Words: 509 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 2 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (509 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#4: [ID: 4] "Credit-Card Debt: Compare Snowball and Avalanche With Math" (Debt)
+  Source: legacy | Words: 534 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (534 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#5: [ID: 5] "Roth IRA or 401(k) First? The 2026 Decision Order" (Retirement)
+  Source: legacy | Words: 516 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (516 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#6: [ID: 6] "Student-Loan Repayment: Navigating the 2026 Landscape" (Education)
+  Source: legacy | Words: 451 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (451 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#7: [ID: 7] "High-Yield Savings Accounts: A 2026 Strategy" (Saving)
+  Source: legacy | Words: 443 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (443 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#8: [ID: 8] "How to Read Your Credit Score and Fix Errors" (Credit)
+  Source: legacy | Words: 538 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (538 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#9: [ID: 9] "Term vs. Whole Life Insurance: A Simple Comparison" (Insurance)
+  Source: legacy | Words: 482 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 2 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (482 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#10: [ID: 10] "Tax-Loss Harvesting: How to Lower Your Tax Bill in 2026" (Investing)
+  Source: legacy | Words: 493 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 2 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (493 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#11: [ID: 11] "Buying Your First Home: A Data-Backed 2026 Checklist" (Home Buying)
+  Source: legacy | Words: 456 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (456 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#12: [ID: 12] "Student Loan Forgiveness: Program Guide 2026" (Education)
+  Source: legacy | Words: 418 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 2 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (418 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#13: [ID: 13] "Student Loan Changes in 2026: Everything Borrowers Need to Know" (Education)
+  Source: legacy | Words: 305 | Headings: 5
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (305 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#14: [ID: 14] "Best High-Yield Savings Accounts (2026): Compare APYs, Fees & Features" (Saving)
+  Source: legacy | Words: 285 | Headings: 5
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (285 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#15: [ID: 15] "Best Credit Cards in 2026: Cashback, Travel & Balance Transfer Picks" (Credit)
+  Source: legacy | Words: 274 | Headings: 5
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 2 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (274 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#16: [ID: 16] "How Much Does It Cost to Attend the FIFA World Cup 2026? A Fan Guide" (Saving)
+  Source: legacy | Words: 242 | Headings: 5
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 2 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (242 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#17: [ID: 17] "The Hidden Costs of Car Ownership: More Than a Monthly Payment" (Auto)
+  Source: legacy | Words: 179 | Headings: 4
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 2 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (179 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#18: [ID: 18] "How to Save Your First $1,000: The Momentum Blueprint" (Saving)
+  Source: legacy | Words: 143 | Headings: 4
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 2 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (143 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#19: [ID: 19] "Estate Planning for the Rest of Us: A 2026 Guide" (Planning)
+  Source: legacy | Words: 147 | Headings: 4
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 2 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (147 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#20: [ID: 20] "The Psychology of Money: Rewiring Your Financial Brain" (Mindset)
+  Source: legacy | Words: 144 | Headings: 4
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 2 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (144 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#21: [ID: 21] "Roth IRA vs. Traditional IRA: Which is Better in 2026?" (Retirement)
+  Source: legacy | Words: 857 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (857 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#22: [ID: 22] "Best Checking Accounts of 2026: Low Fees and High Rewards" (Banking)
+  Source: legacy | Words: 642 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (642 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#23: [ID: 23] "The Ultimate Emergency Fund Guide: 2026 Edition" (Saving)
+  Source: legacy | Words: 707 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 2
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (707 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#24: [ID: 24] "Roth IRA vs. Traditional IRA: The Comprehensive 2026 Strategy Guide" (Retirement)
+  Source: new | Words: 1644 | Headings: 7
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: No comparison table, Few internal links (0), Few outbound links (0)
+
+#25: [ID: 25] "Emergency Fund Guide: How Much Cash Should You Actually Save?" (Saving)
+  Source: new | Words: 1190 | Headings: 7
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1190 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#26: [ID: 26] "Best Checking Accounts (2026): The Ultimate Fee & Features Audit" (Banking)
+  Source: new | Words: 1009 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1009 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#27: [ID: 27] "How Credit Scores Really Work: FICO, VantageScore & Optimization" (Credit)
+  Source: new | Words: 1126 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1126 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#28: [ID: 28] "Best Personal Loans (2026): Compare Rates, Fees & Lenders" (Loans)
+  Source: new | Words: 1446 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1446 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#29: [ID: 29] "ETF vs. Mutual Funds: Which Is Better for Beginners in 2026?" (Investing)
+  Source: new | Words: 1438 | Headings: 7
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1438 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#30: [ID: 30] "How to Start Investing with Just $100: The Complete Beginner Guide" (Investing)
+  Source: new | Words: 1205 | Headings: 7
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1205 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#31: [ID: 31] "Best Budgeting Apps (2026): Free & Premium Audited Tools" (Budgeting)
+  Source: new | Words: 1152 | Headings: 7
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1152 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#32: [ID: 32] "Certificate of Deposit (CD) Guide: Rates, Risks & Benefits" (Saving)
+  Source: new | Words: 1135 | Headings: 7
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1135 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#33: [ID: 33] "Online Banks vs. Traditional Banks: A Complete Comparison" (Banking)
+  Source: new | Words: 1009 | Headings: 7
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1009 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#34: [ID: 34] "Best Online Brokers for Beginners (2026): A Complete Review" (Investing)
+  Source: new | Words: 1115 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1115 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#35: [ID: 35] "Best Robo-Advisors (2026): Automated Wealth Building" (Investing)
+  Source: new | Words: 1199 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1199 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#36: [ID: 36] "Best Tax Software (2026): Free & Premium Audits" (Taxes)
+  Source: new | Words: 1151 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1151 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#37: [ID: 37] "Best Cashback Credit Cards (2026): Maximize Your Rewards" (Credit Cards)
+  Source: new | Words: 1168 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1168 words), No comparison table, Few internal links (0), Few outbound links (0)
+
+#38: [ID: 38] "Best Travel Credit Cards (2026): Maximize Points & Perks" (Credit Cards)
+  Source: new | Words: 1172 | Headings: 6
+  Quick Answer: Yes | Key Takeaways: Yes | Tables: No
+  References: 3 | FAQs: 3
+  Total Links: 0 (Internal: 0, Outbound: 0)
+  Weaknesses: Word count is thin (1172 words), No comparison table, Few internal links (0), Few outbound links (0)

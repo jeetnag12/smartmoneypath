@@ -1,4 +1,4 @@
-// File: /Users/grx10solutionspvtltd/Desktop/TEST/app/disclaimer/page.tsx
+// File: C:\Users\MSIgr\OneDrive\Documents\TEST\app\disclaimer\page.tsx
 import * as entry from '../../../../app/disclaimer/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

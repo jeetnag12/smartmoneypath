@@ -1,92 +1,95 @@
 import Link from 'next/link'
+import { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { SITE_URL } from '@/lib/site'
+import { BreadcrumbSchema } from '@/components/seo/JsonLdSchemas'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Cookie Policy | SmartMoneyPath',
-  description: 'Learn how SmartMoneyPath uses cookies and similar technologies.',
+  description: 'How we use cookies and similar technologies to improve your experience and deliver relevant content.',
+  alternates: {
+    canonical: `${SITE_URL}/cookie-policy`,
+  },
+  openGraph: {
+    title: 'Cookie Policy | SmartMoneyPath',
+    description: 'Understand how and why we use cookies on our financial education platform.',
+    url: `${SITE_URL}/cookie-policy`,
+    siteName: 'SmartMoneyPath',
+    type: 'website',
+  },
 }
 
 export default function CookiePolicyPage() {
+  const breadcrumbItems = [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Cookie Policy', url: `${SITE_URL}/cookie-policy` },
+  ]
+
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
+      <BreadcrumbSchema items={breadcrumbItems} />
 
-      <section className="bg-gradient-to-br from-primary-50 to-secondary-50 py-20">
+      <section className="bg-gradient-to-br from-primary-50 to-secondary-50 pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-secondary-900 mb-4">
               Cookie Policy
             </h1>
             <p className="text-lg text-secondary-600">
-              Last updated: April 7, 2026
+              Last updated: June 25, 2026
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">What Are Cookies</h2>
-            <p className="text-secondary-600 mb-6">
-              Cookies are small text files that are stored on your computer or mobile device when you visit a website.
-              They help the website recognize your device and remember information about your visit.
+          <div className="prose prose-lg max-w-none prose-headings:text-secondary-900 prose-p:text-secondary-700 prose-strong:text-secondary-900 prose-a:text-primary-600 hover:prose-a:text-primary-700">
+            <h2 id="what-are-cookies">1. What Are Cookies?</h2>
+            <p>
+              Cookies are small pieces of text sent by your web browser by a website you visit. A cookie file is stored in your web browser and allows the service or a third-party to recognize you and make your next visit easier and the service more useful to you.
             </p>
 
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">How We Use Cookies</h2>
-            <p className="text-secondary-600 mb-4">We use cookies for the following purposes:</p>
-            <ul className="list-disc list-inside text-secondary-600 mb-6 space-y-2">
-              <li><strong>Essential cookies:</strong> Required for the website to function properly</li>
-              <li><strong>Analytics cookies:</strong> Help us understand how visitors interact with our website</li>
-              <li><strong>Advertising cookies:</strong> Used to deliver relevant advertisements</li>
-              <li><strong>Preference cookies:</strong> Remember your settings and preferences</li>
+            <h2 id="how-we-use">2. How SmartMoneyPath Uses Cookies</h2>
+            <p>
+              When you use and access our website, we may place a number of cookies files in your web browser. We use cookies for the following purposes:
+            </p>
+            <ul>
+              <li><strong>Essential Cookies:</strong> To enable certain functions of the service, such as security and user authentication.</li>
+              <li><strong>Analytics Cookies:</strong> To track information how the service is used so we can make improvements. We may also use analytics cookies to test new advertisements, pages, features or new functionality of the service to see how our users react to them.</li>
+              <li><strong>Advertising Cookies:</strong> These cookies are used by third-party vendors, including Google, to serve ads based on a user's prior visits to our website or other websites.</li>
             </ul>
 
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Third-Party Cookies</h2>
-            <p className="text-secondary-600 mb-6">
-              We use services from third parties that may set cookies on your device, including:
+            <h2 id="third-party">3. Third-Party Cookies</h2>
+            <p>
+              In addition to our own cookies, we may also use various third-parties cookies to report usage statistics of the service, deliver advertisements on and through the service, and so on.
             </p>
-            <ul className="list-disc list-inside text-secondary-600 mb-6 space-y-2">
-              <li>Google Analytics (usage analytics)</li>
-              <li>Google AdSense (advertising)</li>
+            <ul>
+              <li><strong>Google Analytics:</strong> Used to monitor and analyze website traffic.</li>
+              <li><strong>Google AdSense:</strong> Used to deliver personalized advertising.</li>
             </ul>
 
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Managing Cookies</h2>
-            <p className="text-secondary-600 mb-6">
-              Most web browsers allow you to control cookies through their settings. You can choose to
-              accept or decline cookies, or to be notified when a cookie is being sent. However, disabling
-              cookies may affect the functionality of this website.
-            </p>
-            <p className="text-secondary-600 mb-6">
-              To learn more about managing cookies, visit{' '}
-              <a href="https://www.allaboutcookies.org" className="text-primary-600 hover:underline" target="_blank" rel="noopener noreferrer">
-                allaboutcookies.org
-              </a>.
+            <h2 id="choices">4. What Are Your Choices Regarding Cookies?</h2>
+            <p>
+              If you'd like to delete cookies or instruct your web browser to delete or refuse cookies, please visit the help pages of your web browser. Please note, however, that if you delete cookies or refuse to accept them, you might not be able to use all of the features we offer.
             </p>
 
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Changes to This Policy</h2>
-            <p className="text-secondary-600 mb-6">
-              We may update this Cookie Policy from time to time. We will notify you of any changes by
-              posting the new policy on this page.
+            <h2 id="more-info">5. More Information</h2>
+            <p>
+              You can learn more about cookies at <a href="https://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer">AllAboutCookies.org</a>. For information on how we protect your data generally, please see our <Link href="/privacy-policy">Privacy Policy</Link>.
             </p>
 
-            <h2 className="text-2xl font-bold text-secondary-900 mb-4">Contact Us</h2>
-            <p className="text-secondary-600 mb-6">
-              If you have any questions about our Cookie Policy, please contact us at:{' '}
-              <a href="mailto:privacy@smartmoneypath.com" className="text-primary-600 hover:underline">
-                privacy@smartmoneypath.com
-              </a>
+            <h2 id="contact">6. Contact Us</h2>
+            <p>
+              If you have any questions about our Cookie Policy, please contact us at: <a href="mailto:privacy@smartmoneypath.com">privacy@smartmoneypath.com</a>.
             </p>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-secondary-200 text-center">
-            <Link
-              href="/"
-              className="inline-block bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors"
-            >
-              Return to Home
-            </Link>
+          <div className="mt-16 pt-8 border-t border-secondary-200 flex flex-wrap justify-center gap-6 text-sm text-secondary-500">
+            <Link href="/privacy-policy" className="hover:text-primary-600 underline">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-primary-600 underline">Terms of Service</Link>
           </div>
         </div>
       </section>

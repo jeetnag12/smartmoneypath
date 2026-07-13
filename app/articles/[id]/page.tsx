@@ -146,6 +146,7 @@ export default async function ArticlePage({ params }: PageProps) {
           publishedAt={post.publishedAt}
           updatedAt={post.updatedAt}
           url={articleUrl}
+          reviewedBy={post.reviewedBy?.name}
         />
         <BreadcrumbSchema items={breadcrumbItems} />
         {faqs.length > 0 && <FAQSchema questions={faqs} />}
