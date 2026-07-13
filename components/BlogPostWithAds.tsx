@@ -167,7 +167,7 @@ export default function BlogPostWithAds({ post, relatedPosts }: BlogPostWithAdsP
               <div className="flex flex-wrap items-center justify-between gap-8 pb-8 border-b border-secondary-100">
                 <div className="flex items-center gap-4">
                   <div className="relative">
-                    <img src={post.author.avatar} alt={post.author.name} width={56} height={56} className="w-14 h-14 rounded-2xl object-cover border-2 border-primary-50 shadow-md" />
+                    <img src={post.author.avatar} alt={post.author.name} width={56} height={56} loading="lazy" className="w-14 h-14 rounded-2xl object-cover border-2 border-primary-50 shadow-md" />
                     <div className="absolute -bottom-1 -right-1 bg-primary-600 border-2 border-white w-5 h-5 rounded-full flex items-center justify-center shadow-lg">
                       <ShieldCheck className="h-3 w-3 text-white" />
                     </div>
@@ -207,7 +207,7 @@ export default function BlogPostWithAds({ post, relatedPosts }: BlogPostWithAdsP
 
             <div className="lg:col-span-4">
               <div className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border border-secondary-100 rotate-2 bg-secondary-50 group hover:rotate-0 transition-transform duration-700">
-                <img src={post.imageUrl} alt={post.imageAlt || post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <img src={post.imageUrl} alt={post.imageAlt || post.title} width={800} height={600} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
             </div>
           </div>

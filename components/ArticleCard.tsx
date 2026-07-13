@@ -69,6 +69,7 @@ export default function ArticleCard({ post, variant = 'default' }: ArticleCardPr
             alt={post.imageAlt || post.title}
             width={80}
             height={80}
+            loading="lazy"
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           />
         </div>
@@ -94,6 +95,7 @@ export default function ArticleCard({ post, variant = 'default' }: ArticleCardPr
               alt={post.imageAlt || post.title}
               width={600}
               height={400}
+              loading="lazy"
               className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
           </div>
@@ -115,7 +117,7 @@ export default function ArticleCard({ post, variant = 'default' }: ArticleCardPr
             </p>
             <div className="flex items-center justify-between mt-auto pt-6 border-t border-secondary-50">
               <div className="flex items-center gap-3">
-                <img src={post.author.avatar} alt={post.author.name} width={28} height={28} className="w-7 h-7 rounded-full object-cover border border-secondary-100" />
+                <img src={post.author.avatar} alt={post.author.name} width={28} height={28} loading="lazy" className="w-7 h-7 rounded-full object-cover border border-secondary-100" />
                 <span className="text-[11px] font-black text-secondary-700 uppercase tracking-widest">{post.author.name}</span>
               </div>
               <div className="flex items-center gap-2 text-[10px] font-black text-secondary-400 uppercase tracking-widest">
@@ -140,6 +142,7 @@ export default function ArticleCard({ post, variant = 'default' }: ArticleCardPr
           alt={post.imageAlt || post.title}
           width={800}
           height={500}
+          loading="lazy"
           className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
         />
         <div className="absolute top-6 left-6">
@@ -167,7 +170,7 @@ export default function ArticleCard({ post, variant = 'default' }: ArticleCardPr
         <div className="flex items-center justify-between mt-auto pt-8 border-t border-secondary-50">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <img src={post.author.avatar} alt={post.author.name} width={40} height={40} className="w-10 h-10 rounded-xl object-cover border-2 border-white shadow-md" />
+              <img src={post.author.avatar} alt={post.author.name} width={40} height={40} loading="lazy" className="w-10 h-10 rounded-xl object-cover border-2 border-white shadow-md" />
               <div className="absolute -bottom-1 -right-1 bg-primary-600 border-2 border-white w-5 h-5 rounded-full flex items-center justify-center shadow-lg">
                 <ShieldCheck className="h-3 w-3 text-white" />
               </div>

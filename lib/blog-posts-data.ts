@@ -19,6 +19,13 @@ export interface Post {
   keyTakeaways?: string[]
   references?: { title: string; url: string }[]
   faqs?: { question: string; answer: string }[]
+  reviewedBy?: {
+    name: string
+    avatar: string
+    bio: string
+  }
+  relatedKeywords?: string[]
+  imageAlt?: string
 }
 
 const authors = {
@@ -195,7 +202,8 @@ export const blogPosts: Post[] = [
 <p>Building an emergency fund is a marathon, not a sprint. The peace of mind that comes from knowing you can handle a surprise car repair without checking your credit card balance is worth every automated transfer. Start small with a \$1,000 milestone. Celebrate that win, then use the formulas we've discussed today to reach your 3-month, then 6-month targets.</p>
 <p>Remember, financial planning is not about deprivation; it's about preparation. By taking control of your safety net today, you are buying your future self the freedom to handle whatever challenges life throws your way with confidence and calm. For a deeper dive into advanced strategies, see our <Link href="/articles/23">Ultimate Emergency Fund Guide (2026)</Link>.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau: An essential guide to building an emergency fund</a></li><li><a href="https://www.fdic.gov/resources/deposit-insurance/" target="_blank" rel="noopener noreferrer">FDIC: Deposit insurance information</a></li><li><a href="https://mycreditunion.gov/share-insurance" target="_blank" rel="noopener noreferrer">National Credit Union Administration: Share insurance</a></li></ul>`
+<ul><li><a href="https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau: An essential guide to building an emergency fund</a></li><li><a href="https://www.fdic.gov/resources/deposit-insurance/" target="_blank" rel="noopener noreferrer">FDIC: Deposit insurance information</a></li><li><a href="https://mycreditunion.gov/share-insurance" target="_blank" rel="noopener noreferrer">National Credit Union Administration: Share insurance</a></li></ul>`,
+    imageAlt: 'How Much Emergency Fund Do You Actually Need? A Data-Driven Guide - Detailed graphic guide to Saving on SmartMoneyPath.'
   },
   {
     id: 2,
@@ -315,7 +323,8 @@ export const blogPosts: Post[] = [
 <h2 id="conclusion">Patience: The Ultimate Investment Edge</h2>
 <p>The best time to start was yesterday; the second best time is today. Index funds aren't a get-rich-quick scheme, but they are a proven way to participate in the growth of the economy over the long haul. The stock market is a device for transferring money from the impatient to the patient. By keeping your costs low, staying diversified, and ignoring the daily headlines, you are building a foundation for true financial freedom.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/index-fund" target="_blank" rel="noopener noreferrer">SEC Investor.gov: Index fund definition</a></li><li><a href="https://www.investor.gov/introduction-investing/getting-started/understanding-fees" target="_blank" rel="noopener noreferrer">SEC Investor.gov: Understanding investment fees</a></li><li><a href="https://www.finra.org/investors/investing/investment-products/mutual-funds" target="_blank" rel="noopener noreferrer">FINRA: Mutual funds</a></li></ul>`
+<ul><li><a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/index-fund" target="_blank" rel="noopener noreferrer">SEC Investor.gov: Index fund definition</a></li><li><a href="https://www.investor.gov/introduction-investing/getting-started/understanding-fees" target="_blank" rel="noopener noreferrer">SEC Investor.gov: Understanding investment fees</a></li><li><a href="https://www.finra.org/investors/investing/investment-products/mutual-funds" target="_blank" rel="noopener noreferrer">FINRA: Mutual funds</a></li></ul>`,
+    imageAlt: 'Index Fund Investing for Beginners: A Complete $100 Guide - Detailed graphic guide to Investing on SmartMoneyPath.'
   },
   {
     id: 3,
@@ -419,7 +428,8 @@ export const blogPosts: Post[] = [
 <h2 id="conclusion">Building a Sustainable Lifestyle</h2>
 <p>Remember, the 50/30/20 rule is a target, not a law. The goal is awareness. By taking control of your money, you're ensuring that it serves your life goals, not just your immediate impulses. Control your money, or it will control you.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://www.consumerfinance.gov/consumer-tools/educator-tools/your-money-your-goals/toolkit/" target="_blank" rel="noopener noreferrer">CFPB: Your Money, Your Goals toolkit</a></li><li><a href="https://consumer.gov/managing-your-money/making-budget" target="_blank" rel="noopener noreferrer">Consumer.gov: Making a budget</a></li></ul>`
+<ul><li><a href="https://www.consumerfinance.gov/consumer-tools/educator-tools/your-money-your-goals/toolkit/" target="_blank" rel="noopener noreferrer">CFPB: Your Money, Your Goals toolkit</a></li><li><a href="https://consumer.gov/managing-your-money/making-budget" target="_blank" rel="noopener noreferrer">Consumer.gov: Making a budget</a></li></ul>`,
+    imageAlt: 'The 50/30/20 Budget: Test It Against Your Real Numbers - Detailed graphic guide to Budgeting on SmartMoneyPath.'
   },
   {
     id: 4,
@@ -526,7 +536,8 @@ export const blogPosts: Post[] = [
 <h2 id="conclusion">Winning the Mental Game</h2>
 <p>Whether you choose the math-heavy Avalanche or the small-win Snowball, the most important step is starting today. Debt is a weight, but it's not a life sentence. Pick your strategy, automate your minimums, and start reclaiming your future income.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-credit-card-interest-rate-what-does-apr-mean-en-44/" target="_blank" rel="noopener noreferrer">CFPB: Credit-card interest rates and APR</a></li><li><a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-find-a-credit-counselor-en-1351/" target="_blank" rel="noopener noreferrer">CFPB: How to find a credit counselor</a></li><li><a href="https://consumer.ftc.gov/articles/how-get-out-debt" target="_blank" rel="noopener noreferrer">FTC: How to get out of debt</a></li></ul>`
+<ul><li><a href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-credit-card-interest-rate-what-does-apr-mean-en-44/" target="_blank" rel="noopener noreferrer">CFPB: Credit-card interest rates and APR</a></li><li><a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-find-a-credit-counselor-en-1351/" target="_blank" rel="noopener noreferrer">CFPB: How to find a credit counselor</a></li><li><a href="https://consumer.ftc.gov/articles/how-get-out-debt" target="_blank" rel="noopener noreferrer">FTC: How to get out of debt</a></li></ul>`,
+    imageAlt: 'Credit-Card Debt: Compare Snowball and Avalanche With Math - Detailed graphic guide to Debt on SmartMoneyPath.'
   },
   {
     id: 5,
@@ -632,7 +643,8 @@ export const blogPosts: Post[] = [
 <h2 id="conclusion">The Best Plan is the One You Start</h2>
 <p>There is no "perfect" retirement plan, only the one that you actually fund. By prioritizing the employer match and then looking at your tax advantages, you're already miles ahead of most. Start today, even with a small amount—time is your greatest asset in the world of compounding.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits" target="_blank" rel="noopener noreferrer">IRS: 401(k) contribution limits</a></li><li><a href="https://www.irs.gov/retirement-plans/roth-iras" target="_blank" rel="noopener noreferrer">IRS: Roth IRAs</a></li><li><a href="https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/publications/what-you-should-know-about-your-retirement-plan" target="_blank" rel="noopener noreferrer">U.S. Department of Labor: What you should know about your retirement plan</a></li></ul>`
+<ul><li><a href="https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits" target="_blank" rel="noopener noreferrer">IRS: 401(k) contribution limits</a></li><li><a href="https://www.irs.gov/retirement-plans/roth-iras" target="_blank" rel="noopener noreferrer">IRS: Roth IRAs</a></li><li><a href="https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/publications/what-you-should-know-about-your-retirement-plan" target="_blank" rel="noopener noreferrer">U.S. Department of Labor: What you should know about your retirement plan</a></li></ul>`,
+    imageAlt: 'Roth IRA or 401(k) First? The 2026 Decision Order - Detailed graphic guide to Retirement on SmartMoneyPath.'
   },
   {
     id: 6,
@@ -733,7 +745,8 @@ export const blogPosts: Post[] = [
 <h2 id="conclusion">Taking Control of Your Debt</h2>
 <p>Knowledge is your best weapon against debt. By understanding exactly what you owe and the programs available to help, you can turn that "heavy backpack" into a manageable load. Take one hour this weekend to log in to your servicer and run the numbers—your future self will thank you.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://studentaid.gov/loan-simulator/" target="_blank" rel="noopener noreferrer">Federal Student Aid: Loan Simulator</a></li><li><a href="https://studentaid.gov/manage-loans/repayment/plans" target="_blank" rel="noopener noreferrer">Federal Student Aid: Repayment plans</a></li><li><a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/public-service" target="_blank" rel="noopener noreferrer">Federal Student Aid: Public Service Loan Forgiveness</a></li></ul>`
+<ul><li><a href="https://studentaid.gov/loan-simulator/" target="_blank" rel="noopener noreferrer">Federal Student Aid: Loan Simulator</a></li><li><a href="https://studentaid.gov/manage-loans/repayment/plans" target="_blank" rel="noopener noreferrer">Federal Student Aid: Repayment plans</a></li><li><a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/public-service" target="_blank" rel="noopener noreferrer">Federal Student Aid: Public Service Loan Forgiveness</a></li></ul>`,
+    imageAlt: 'Student-Loan Repayment: Navigating the 2026 Landscape - Detailed graphic guide to Education on SmartMoneyPath.'
   },
   {
     id: 7,
@@ -865,7 +878,8 @@ export const blogPosts: Post[] = [
 <h2 id="checklist">HYSA Selection Checklist</h2>
 <p>When selecting your account, check the following variables: 1) Monthly fees (aim for \$0), 2) Minimum deposit limits (aim for \$0), 3) Mobile transfer limits, and 4) FDIC certificate status. Pair this with our printable <Link href="/resources/emergency-fund-checklist">Emergency Fund Worksheet</Link> to calculate your savings buffer target.</p>
 <h2 id="conclusion">Actionable Steps to Switch</h2>
-<p>Moving your savings to a high-yield account is one of the easiest financial wins you can achieve. Settle your starter buffer, redirect deposits using auto-transfers, and start building yield immediately. Pair this account with our guide on the <Link href="/articles/22">Best Checking Accounts</Link> for seamless cash hub integration.</p>`
+<p>Moving your savings to a high-yield account is one of the easiest financial wins you can achieve. Settle your starter buffer, redirect deposits using auto-transfers, and start building yield immediately. Pair this account with our guide on the <Link href="/articles/22">Best Checking Accounts</Link> for seamless cash hub integration.</p>`,
+    imageAlt: 'High-Yield Savings Accounts: A 2026 Strategy - Detailed graphic guide to Saving on SmartMoneyPath.'
   },
   {
     id: 8,
@@ -978,7 +992,8 @@ export const blogPosts: Post[] = [
 <h2 id="conclusion">You Are More Than a Number</h2>
 <p>Your credit score isn't a permanent mark of your character; it's a dynamic data point that you can improve. By checking your report annually and disputing errors, you ensure that your financial grade reflects your actual behavior. Take control of your data, and you'll take control of your financial options.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-dispute-an-error-on-my-credit-report-en-314/" target="_blank">CFPB: Disputing Credit Report Errors</a></li><li><a href="https://consumer.ftc.gov/articles/free-credit-reports" target="_blank">FTC: Free Credit Reports</a></li></ul>`
+<ul><li><a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-dispute-an-error-on-my-credit-report-en-314/" target="_blank">CFPB: Disputing Credit Report Errors</a></li><li><a href="https://consumer.ftc.gov/articles/free-credit-reports" target="_blank">FTC: Free Credit Reports</a></li></ul>`,
+    imageAlt: 'How to Read Your Credit Score and Fix Errors - Detailed graphic guide to Credit on SmartMoneyPath.'
   },
   {
     id: 9,
@@ -1074,7 +1089,8 @@ export const blogPosts: Post[] = [
 <h2 id="conclusion">Protecting What Matters Most</h2>
 <p>At the end of the day, the "best" insurance is the one that stays in force when your family needs it. For most people, a simple term policy provides the most protection for the lowest cost, leaving you more money to invest elsewhere. Don't let the complexity stop you from getting the basic coverage your loved ones deserve.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://content.naic.org/consumer/life-insurance.htm" target="_blank">NAIC: Life Insurance Basics</a></li><li><a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/life-insurance" target="_blank">SEC: Life Insurance</a></li></ul>`
+<ul><li><a href="https://content.naic.org/consumer/life-insurance.htm" target="_blank">NAIC: Life Insurance Basics</a></li><li><a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/life-insurance" target="_blank">SEC: Life Insurance</a></li></ul>`,
+    imageAlt: 'Term vs. Whole Life Insurance: A Simple Comparison - Detailed graphic guide to Insurance on SmartMoneyPath.'
   },
   {
     id: 10,
@@ -1176,7 +1192,8 @@ export const blogPosts: Post[] = [
 <h2 id="conclusion">Staying Proactive with Your Taxes</h2>
 <p>Tax-loss harvesting is one of the few ways to make a market downturn work in your favor. By being proactive and disciplined, you can keep more of your money working for you and less of it going to the government. Just remember to watch the calendar and avoid the wash-sale trap. Consult with a tax professional before making significant moves.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://www.irs.gov/taxtopics/tc409" target="_blank">IRS: Capital Gains and Losses</a></li><li><a href="https://www.sec.gov/news/press-release/2013-14" target="_blank">SEC: Wash Sales</a></li></ul>`
+<ul><li><a href="https://www.irs.gov/taxtopics/tc409" target="_blank">IRS: Capital Gains and Losses</a></li><li><a href="https://www.sec.gov/news/press-release/2013-14" target="_blank">SEC: Wash Sales</a></li></ul>`,
+    imageAlt: 'Tax-Loss Harvesting: How to Lower Your Tax Bill in 2026 - Detailed graphic guide to Investing on SmartMoneyPath.'
   },
   {
     id: 11,
@@ -1277,7 +1294,8 @@ export const blogPosts: Post[] = [
 <h2 id="conclusion">Your Journey to Homeownership</h2>
 <p>The road to homeownership is long and full of paperwork, but the feeling of walking into a place you actually own is worth the effort. Stay disciplined with your savings, be patient with the search, and don't be afraid to walk away if the inspection reveals a money pit. You've got this.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://www.hud.gov/topics/buying_a_home" target="_blank">HUD: Buying a Home</a></li><li><a href="https://www.consumerfinance.gov/owning-a-home/" target="_blank">CFPB: Owning a Home</a></li></ul>`
+<ul><li><a href="https://www.hud.gov/topics/buying_a_home" target="_blank">HUD: Buying a Home</a></li><li><a href="https://www.consumerfinance.gov/owning-a-home/" target="_blank">CFPB: Owning a Home</a></li></ul>`,
+    imageAlt: 'Buying Your First Home: A Data-Backed 2026 Checklist - Detailed graphic guide to Home Buying on SmartMoneyPath.'
   },
   {
     id: 12,
@@ -1409,7 +1427,8 @@ export const blogPosts: Post[] = [
 <h2 id="scams">Avoiding Student Loan Scams</h2>
 <p>If you get a call or email from someone promising to 'wipe your debt clean' for an upfront fee of \$500, hang up. These companies often just fill out the free forms on StudentAid.gov for you—or worse, they steal your identity. The government will never ask for your FSA ID password over the phone.</p>
 <h2 id="conclusion">Actionable Steps to Verify Eligibility</h2>
-<p>Log in to your dashboard on StudentAid.gov to inventory your loans. Convert any FFEL program loans into federal Direct Loans to ensure you qualify for PSLF. For help setting your repayment plan, check out our printable <Link href="/resources/debt-payoff-planner">Debt Payoff Worksheet</Link> and read our comparison of <Link href="/articles/6">Student Loan Repayment Options</Link>.</p>`
+<p>Log in to your dashboard on StudentAid.gov to inventory your loans. Convert any FFEL program loans into federal Direct Loans to ensure you qualify for PSLF. For help setting your repayment plan, check out our printable <Link href="/resources/debt-payoff-planner">Debt Payoff Worksheet</Link> and read our comparison of <Link href="/articles/6">Student Loan Repayment Options</Link>.</p>`,
+    imageAlt: 'Student Loan Forgiveness: Program Guide 2026 - Detailed graphic guide to Education on SmartMoneyPath.'
   },
   {
     id: 13,
@@ -1529,7 +1548,8 @@ export const blogPosts: Post[] = [
 <h2 id="repayment-strategies">Choosing the Right Repayment Plan</h2>
 <p>Choosing the right plan in 2026 is about balancing your monthly cash flow with the total cost of the loan. While plans like SAVE offer low monthly payments, they may be subject to legal changes. Ensure you are in a Direct Loan program to maximize your eligibility for all current federal protections. Contrast this against our printable <Link href="/resources/debt-payoff-planner">Debt Payoff Template</Link> and read our review of <Link href="/articles/12">Student Loan Forgiveness Programs</Link>.</p>
 <h2 id="conclusion">Your Path Forward</h2>
-<p>The student loan changes of 2026 require a proactive approach. Verify your loan types on StudentAid.gov, audit your 401(k) contributions to potentially lower your IDR payments, and prepare for potential tax liabilities. At SmartMoneyPath, we follow our <Link href="/editorial-policy">Editorial Policy</Link> to ensure this data remains objective.</p>`
+<p>The student loan changes of 2026 require a proactive approach. Verify your loan types on StudentAid.gov, audit your 401(k) contributions to potentially lower your IDR payments, and prepare for potential tax liabilities. At SmartMoneyPath, we follow our <Link href="/editorial-policy">Editorial Policy</Link> to ensure this data remains objective.</p>`,
+    imageAlt: 'Student Loan Changes in 2026: Everything Borrowers Need to Know - Detailed graphic guide to Education on SmartMoneyPath.'
   },
   {
     id: 14,
@@ -1654,7 +1674,8 @@ export const blogPosts: Post[] = [
 <h2 id="top-picks">Top High-Yield Picks for 2026</h2>
 <p>Institutions like <strong>SoFi</strong> and <strong>Ally Bank</strong> continue to lead the market with feature-rich apps and consistently high APYs. <strong>Marcus by Charles Schwab or Goldman Sachs</strong> remains a top choice for its simplicity and brand trust. Always verify current rates on the bank's official website before opening an account.</p>
 <h2 id="conclusion">Finding Your Path to Savings</h2>
-<p>By choosing an institution that offers a top-tier APY and \$0 in fees, you are taking a decisive step toward financial independence. Move your cash buffer today and start earning what your money is worth. Pair this with our printable <Link href="/resources/emergency-fund-checklist">Emergency Fund Checklist</Link> and read our guide on the <Link href="/articles/7">High-Yield Savings Strategy</Link> to optimize your accounts.</p>`
+<p>By choosing an institution that offers a top-tier APY and \$0 in fees, you are taking a decisive step toward financial independence. Move your cash buffer today and start earning what your money is worth. Pair this with our printable <Link href="/resources/emergency-fund-checklist">Emergency Fund Checklist</Link> and read our guide on the <Link href="/articles/7">High-Yield Savings Strategy</Link> to optimize your accounts.</p>`,
+    imageAlt: 'Best High-Yield Savings Accounts (2026): Compare APYs, Fees & Features - Detailed graphic guide to Saving on SmartMoneyPath.'
   },
   {
     id: 15,
@@ -1779,7 +1800,8 @@ export const blogPosts: Post[] = [
 <h2 id="fees">Common Fees to Watch Out For</h2>
 <p>Watch out for annual fees, late payment fees, and foreign transaction fees. If you travel internationally, ensure your card has a \$0 foreign transaction fee policy to avoid a 3% 'hidden tax' on every purchase.</p>
 <h2 id="conclusion">Building Your Smart Wallet</h2>
-<p>The best card is the one that puts the most money back in your pocket based on your actual, documented spending habits. Start with our top picks and always verify the latest terms directly with the issuer.</p>`
+<p>The best card is the one that puts the most money back in your pocket based on your actual, documented spending habits. Start with our top picks and always verify the latest terms directly with the issuer.</p>`,
+    imageAlt: 'Best Credit Cards in 2026: Cashback, Travel & Balance Transfer Picks - Detailed graphic guide to Credit on SmartMoneyPath.'
   },
   {
     id: 16,
@@ -1904,7 +1926,8 @@ export const blogPosts: Post[] = [
 <h2 id="accommodation">Accommodation: Hotels vs. Alternatives</h2>
 <p>Lodging will be your largest daily expense. 3-star hotels in major cities like NYC or LA will likely spike to \$450-\$800 per night. Booking refundable rooms 12 months in advance is the best way to secure a reasonable rate.</p>
 <h2 id="conclusion">Planning Your Goal Fund</h2>
-<p>Treat your World Cup trip as a strategic financial project. Open a <Link href="/articles/7">High-Yield Savings Account</Link> specifically for this goal and automate your savings. With a disciplined plan, you can experience the beautiful game without the financial hangover.</p>`
+<p>Treat your World Cup trip as a strategic financial project. Open a <Link href="/articles/7">High-Yield Savings Account</Link> specifically for this goal and automate your savings. With a disciplined plan, you can experience the beautiful game without the financial hangover.</p>`,
+    imageAlt: 'How Much Does It Cost to Attend the FIFA World Cup 2026? A Fan Guide - Detailed graphic guide to Saving on SmartMoneyPath.'
   },
   {
     id: 17,
@@ -2024,7 +2047,8 @@ export const blogPosts: Post[] = [
 <h2 id="maintenance">Planning for Repairs</h2>
 <p>AAA estimates maintenance costs at roughly 10 cents per mile. If you drive 15,000 miles a year, that's \$1,500 you should have in a Sinking Fund. Pair this with our printable <Link href="/resources/budget-planner">Budget Planner</Link> to allocate auto maintenance cash flow.</p>
 <h2 id="conclusion">Utility Over Status</h2>
-<p>A car is a tool to get from A to B. By understanding the true cost of ownership, you can make a choice that keeps your transport reliable without sabotaging your long-term wealth. For a complete look at loan terms, read our guide on <Link href="/articles/4">Debt Payoff Strategies</Link>.</p>`
+<p>A car is a tool to get from A to B. By understanding the true cost of ownership, you can make a choice that keeps your transport reliable without sabotaging your long-term wealth. For a complete look at loan terms, read our guide on <Link href="/articles/4">Debt Payoff Strategies</Link>.</p>`,
+    imageAlt: 'The Hidden Costs of Car Ownership: More Than a Monthly Payment - Detailed graphic guide to Auto on SmartMoneyPath.'
   },
   {
     id: 18,
@@ -2149,7 +2173,8 @@ export const blogPosts: Post[] = [
 <h2 id="audit">The 30-Day Spending Audit</h2>
 <p>Highlight everything that wasn't rent, utilities, or groceries on your last statement. You'll likely find \$200 in 'leakage'—dining out or unused subscriptions. Check your numbers on our printable <Link href="/resources/budget-planner">Budget Planner Tool</Link>.</p>
 <h2 id="conclusion">You Are Now a Saver</h2>
-<p>Reaching \$1,000 is an identity shift. You've proven you can set a goal and reach it. Keep that momentum going! Access our printable <Link href="/resources/emergency-fund-checklist">Emergency Fund Checklist</Link> to size your next milestone, and learn more about HYSAs in our <Link href="/articles/14">HYSA Review Guide</Link>.</p>`
+<p>Reaching \$1,000 is an identity shift. You've proven you can set a goal and reach it. Keep that momentum going! Access our printable <Link href="/resources/emergency-fund-checklist">Emergency Fund Checklist</Link> to size your next milestone, and learn more about HYSAs in our <Link href="/articles/14">HYSA Review Guide</Link>.</p>`,
+    imageAlt: 'How to Save Your First $1,000: The Momentum Blueprint - Detailed graphic guide to Saving on SmartMoneyPath.'
   },
   {
     id: 19,
@@ -2274,7 +2299,8 @@ export const blogPosts: Post[] = [
 <h2 id="beneficiaries">The Beneficiary Override Rule</h2>
 <p>Beneficiaries on your 401(k) or life insurance override your Will. If you divorced but didn't update your IRA, the money goes to your ex-spouse. Perform an audit every year.</p>
 <h2 id="conclusion">Actionable Steps to Get Started</h2>
-<p>Use our printable <Link href="/resources/financial-goal-planner">Financial Goal Planner</Link> to coordinate your assets. Audit beneficiary designations on retirement accounts. For budgeting guidelines, check our <Link href="/articles/5">Roth IRA or 401(k) Allocation Order</Link>.</p>`
+<p>Use our printable <Link href="/resources/financial-goal-planner">Financial Goal Planner</Link> to coordinate your assets. Audit beneficiary designations on retirement accounts. For budgeting guidelines, check our <Link href="/articles/5">Roth IRA or 401(k) Allocation Order</Link>.</p>`,
+    imageAlt: 'Estate Planning for the Rest of Us: A 2026 Guide - Detailed graphic guide to Planning on SmartMoneyPath.'
   },
   {
     id: 20,
@@ -2393,7 +2419,8 @@ export const blogPosts: Post[] = [
 <h2 id="rewiring">Rewiring Your Financial Habits</h2>
 <p>Use the 24-hour rule. Wait one full day before any purchase over \$50. This gives your logical brain time to override the emotional impulse. Audit your numbers with our <Link href="/resources/budget-planner">Budget Planner Template</Link>.</p>
 <h2 id="conclusion">Actionable Steps to Build Wealth</h2>
-<p>Unsubscribe from retail emails to increase purchase friction. Check out our guide on <Link href="/articles/3">The 50/30/20 Budget Setup</Link> and read about debt payoff momentum in <Link href="/articles/4">Snowball vs Avalanche Payoff Ratios</Link>.</p>`
+<p>Unsubscribe from retail emails to increase purchase friction. Check out our guide on <Link href="/articles/3">The 50/30/20 Budget Setup</Link> and read about debt payoff momentum in <Link href="/articles/4">Snowball vs Avalanche Payoff Ratios</Link>.</p>`,
+    imageAlt: 'The Psychology of Money: Rewiring Your Financial Brain - Detailed graphic guide to Mindset on SmartMoneyPath.'
   },
   {
     id: 21,
@@ -2512,7 +2539,8 @@ export const blogPosts: Post[] = [
 <h2 id="conclusion">Start Your Tax-Advantaged Journey</h2>
 <p>The "perfect" account is the one you actually fund. Whether you choose Roth or Traditional, the power of compounding in a tax-advantaged environment is your greatest ally. For beginners, we recommend starting with a low-cost <Link href="/articles/2">Index Fund</Link> inside your chosen IRA to keep fees low and diversification high.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://www.irs.gov/retirement-plans/ira-deduction-limits" target="_blank">IRS: IRA Deduction Limits</a></li><li><a href="https://www.irs.gov/retirement-plans/roth-ira-contribution-limits" target="_blank">IRS: Roth IRA Limits</a></li><li><a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/individual-retirement-accounts-iras" target="_blank">SEC: Understanding IRAs</a></li></ul>`
+<ul><li><a href="https://www.irs.gov/retirement-plans/ira-deduction-limits" target="_blank">IRS: IRA Deduction Limits</a></li><li><a href="https://www.irs.gov/retirement-plans/roth-ira-contribution-limits" target="_blank">IRS: Roth IRA Limits</a></li><li><a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/individual-retirement-accounts-iras" target="_blank">SEC: Understanding IRAs</a></li></ul>`,
+    imageAlt: 'Roth IRA vs. Traditional IRA: Which is Better in 2026? - Detailed graphic guide to Retirement on SmartMoneyPath.'
   },
   {
     id: 22,
@@ -2631,7 +2659,8 @@ export const blogPosts: Post[] = [
 <h2 id="conclusion">Optimize Your Daily Cash Flow</h2>
 <p>Don't let a mediocre bank be the anchor that slows down your financial progress. By moving to a top-tier checking account, you reduce friction, eliminate fees, and gain better control over your money hub. Start today by reviewing your last three bank statements—how much did you pay just to access your own money?</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://www.consumerfinance.gov/data-research/research-reports/junk-fees-at-banks-and-credit-unions/" target="_blank">CFPB: Report on Bank Junk Fees</a></li><li><a href="https://www.fdic.gov/consumers/assistance/protection/depaccounts/index.html" target="_blank">FDIC: Deposit Account Information</a></li></ul>`
+<ul><li><a href="https://www.consumerfinance.gov/data-research/research-reports/junk-fees-at-banks-and-credit-unions/" target="_blank">CFPB: Report on Bank Junk Fees</a></li><li><a href="https://www.fdic.gov/consumers/assistance/protection/depaccounts/index.html" target="_blank">FDIC: Deposit Account Information</a></li></ul>`,
+    imageAlt: 'Best Checking Accounts of 2026: Low Fees and High Rewards - Detailed graphic guide to Banking on SmartMoneyPath.'
   },
   {
     id: 23,
@@ -2756,6 +2785,7 @@ export const blogPosts: Post[] = [
 <h2 id="conclusion">Your Path to Financial Resilience</h2>
 <p>Building an emergency fund is a marathon, but the finish line is worth every sacrifice. It is the single most important step in our <Link href="/methodology">Methodology</Link>. Start today with \$50. Your future self will thank you for the calm, confidence, and freedom that a cash buffer provides.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://www.federalreserve.gov/publications/2023-economic-well-being-of-us-households-in-2022-executive-summary.htm" target="_blank">Federal Reserve: SHED Report</a></li><li><a href="https://www.consumerfinance.gov/consumer-tools/save-money/" target="_blank">CFPB: Saving Resources</a></li></ul>`
+<ul><li><a href="https://www.federalreserve.gov/publications/2023-economic-well-being-of-us-households-in-2022-executive-summary.htm" target="_blank">Federal Reserve: SHED Report</a></li><li><a href="https://www.consumerfinance.gov/consumer-tools/save-money/" target="_blank">CFPB: Saving Resources</a></li></ul>`,
+    imageAlt: 'The Ultimate Emergency Fund Guide: 2026 Edition - Detailed graphic guide to Saving on SmartMoneyPath.'
   }
 ]
