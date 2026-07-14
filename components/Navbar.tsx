@@ -9,6 +9,7 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'Articles', href: '/articles' },
   { name: 'Resources', href: '/resources' },
+  { name: 'Tools', href: '/tools' },
   { name: 'Categories', href: '/categories', dropdown: [
     { name: 'Saving', href: '/categories/saving' },
     { name: 'Budgeting', href: '/categories/budgeting' },

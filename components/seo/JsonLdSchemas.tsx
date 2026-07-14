@@ -193,6 +193,43 @@ export function WebSiteSchema({
   )
 }
 
+interface WebPageSchemaProps {
+  name: string
+  description: string
+  url: string
+  publisher?: string
+}
+
+export function WebPageSchema({
+  name,
+  description,
+  url,
+  publisher = 'SmartMoneyPath',
+}: WebPageSchemaProps) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name,
+    description,
+    url,
+    publisher: {
+      '@type': 'Organization',
+      name: publisher,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/og-image.svg`,
+      },
+    },
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  )
+}
+
 export function extractFAQsFromContent(content: string): Array<{ question: string; answer: string }> {
   const faqs: Array<{ question: string; answer: string }> = []
 

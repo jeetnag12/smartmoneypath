@@ -19,6 +19,11 @@ import {
   Bookmark,
   ShieldCheck,
   ChevronRight,
+  ArrowRight,
+  Percent,
+  Coins,
+  PiggyBank,
+  Sparkles
 } from 'lucide-react'
 import AdSenseSlot from './AdSenseSlot'
 import RelatedPosts from './RelatedPosts'
@@ -61,6 +66,68 @@ interface Post {
 interface BlogPostWithAdsProps {
   post: Post
   relatedPosts?: Post[]
+}
+
+function renderCalculatorCTA(postId: number) {
+  const compoundInterestIds = [2, 29, 24, 21, 5]
+  const loanEmiIds = [28, 27, 8, 4]
+  const savingsGoalIds = [25, 23, 1, 14, 7, 3, 31]
+
+  if (compoundInterestIds.includes(postId)) {
+    return (
+      <div className="my-12 p-8 bg-secondary-900 text-white rounded-3xl relative overflow-hidden shadow-xl border border-secondary-800 animate-in fade-in duration-300">
+        <div className="relative z-10 max-w-xl">
+          <span className="text-[10px] font-black uppercase tracking-widest text-primary-400 bg-primary-950/40 px-3 py-1 rounded-full border border-primary-500/10">Interactive Tool</span>
+          <h4 className="text-xl md:text-2xl font-black mt-4 mb-2 tracking-tight">Try our Compound Interest Calculator</h4>
+          <p className="text-secondary-300 text-sm leading-relaxed mb-6 font-medium">
+            Find out how fast your portfolio can grow. Project future balances, adjust compounding frequency, and simulate inflation impacts.
+          </p>
+          <Link href="/tools/compound-interest-calculator" className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary-700/20 transition-all group">
+            Calculate Compound Interest <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary-800/25 rounded-full blur-[80px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+      </div>
+    )
+  }
+
+  if (loanEmiIds.includes(postId)) {
+    return (
+      <div className="my-12 p-8 bg-secondary-900 text-white rounded-3xl relative overflow-hidden shadow-xl border border-secondary-800 animate-in fade-in duration-300">
+        <div className="relative z-10 max-w-xl">
+          <span className="text-[10px] font-black uppercase tracking-widest text-primary-400 bg-primary-950/40 px-3 py-1 rounded-full border border-primary-500/10">Interactive Tool</span>
+          <h4 className="text-xl md:text-2xl font-black mt-4 mb-2 tracking-tight">Calculate your Monthly Loan EMI</h4>
+          <p className="text-secondary-300 text-sm leading-relaxed mb-6 font-medium">
+            Estimate your monthly loan installments. View amortization tables and simulate early loan payoff savings.
+          </p>
+          <Link href="/tools/loan-emi-calculator" className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary-700/20 transition-all group">
+            Calculate Your EMI <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary-800/25 rounded-full blur-[80px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+      </div>
+    )
+  }
+
+  if (savingsGoalIds.includes(postId)) {
+    return (
+      <div className="my-12 p-8 bg-secondary-900 text-white rounded-3xl relative overflow-hidden shadow-xl border border-secondary-800 animate-in fade-in duration-300">
+        <div className="relative z-10 max-w-xl">
+          <span className="text-[10px] font-black uppercase tracking-widest text-primary-400 bg-primary-950/40 px-3 py-1 rounded-full border border-primary-500/10">Interactive Tool</span>
+          <h4 className="text-xl md:text-2xl font-black mt-4 mb-2 tracking-tight">Estimate your Savings Target Timeline</h4>
+          <p className="text-secondary-300 text-sm leading-relaxed mb-6 font-medium">
+            Find out exactly how long it takes to reach your milestone. Visualize goals, and get monthly deposit recommendations.
+          </p>
+          <Link href="/tools/savings-goal-calculator" className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary-700/20 transition-all group">
+            Estimate Savings Goal <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary-800/25 rounded-full blur-[80px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+      </div>
+    )
+  }
+
+  return null
 }
 
 export default function BlogPostWithAds({ post, relatedPosts }: BlogPostWithAdsProps) {
@@ -295,7 +362,28 @@ export default function BlogPostWithAds({ post, relatedPosts }: BlogPostWithAdsP
               prose-ul:list-none prose-ul:pl-0
               prose-li:text-secondary-700 prose-li:font-medium prose-li:pl-8 prose-li:relative
               prose-li:before:content-[''] prose-li:before:absolute prose-li:before:left-0 prose-li:before:top-[0.8em] prose-li:before:w-2 prose-li:before:h-2 prose-li:before:bg-primary-600 prose-li:before:rounded-full">
-              <div dangerouslySetInnerHTML={{ __html: post.content.replace(/<Link\s+href="([^"]+)"\s*>([\s\S]*?)<\/Link>/g, '<a href="$1">$2</a>') }} />
+              {(() => {
+                const contentHtml = post.content.replace(/<Link\s+href="([^"]+)"\s*>([\s\S]*?)<\/Link>/g, '<a href="$1">$2</a>')
+                const h2Parts = contentHtml.split('<h2>')
+                if (h2Parts.length > 1) {
+                  return (
+                    <>
+                      <div dangerouslySetInnerHTML={{ __html: h2Parts[0] }} />
+                      <div dangerouslySetInnerHTML={{ __html: '<h2>' + h2Parts[1] }} />
+                      {renderCalculatorCTA(post.id)}
+                      {h2Parts.length > 2 && h2Parts.slice(2).map((part, i) => (
+                        <div key={i} dangerouslySetInnerHTML={{ __html: '<h2>' + part }} />
+                      ))}
+                    </>
+                  )
+                }
+                return (
+                  <>
+                    <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+                    {renderCalculatorCTA(post.id)}
+                  </>
+                )
+              })()}
             </div>
 
             {/* FAQ Section */}

@@ -660,7 +660,7 @@ export const blogPosts: Post[] = [
     ],
     readTime: '15 min read',
     publishedAt: '2026-06-10T09:00:00.000Z',
-    updatedAt: '2026-06-25T19:00:00.000Z',
+    updatedAt: '2026-07-15T00:00:00.000Z',
     author: authors.sarah,
     imageUrl: '/images/articles/student-loan-repayment.jpg',
     focusKeyword: 'student loan repayment plans comparison',
@@ -697,39 +697,22 @@ export const blogPosts: Post[] = [
       {
         question: 'What happens if I miss a payment?',
         answer: 'For federal loans, delinquency is reported to credit bureaus after 90 days. However, you should contact your servicer *before* you miss a payment to ask about deferment or forbearance options.'
+      },
+      {
+        question: 'How does the SAVE plan prevent negative amortization?',
+        answer: 'If your calculated monthly payment under the SAVE plan is less than the interest accrued that month, the government waives the remaining interest, preventing your total loan balance from growing.'
       }
     ],
     headings: [
-      {
-        id: 'inventory',
-        text: 'Step 1: The Master Loan Inventory',
-        level: 2
-      },
-      {
-        id: 'federal-vs-private',
-        text: 'Step 2: Federal vs. Private Protections',
-        level: 2
-      },
-      {
-        id: 'save-plan',
-        text: 'Step 3: Understanding the SAVE Plan',
-        level: 2
-      },
-      {
-        id: 'forgiveness',
-        text: 'Step 4: The Reality of Loan Forgiveness',
-        level: 2
-      },
-      {
-        id: 'refinancing',
-        text: 'When Refinancing Makes Sense',
-        level: 2
-      },
-      {
-        id: 'conclusion',
-        text: 'Taking Control of Your Debt',
-        level: 2
-      }
+      { id: 'inventory', text: 'Step 1: The Master Loan Inventory', level: 2 },
+      { id: 'federal-vs-private', text: 'Step 2: Federal vs. Private Protections', level: 2 },
+      { id: 'save-plan', text: 'Step 3: Understanding the SAVE Plan', level: 2 },
+      { id: 'mistakes', text: 'Common Student Loan Beginner Mistakes', level: 2 },
+      { id: 'comparison', text: 'Repayment Plan Decision Framework', level: 2 },
+      { id: 'checklist', text: 'Student Loan Action Checklist', level: 2 },
+      { id: 'forgiveness', text: 'Step 4: The Reality of Loan Forgiveness', level: 2 },
+      { id: 'refinancing', text: 'When Refinancing Makes Sense', level: 2 },
+      { id: 'conclusion', text: 'Taking Control of Your Debt', level: 2 }
     ],
     content: `<p>Your student loan balance can feel like a heavy backpack you're forced to wear every single day. But did you know that the way you choose to pay it back could save you thousands of dollars—or cost you just as much? Today, we're taking the guesswork out of repayment plans by showing you how to inventory your debt and use official tools to find your best path forward.</p>
 <h2 id="inventory">Step 1: The Master Loan Inventory</h2>
@@ -738,6 +721,46 @@ export const blogPosts: Post[] = [
 <p>Federal loans come with a unique set of 'safety nets' that private loans don't have. These include income-driven repayment, subsidized interest, and death/disability discharge. Never refinance a federal loan into a private one unless you have a massive emergency fund and a stable high income—once you go private, you lose these federal protections forever.</p>
 <h2 id="save-plan">Step 3: Understanding the SAVE Plan</h2>
 <p>The Saving on a Valuable Education (SAVE) plan is the newest income-driven repayment plan. It's a game-changer for many because it ensures that your balance *never grows* due to unpaid interest as long as you make your monthly payment. For many low-to-mid income earners, the monthly payment can be as low as \$0.</p>
+<h2 id="mistakes">Common Student Loan Beginner Mistakes</h2>
+<ul>
+  <li><strong>Refinancing too early:</strong> Converting federal loans to private loans, thereby losing access to loan forgiveness and income-driven plans.</li>
+  <li><strong>Missing servicer transfers:</strong> Loan servicers change frequently. Ignoring emails from new servicers can lead to missed payments and damaged credit.</li>
+  <li><strong>Ignoring consolidation risks:</strong> Consolidating older loans can sometimes reset your progress toward Public Service Loan Forgiveness (PSLF) or income-driven forgiveness.</li>
+</ul>
+<h2 id="comparison">Repayment Plan Decision Framework</h2>
+<div className="overflow-x-auto my-8">
+  <table className="w-full border-collapse border border-secondary-200 text-sm">
+    <thead>
+      <tr className="bg-secondary-100 text-secondary-900">
+        <th className="border border-secondary-200 p-4 text-left font-black">Plan Name</th>
+        <th className="border border-secondary-200 p-4 text-left font-black">Calculation Basis</th>
+        <th className="border border-secondary-200 p-4 text-left font-black">Best For</th>
+        <th className="border border-secondary-200 p-4 text-left font-black">Forgiveness Timeline</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="hover:bg-secondary-50">
+        <td className="border border-secondary-200 p-4 font-bold">Standard 10-Year</td>
+        <td className="border border-secondary-200 p-4">Fixed payments over 10 years</td>
+        <td className="border border-secondary-200 p-4">Borrowers who want to minimize total interest cost</td>
+        <td className="border border-secondary-200 p-4">None (fully paid off in 10 years)</td>
+      </tr>
+      <tr className="hover:bg-secondary-50">
+        <td className="border border-secondary-200 p-4 font-bold">SAVE (IDR)</td>
+        <td className="border border-secondary-200 p-4">5-10% of discretionary income</td>
+        <td className="border border-secondary-200 p-4">Low-to-moderate earners, public servants</td>
+        <td className="border border-secondary-200 p-4">10-25 years (depending on loan balance)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h2 id="checklist">Student Loan Action Checklist</h2>
+<ol>
+  <li>Retrieve all federal loan detail sheets from StudentAid.gov.</li>
+  <li>Identify private student loan balances using your credit report.</li>
+  <li>Use our <Link href="/tools/loan-emi-calculator">Loan EMI Calculator</Link> to model hypothetical repayment timelines.</li>
+  <li>Verify if your employer qualifies for Public Service Loan Forgiveness (PSLF).</li>
+</ol>
 <h2 id="forgiveness">Step 4: The Reality of Loan Forgiveness</h2>
 <p>Public Service Loan Forgiveness (PSLF) is no longer a myth. After 10 years of service in a qualifying government or non-profit role and 120 on-time payments, the remaining balance is forgiven tax-free. Other IDR plans offer forgiveness after 20-25 years, though the forgiven amount may be subject to federal income tax (check current laws for the 'tax bomb').</p>
 <h2 id="refinancing">When Refinancing Makes Sense</h2>
@@ -1008,7 +1031,7 @@ export const blogPosts: Post[] = [
     ],
     readTime: '12 min read',
     publishedAt: '2026-06-20T09:00:00.000Z',
-    updatedAt: '2026-06-25T22:00:00.000Z',
+    updatedAt: '2026-07-15T00:00:00.000Z',
     author: authors.sarah,
     imageUrl: '/images/articles/term-vs-whole-life.jpg',
     focusKeyword: 'term vs whole life insurance',
@@ -1031,6 +1054,10 @@ export const blogPosts: Post[] = [
       {
         title: 'SEC: Life Insurance',
         url: 'https://www.investor.gov/introduction-investing/investing-basics/glossary/life-insurance'
+      },
+      {
+        title: 'IRS: Estate Tax Exemption Thresholds 2026',
+        url: 'https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax'
       }
     ],
     faqs: [
@@ -1041,39 +1068,22 @@ export const blogPosts: Post[] = [
       {
         question: 'What happens if I outlive my term policy?',
         answer: 'The coverage simply ends. You don\'t get your premiums back, but that\'s okay—the insurance did its job of protecting you during your high-risk years (while you had a mortgage or young children).'
+      },
+      {
+        question: 'What is the cash value component in Whole Life?',
+        answer: 'Cash value is a portion of your premium that accumulates interest over time. However, it takes years to build up, is heavily reduced by early administrative fees, and is usually kept by the insurance company when you die (only the face value is paid out).'
       }
     ],
     headings: [
-      {
-        id: 'why-it-matters',
-        text: 'Cutting Through the Sales Pitch',
-        level: 2
-      },
-      {
-        id: 'term-basics',
-        text: 'How Term Life Works',
-        level: 2
-      },
-      {
-        id: 'whole-basics',
-        text: 'The Complexity of Whole Life',
-        level: 2
-      },
-      {
-        id: 'cost-comparison',
-        text: 'A Brutally Honest Cost Comparison',
-        level: 2
-      },
-      {
-        id: 'which-to-choose',
-        text: 'The Decision Framework',
-        level: 2
-      },
-      {
-        id: 'conclusion',
-        text: 'Protecting What Matters Most',
-        level: 2
-      }
+      { id: 'why-it-matters', text: 'Cutting Through the Sales Pitch', level: 2 },
+      { id: 'term-basics', text: 'How Term Life Works', level: 2 },
+      { id: 'whole-basics', text: 'The Complexity of Whole Life', level: 2 },
+      { id: 'cost-comparison', text: 'A Brutally Honest Cost Comparison', level: 2 },
+      { id: 'mistakes', text: 'Common Life Insurance Beginner Mistakes', level: 2 },
+      { id: 'comparison', text: 'Side-by-Side Policy Comparison', level: 2 },
+      { id: 'checklist', text: 'Life Insurance Buyer Checklist', level: 2 },
+      { id: 'which-to-choose', text: 'The Decision Framework', level: 2 },
+      { id: 'conclusion', text: 'Protecting What Matters Most', level: 2 }
     ],
     content: `<p>Thinking about life insurance is never "fun," but it's one of the kindest things you can do for the people you love. However, once you start looking, you'll be bombarded with jargon like "cash value," "surrender charges," and "death benefits." Today, we're cutting through the sales pitches to give you a clear-eyed look at Term vs. Whole life insurance so you can protect your family without overpaying for things you don't need.</p>
 <h2 id="why-it-matters">Cutting Through the Sales Pitch</h2>
@@ -1084,12 +1094,54 @@ export const blogPosts: Post[] = [
 <p>Whole life is permanent. As long as you pay the premiums, it will pay out whenever you die. It also has a 'Cash Value' account that grows slowly over time. The problem? Those premiums are massive. That same \$1,000,000 policy could cost \$600 to \$800 a month. Most of your early payments go toward agent commissions and fees, not your actual investment.</p>
 <h2 id="cost-comparison">A Brutally Honest Cost Comparison</h2>
 <p>Consider two people. Person A buys a \$500,000 Whole Life policy for \$400/month. Person B buys a \$500,000 Term policy for \$30/month and invests the remaining \$370 in a low-cost <Link href="/articles/2">Index Fund</Link>. After 30 years, Person B almost always has a significantly larger net worth because the stock market historically outperforms the 'guaranteed' returns of insurance cash values.</p>
+<h2 id="mistakes">Common Life Insurance Beginner Mistakes</h2>
+<ul>
+  <li><strong>Using insurance as an investment:</strong> Treating whole life policies as wealth generators rather than standard low-cost term protection combined with direct stock market index investing.</li>
+  <li><strong>Underestimating coverage needs:</strong> Buying a small policy (like \$50,000 from work) that won't actually support a family if a primary income earner passes away.</li>
+  <li><strong>Letting policies lapse:</strong> Buying expensive permanent insurance that becomes unaffordable, leading to a policy lapse and loss of all paid premiums.</li>
+</ul>
+<h2 id="comparison">Side-by-Side Policy Comparison</h2>
+<div className="overflow-x-auto my-8">
+  <table className="w-full border-collapse border border-secondary-200 text-sm">
+    <thead>
+      <tr className="bg-secondary-100 text-secondary-900">
+        <th className="border border-secondary-200 p-4 text-left font-black">Feature</th>
+        <th className="border border-secondary-200 p-4 text-left font-black">Term Life Insurance</th>
+        <th className="border border-secondary-200 p-4 text-left font-black">Whole Life Insurance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="hover:bg-secondary-50">
+        <td className="border border-secondary-200 p-4 font-bold">Policy Length</td>
+        <td className="border border-secondary-200 p-4">Specific term (e.g. 10 to 30 years)</td>
+        <td className="border border-secondary-200 p-4">Lifetime (permanent)</td>
+      </tr>
+      <tr className="hover:bg-secondary-50">
+        <td className="border border-secondary-200 p-4 font-bold">Average Monthly Cost</td>
+        <td className="border border-secondary-200 p-4">Low (\$30–\$50/mo for \$500k)</td>
+        <td className="border border-secondary-200 p-4">High (\$350–\$600/mo for \$500k)</td>
+      </tr>
+      <tr className="hover:bg-secondary-50">
+        <td className="border border-secondary-200 p-4 font-bold">Cash Value Growth</td>
+        <td className="border border-secondary-200 p-4">None</td>
+        <td className="border border-secondary-200 p-4">Yes (guaranteed rate ~2-4%)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h2 id="checklist">Life Insurance Buyer Checklist</h2>
+<ol>
+  <li>Calculate 10–12x your annual income as a target death benefit.</li>
+  <li>Pick a term length that matches your longest debt (e.g., a 30-year term to cover a 30-year mortgage).</li>
+  <li>Use our <Link href="/tools/compound-interest-calculator">Compound Interest Calculator</Link> to see how investing the Whole Life vs. Term premium difference expands your retirement pool.</li>
+  <li>Submit medical questionnaires accurately to prevent future claims denial.</li>
+</ol>
 <h2 id="which-to-choose">The Decision Framework</h2>
-<p>Do you have a lifelong dependent (like a child with special needs) who will require care after you're gone? Do you have an estate worth over \$13 million that requires complex tax planning? If the answer is No, you almost certainly only need **Term Life Insurance**. The goal is to be 'self-insured' by the time the term ends—meaning your house is paid off and your investments are large enough to support your spouse.</p>
+<p>Do you have a lifelong dependent (like a child with special needs) who will require care after you're gone? Do you have an estate worth over \$13.99 million (the 2026 federal estate tax threshold) that requires complex tax planning? If the answer is No, you almost certainly only need **Term Life Insurance**. The goal is to be 'self-insured' by the time the term ends—meaning your house is paid off and your investments are large enough to support your spouse.</p>
 <h2 id="conclusion">Protecting What Matters Most</h2>
 <p>At the end of the day, the "best" insurance is the one that stays in force when your family needs it. For most people, a simple term policy provides the most protection for the lowest cost, leaving you more money to invest elsewhere. Don't let the complexity stop you from getting the basic coverage your loved ones deserve.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://content.naic.org/consumer/life-insurance.htm" target="_blank">NAIC: Life Insurance Basics</a></li><li><a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/life-insurance" target="_blank">SEC: Life Insurance</a></li></ul>`,
+<ul><li><a href="https://content.naic.org/consumer/life-insurance.htm" target="_blank">NAIC: Life Insurance Basics</a></li><li><a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/life-insurance" target="_blank">SEC: Life Insurance</a></li><li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax" target="_blank">IRS: Estate Tax Exemption Thresholds 2026</a></li></ul>`,
     imageAlt: 'Term vs. Whole Life Insurance: A Simple Comparison - Detailed graphic guide to Insurance on SmartMoneyPath.'
   },
   {
@@ -1105,7 +1157,7 @@ export const blogPosts: Post[] = [
     ],
     readTime: '13 min read',
     publishedAt: '2026-06-21T09:00:00.000Z',
-    updatedAt: '2026-06-25T23:00:00.000Z',
+    updatedAt: '2026-07-15T00:00:00.000Z',
     author: authors.michael,
     imageUrl: '/images/articles/tax-loss-harvesting.jpg',
     focusKeyword: 'tax loss harvesting explained',
@@ -1128,6 +1180,10 @@ export const blogPosts: Post[] = [
       {
         title: 'SEC: Wash Sales',
         url: 'https://www.sec.gov/news/press-release/2013-14'
+      },
+      {
+        title: 'IRS: 2026 Capital Gains Tax Brackets',
+        url: 'https://www.irs.gov/newsroom/irs-provides-tax-inflation-adjustments-for-tax-year-2026'
       }
     ],
     faqs: [
@@ -1138,39 +1194,22 @@ export const blogPosts: Post[] = [
       {
         question: 'Is there a limit to how much I can harvest?',
         answer: 'There is no limit to how many losses you can use to offset capital gains. However, there is a $3,000 annual limit for offsetting \'ordinary income\'. Any excess above that amount carries over to the next year.'
+      },
+      {
+        question: 'What is a wash sale?',
+        answer: 'A wash sale occurs if you sell a security at a loss and buy the same or a substantially identical security within a 61-day window (30 days before or after the sale). If you violate this rule, the IRS disallows the loss deduction.'
       }
     ],
     headings: [
-      {
-        id: 'intro',
-        text: 'Lemons into Lemonade',
-        level: 2
-      },
-      {
-        id: 'how-it-works',
-        text: 'The Mechanics of the Offset',
-        level: 2
-      },
-      {
-        id: 'ordinary-income',
-        text: 'The $3,000 Magic Number',
-        level: 2
-      },
-      {
-        id: 'wash-sale',
-        text: 'Avoiding the Wash-Sale Trap',
-        level: 2
-      },
-      {
-        id: 'implementation',
-        text: 'Step-by-Step Harvesting Strategy',
-        level: 2
-      },
-      {
-        id: 'conclusion',
-        text: 'Staying Proactive with Your Taxes',
-        level: 2
-      }
+      { id: 'intro', text: 'Lemons into Lemonade', level: 2 },
+      { id: 'how-it-works', text: 'The Mechanics of the Offset', level: 2 },
+      { id: 'ordinary-income', text: 'The $3,000 Magic Number', level: 2 },
+      { id: 'mistakes', text: 'Common Beginner Tax Harvesting Mistakes', level: 2 },
+      { id: 'types', text: 'Capital Gains and Losses Comparison', level: 2 },
+      { id: 'checklist', text: 'Tax-Loss Harvesting Action Plan', level: 2 },
+      { id: 'wash-sale', text: 'Avoiding the Wash-Sale Trap', level: 2 },
+      { id: 'implementation', text: 'Step-by-Step Harvesting Strategy', level: 2 },
+      { id: 'conclusion', text: 'Staying Proactive with Your Taxes', level: 2 }
     ],
     content: `<p>Nobody likes seeing red in their investment portfolio. But what if I told you those "losses" could actually be a secret weapon to lower your IRS bill? It's a strategy used by the pros called Tax-Loss Harvesting. Today, we're showing you how to turn your investment lemons into tax-savings lemonade while staying on the right side of the "wash-sale" rule.</p>
 <h2 id="intro">Lemons into Lemonade</h2>
@@ -1179,6 +1218,46 @@ export const blogPosts: Post[] = [
 <p>If you sold Apple stock for a \$5,000 gain this year, you would normally owe capital gains tax (usually 15% or 20%). If you also have a bond fund that is currently down \$5,000, you could sell that fund to realize the loss. The \$5,000 loss cancels out the \$5,000 gain, and your tax bill for those trades becomes **zero**.</p>
 <h2 id="ordinary-income">The \$3,000 Magic Number</h2>
 <p>What if you have more losses than gains? If you have \$10,000 in losses and zero gains, you can use \$3,000 of that loss to reduce your *ordinary income* (like your paycheck). The remaining \$7,000 isn't lost—it 'carries forward' to next year and the years after that until it's all used up. This is a powerful way to reduce your effective tax rate over a decade.</p>
+<h2 id="mistakes">Common Beginner Tax Harvesting Mistakes</h2>
+<ul>
+  <li><strong>Harvesting in tax-sheltered accounts:</strong> Attempting to harvest losses inside IRAs, Roth IRAs, or 401(k)s. Transactions in these accounts do not trigger capital gains taxes or write-offs.</li>
+  <li><strong>Violating wash-sale rules across accounts:</strong> Selling a stock in a taxable account and buying it back in an IRA. The IRS reviews all your accounts, and doing this disallows your deduction.</li>
+  <li><strong>Buying identical ETFs:</strong> Selling an S&P 500 ETF from Vanguard and immediately buying an S&P 500 ETF from iShares. These are considered "substantially identical" because they track the same benchmark.</li>
+</ul>
+<h2 id="types">Capital Gains and Losses Comparison</h2>
+<div className="overflow-x-auto my-8">
+  <table className="w-full border-collapse border border-secondary-200 text-sm">
+    <thead>
+      <tr className="bg-secondary-100 text-secondary-900">
+        <th className="border border-secondary-200 p-4 text-left font-black">Asset Holding Period</th>
+        <th className="border border-secondary-200 p-4 text-left font-black">Tax Treatment</th>
+        <th className="border border-secondary-200 p-4 text-left font-black">Tax Rate Range (2026)</th>
+        <th className="border border-secondary-200 p-4 text-left font-black">Primary Offset Order</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="hover:bg-secondary-50">
+        <td className="border border-secondary-200 p-4 font-bold">Short-Term (1 year or less)</td>
+        <td className="border border-secondary-200 p-4">Taxed as ordinary income</td>
+        <td className="border border-secondary-200 p-4">10% to 37%</td>
+        <td className="border border-secondary-200 p-4">Offsets short-term capital gains first</td>
+      </tr>
+      <tr className="hover:bg-secondary-50">
+        <td className="border border-secondary-200 p-4 font-bold">Long-Term (More than 1 year)</td>
+        <td className="border border-secondary-200 p-4">Taxed at preferential capital rates</td>
+        <td className="border border-secondary-200 p-4">0%, 15%, or 20%</td>
+        <td className="border border-secondary-200 p-4">Offsets long-term capital gains first</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h2 id="checklist">Tax-Loss Harvesting Action Plan</h2>
+<ol>
+  <li>Audit taxable investment accounts for positions currently showing paper losses.</li>
+  <li>Ensure you did not buy the identical security in the previous 30 days (pre-wash sale check).</li>
+  <li>Reinvest the proceeds in a similar but non-identical index fund to stay in the market.</li>
+  <li>Use our <Link href="/tools/compound-interest-calculator">Compound Interest Calculator</Link> to model how reinvesting tax savings compounds your portfolio value over 10–20 years.</li>
+</ol>
 <h2 id="wash-sale">Avoiding the Wash-Sale Trap</h2>
 <p>The IRS isn't stupid. They don't want you to sell a stock at 10:00 AM to claim a tax loss and then buy it right back at 10:01 AM. This is called a **Wash Sale**. If you buy the 'substantially identical' security within 30 days before or after the sale, the loss is disallowed. To avoid this, investors often sell one index fund (like an S&P 500 fund) and immediately buy a *similar* but not identical fund (like a 'Total Stock Market' fund).</p>
 <h2 id="implementation">Step-by-Step Harvesting Strategy</h2>
@@ -1192,7 +1271,7 @@ export const blogPosts: Post[] = [
 <h2 id="conclusion">Staying Proactive with Your Taxes</h2>
 <p>Tax-loss harvesting is one of the few ways to make a market downturn work in your favor. By being proactive and disciplined, you can keep more of your money working for you and less of it going to the government. Just remember to watch the calendar and avoid the wash-sale trap. Consult with a tax professional before making significant moves.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://www.irs.gov/taxtopics/tc409" target="_blank">IRS: Capital Gains and Losses</a></li><li><a href="https://www.sec.gov/news/press-release/2013-14" target="_blank">SEC: Wash Sales</a></li></ul>`,
+<ul><li><a href="https://www.irs.gov/taxtopics/tc409" target="_blank">IRS: Capital Gains and Losses</a></li><li><a href="https://www.sec.gov/news/press-release/2013-14" target="_blank">SEC: Wash Sales</a></li><li><a href="https://www.irs.gov/newsroom/irs-provides-tax-inflation-adjustments-for-tax-year-2026" target="_blank">IRS: 2026 Capital Gains Tax Brackets</a></li></ul>`,
     imageAlt: 'Tax-Loss Harvesting: How to Lower Your Tax Bill in 2026 - Detailed graphic guide to Investing on SmartMoneyPath.'
   },
   {
@@ -1209,7 +1288,7 @@ export const blogPosts: Post[] = [
     ],
     readTime: '15 min read',
     publishedAt: '2026-06-22T09:00:00.000Z',
-    updatedAt: '2026-06-25T23:30:00.000Z',
+    updatedAt: '2026-07-15T00:00:00.000Z',
     author: authors.sarah,
     imageUrl: '/images/articles/home-buying-checklist.jpg',
     focusKeyword: 'first time home buyer checklist 2026',
@@ -1246,39 +1325,22 @@ export const blogPosts: Post[] = [
       {
         question: 'What is a \'Debt-to-Income\' ratio?',
         answer: 'DTI is your total monthly debt payments divided by your gross monthly income. Lenders usually want this number below 43%, but for the best rates and financial security, we recommend aiming for 36% or less.'
+      },
+      {
+        question: 'What are closing costs and who pays them?',
+        answer: 'Closing costs are fees charged by lenders and third parties to finalize your mortgage (e.g. appraisal, title search, origination). They average 2% to 5% of the home loan value and are typically paid by the buyer at closing.'
       }
     ],
     headings: [
-      {
-        id: 'prep',
-        text: 'Step 1: The One-Year Financial Runway',
-        level: 2
-      },
-      {
-        id: 'pre-approval',
-        text: 'Step 2: Pre-Approved vs. Pre-Qualified',
-        level: 2
-      },
-      {
-        id: 'down-payment',
-        text: 'Step 3: Finding the Down Payment',
-        level: 2
-      },
-      {
-        id: 'inspection',
-        text: 'Step 4: The Inspection and Appraisal',
-        level: 2
-      },
-      {
-        id: 'closing',
-        text: 'Step 5: The Final Walkthrough and Closing',
-        level: 2
-      },
-      {
-        id: 'conclusion',
-        text: 'Your Journey to Homeownership',
-        level: 2
-      }
+      { id: 'prep', text: 'Step 1: The One-Year Financial Runway', level: 2 },
+      { id: 'pre-approval', text: 'Step 2: Pre-Approved vs. Pre-Qualified', level: 2 },
+      { id: 'down-payment', text: 'Step 3: Finding the Down Payment', level: 2 },
+      { id: 'mistakes', text: 'Common Beginner Home Buying Mistakes', level: 2 },
+      { id: 'comparison', text: 'Mortgage Loan Program Comparison', level: 2 },
+      { id: 'checklist', text: 'Home Buyer Action Checklist', level: 2 },
+      { id: 'inspection', text: 'Step 4: The Inspection and Appraisal', level: 2 },
+      { id: 'closing', text: 'Step 5: The Final Walkthrough and Closing', level: 2 },
+      { id: 'conclusion', text: 'Your Journey to Homeownership', level: 2 }
     ],
     content: `<p>Scrolling through Zillow is easy; actually signing those closing papers is the hard part. Buying your first home is likely the biggest financial move you'll ever make, and the 2026 market doesn't make it any easier. Today, we're breaking down the journey from "just looking" to "here are your keys" with a checklist that will keep you sane and financially secure.</p>
 <h2 id="prep">Step 1: The One-Year Financial Runway</h2>
@@ -1287,6 +1349,52 @@ export const blogPosts: Post[] = [
 <p>A 'Pre-Qualification' is a rough estimate based on what you tell the bank. It's essentially worthless in a competitive market. A 'Pre-Approval' is a commitment where a lender has actually verified your tax returns, W2s, and bank statements. In 2026, sellers won't even look at your offer without a formal pre-approval letter.</p>
 <h2 id="down-payment">Step 3: Finding the Down Payment</h2>
 <p>Don't believe the myth that you need 20% down. While 20% is ideal to avoid Private Mortgage Insurance (PMI), it shouldn't stop you from entering the market if you have a stable income. However, remember that a smaller down payment means a larger loan and higher monthly payments. Always ensure you have a 'Post-Closing' <Link href="/articles/1">Emergency Fund</Link>—don't spend your last dollar on the down payment.</p>
+<h2 id="mistakes">Common Beginner Home Buying Mistakes</h2>
+<ul>
+  <li><strong>Draining every dollar:</strong> Emptying savings for the down payment and having zero cash remaining for immediate repairs or moving fees.</li>
+  <li><strong>Waiving home inspections:</strong> Skipping inspections to secure a deal, which risks exposing the buyer to tens of thousands of dollars in foundation, sewer, or roof failures.</li>
+  <li><strong>Filing for new credit:</strong> Opening new credit cards or buying a car between pre-approval and closing, which can lower credit scores enough to break the deal.</li>
+</ul>
+<h2 id="comparison">Mortgage Loan Program Comparison</h2>
+<div className="overflow-x-auto my-8">
+  <table className="w-full border-collapse border border-secondary-200 text-sm">
+    <thead>
+      <tr className="bg-secondary-100 text-secondary-900">
+        <th className="border border-secondary-200 p-4 text-left font-black">Loan Type</th>
+        <th className="border border-secondary-200 p-4 text-left font-black">Min Down Payment</th>
+        <th className="border border-secondary-200 p-4 text-left font-black">Min Credit Score</th>
+        <th className="border border-secondary-200 p-4 text-left font-black">Best For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr className="hover:bg-secondary-50">
+        <td className="border border-secondary-200 p-4 font-bold">Conventional</td>
+        <td className="border border-secondary-200 p-4">3% (usually 5%)</td>
+        <td className="border border-secondary-200 p-4">620 (720+ recommended)</td>
+        <td className="border border-secondary-200 p-4">Borrowers with strong credit and low overall debt</td>
+      </tr>
+      <tr className="hover:bg-secondary-50">
+        <td className="border border-secondary-200 p-4 font-bold">FHA</td>
+        <td className="border border-secondary-200 p-4">3.5%</td>
+        <td className="border border-secondary-200 p-4">580</td>
+        <td className="border border-secondary-200 p-4">Buyers with moderate credit scores or limited cash</td>
+      </tr>
+      <tr className="hover:bg-secondary-50">
+        <td className="border border-secondary-200 p-4 font-bold">VA / USDA</td>
+        <td className="border border-secondary-200 p-4">0%</td>
+        <td className="border border-secondary-200 p-4">Varies (usually 580+)</td>
+        <td className="border border-secondary-200 p-4">Eligible military veterans or buyers in rural areas</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h2 id="checklist">Home Buyer Action Checklist</h2>
+<ol>
+  <li>Pull free official credit reports from AnnualCreditReport.com.</li>
+  <li>Save a post-closing cash buffer of 6 months of living costs.</li>
+  <li>Calculate monthly principal, interest, taxes, and insurance estimates using our <Link href="/tools/loan-emi-calculator">Loan EMI Calculator</Link>.</li>
+  <li>Collect tax filings and income statements to secure a formal lender pre-approval.</li>
+</ol>
 <h2 id="inspection">Step 4: The Inspection and Appraisal</h2>
 <p>The inspection is for you; the appraisal is for the bank. The inspector looks for rot, mold, and structural issues. The appraiser ensures the home is actually worth what you're paying. If the appraisal comes in low, you'll have to cover the 'gap' in cash or negotiate the price down. Never skip these steps to 'win' a bidding war.</p>
 <h2 id="closing">Step 5: The Final Walkthrough and Closing</h2>
@@ -1294,7 +1402,7 @@ export const blogPosts: Post[] = [
 <h2 id="conclusion">Your Journey to Homeownership</h2>
 <p>The road to homeownership is long and full of paperwork, but the feeling of walking into a place you actually own is worth the effort. Stay disciplined with your savings, be patient with the search, and don't be afraid to walk away if the inspection reveals a money pit. You've got this.</p>
 <h2 id="sources">Sources and methodology</h2>
-<ul><li><a href="https://www.hud.gov/topics/buying_a_home" target="_blank">HUD: Buying a Home</a></li><li><a href="https://www.consumerfinance.gov/owning-a-home/" target="_blank">CFPB: Owning a Home</a></li></ul>`,
+<ul><li><a href="https://www.hud.gov/topics/buying_a_home" target="_blank">HUD: Buying a Home</a></li><li><a href="https://www.consumerfinance.gov/owning-a-home/" target="_blank">CFPB: Owning a Home</a></li><li><a href="https://www.fanniemae.com/education" target="_blank">Fannie Mae: First-Time Homebuyer Guide</a></li></ul>`,
     imageAlt: 'Buying Your First Home: A Data-Backed 2026 Checklist - Detailed graphic guide to Home Buying on SmartMoneyPath.'
   },
   {
@@ -2316,7 +2424,7 @@ export const blogPosts: Post[] = [
     ],
     readTime: '12 min read',
     publishedAt: '2026-06-27T09:00:00.000Z',
-    updatedAt: '2026-06-26T13:00:00.000Z',
+    updatedAt: '2026-07-15T00:00:00.000Z',
     author: authors.michael,
     imageUrl: '/images/articles/psychology-of-money.jpg',
     focusKeyword: 'psychology of spending money',
@@ -2353,38 +2461,24 @@ export const blogPosts: Post[] = [
       {
         question: 'Why do I feel guilty spending money?',
         answer: 'This is often \'scarcity mindset.\' Remind yourself that a budget gives you *permission* to spend on what you value.'
+      },
+      {
+        question: 'What is lifestyle inflation?',
+        answer: 'Lifestyle inflation occurs when your spending increases as your income increases. It keeps you from building real wealth because your savings rate stays flat even when you earn more.'
       }
     ],
     headings: [
-      {
-        id: 'conflict',
-        text: 'The Math vs. Mind Conflict',
-        level: 2
-      },
-      {
-        id: 'biases',
-        text: 'Behavioral Bias Types & Impacts',
-        level: 2
-      },
-      {
-        id: 'triggers',
-        text: 'Identifying Your Spending Triggers',
-        level: 2
-      },
-      {
-        id: 'rewiring',
-        text: 'Rewiring Your Financial Habits',
-        level: 2
-      },
-      {
-        id: 'conclusion',
-        text: 'Actionable Steps to Build Wealth',
-        level: 2
-      }
+      { id: 'conflict', text: 'The Math vs. Mind Conflict', level: 2 },
+      { id: 'biases', text: 'Behavioral Bias Types & Impacts', level: 2 },
+      { id: 'triggers', text: 'Identifying Your Spending Triggers', level: 2 },
+      { id: 'mistakes', text: 'Common Psychology of Money Mistakes', level: 2 },
+      { id: 'checklist', text: 'Financial Habit Rewiring Checklist', level: 2 },
+      { id: 'rewiring', text: 'Rewiring Your Financial Habits', level: 2 },
+      { id: 'conclusion', text: 'Actionable Steps to Build Wealth', level: 2 }
     ],
-    content: `<p>If money were just about math, we would all be millionaires. We spend to feel good, to look successful, or to avoid feeling behind. We examine how to control your habits.</p>
+    content: `<p>If money were just about math, we would all be millionaires. We spend to feel good, to look successful, or to avoid feeling behind. Doing well with money is not just about what you know—it is about how you behave. Today, we look at how to intercept your emotional triggers and build a behavior-backed framework that makes saving money feel natural rather than restrictive.</p>
 <h2 id="conflict">The Math vs. Mind Conflict</h2>
-<p>As Morgan Housel says, 'Doing well with money has a little to do with how smart you are and a lot to do with how you behave.' Spreadsheets do not account for daily human emotions.</p>
+<p>As Morgan Housel says, 'Doing well with money has a little to do with how smart you are and a lot to do with how you behave.' Spreadsheets do not account for daily human emotions. If you are struggling to save, it is rarely because you do not know how to subtract; it is because your brain is trying to solve emotional problems (like stress or status anxiety) using financial resources.</p>
 <h2 id="biases">Behavioral Bias Types & Impacts</h2>
 <p>Understanding the cognitive shortcuts your brain takes is essential to intercepting poor financial choices.</p>
 <div className="overflow-x-auto my-8">
@@ -2410,12 +2504,30 @@ export const blogPosts: Post[] = [
         <td className="border border-secondary-200 p-4">Maxing out credit card limits</td>
         <td className="border border-secondary-200 p-4">Focus on personal net worth tracking</td>
       </tr>
+      <tr className="hover:bg-secondary-50">
+        <td className="border border-secondary-200 p-4 font-bold">Anchoring Bias</td>
+        <td className="border border-secondary-200 p-4">Relying too heavily on the first piece of information</td>
+        <td className="border border-secondary-200 p-4">Buying an overpriced item just because it is 'on sale'</td>
+        <td className="border border-secondary-200 p-4">Evaluate items by raw value, not markdown percentages</td>
+      </tr>
     </tbody>
   </table>
-<!-- | --- | -->
 </div>
 <h2 id="triggers">Identifying Your Spending Triggers</h2>
-<p>Stress often leads to 'Retail Therapy'. Recognizing your emotional triggers is the first step. Ask: 'What emotion am I trying to fix with this purchase?'</p>
+<p>Stress often leads to 'Retail Therapy'. Recognizing your emotional triggers is the first step. Ask: 'What emotion am I trying to fix with this purchase?' In 2026, with credit card interest rates averaging over 21%, a single emotional purchase that stays on a credit card balance can compound into a multi-year debt burden.</p>
+<h2 id="mistakes">Common Psychology of Money Mistakes</h2>
+<ul>
+  <li><strong>Trying to beat lifestyle creep:</strong> Thinking that 'earning more' will automatically fix saving habits. Without behavioral guardrails, expenses expand to consume the new salary.</li>
+  <li><strong>Frictionless shopping:</strong> Leaving saved card numbers in retail apps, which reduces checkout time to under 2 seconds, eliminating the logical brain's ability to intervene.</li>
+  <li><strong>Viewing savings as a restriction:</strong> Viewing savings as a loss of fun today rather than buying future options and freedom.</li>
+</ul>
+<h2 id="checklist">Financial Habit Rewiring Checklist</h2>
+<ol>
+  <li>Unsubscribe from marketing emails and delete shopping apps to create purchase friction.</li>
+  <li>Setup automatic drafts to savings and index accounts on payday so you 'pay yourself first'.</li>
+  <li>Use our <Link href="/tools/savings-goal-calculator">Savings Goal Calculator</Link> to visualize a real target, turning savings from a chore into a visual milestone race.</li>
+  <li>Adopt the 24-hour delay rule on any discretionary expense over \$50.</li>
+</ol>
 <h2 id="rewiring">Rewiring Your Financial Habits</h2>
 <p>Use the 24-hour rule. Wait one full day before any purchase over \$50. This gives your logical brain time to override the emotional impulse. Audit your numbers with our <Link href="/resources/budget-planner">Budget Planner Template</Link>.</p>
 <h2 id="conclusion">Actionable Steps to Build Wealth</h2>

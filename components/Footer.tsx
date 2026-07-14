@@ -35,6 +35,15 @@ export default function Footer() {
         { name: 'Retirement Planning', href: '/categories/retirement' },
         { name: 'Credit Cards', href: '/categories/credit' },
       ]
+    },
+    {
+      title: 'Tools',
+      links: [
+        { name: 'All Tools Hub', href: '/tools' },
+        { name: 'Compound Interest', href: '/tools/compound-interest-calculator' },
+        { name: 'Loan EMI Calculator', href: '/tools/loan-emi-calculator' },
+        { name: 'Savings Goal Calculator', href: '/tools/savings-goal-calculator' },
+      ]
     }
   ]
 
